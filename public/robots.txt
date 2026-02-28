@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /api/
+Disallow: /bin/
+Disallow: /search/
+
+Sitemap: https://oceanica-39.ru/sitemap.xml
