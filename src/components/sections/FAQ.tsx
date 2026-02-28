@@ -1,93 +1,113 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { Phone, Send } from "lucide-react"
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
-import { Button } from "@/components/ui/button"
+import { motion } from "framer-motion"
+import { Phone, Send } from "lucide-react"
 
 const FAQS = [
   {
-    q: "Как понять, что рыба действительно свежая?",
-    a: "Смотрите на дату заморозки на упаковке (не дату фасовки!). Мы поставляем продукцию напрямую от проверенных поставщиков и производителей, что гарантирует соблюдение температурного режима. Признаки свежести: рыба не слиплась в комок (значит не размораживалась), нет жёлтого налёта на жире, глаза прозрачные у целой рыбы.",
+    question: "Какой минимальный заказ?",
+    answer: "Минимальный заказ — 2000₽ (можно набирать любые позиции). Это примерно 7-10 упаковок десертов. Доставка бесплатно от 2000₽ по Калининграду."
   },
   {
-    q: "Работаете ли вы с НДС и по договору?",
-    a: "Да, мы работаем с юридическими лицами и индивидуальными предпринимателями. Заключаем договор поставки, предоставляем полный пакет закрывающих документов, работаем через систему 'Меркурий' и ЭДО.",
+    question: "Есть ли скидки при больших объёмах?",
+    answer: "Да! При заказе от 20 шт любой позиции автоматически применяется оптовая цена (минус 15₽ на каждую упаковку). Чем больше заказ, тем выгоднее!"
   },
   {
-    q: "Каков минимальный объем заказа для бесплатной доставки?",
-    a: "Бесплатная доставка по Калининграду осуществляется при заказе от 1 коробки (в зависимости от позиции это 5-18 кг). Также возможен самовывоз любого объема с нашего склада на Правой набережной 2.",
+    question: "Как долго десерты хранятся после разморозки?",
+    answer: "После разморозки (2-3 часа при комнатной температуре) десерты хранятся 48 часов в холодильнике при +2...+6°C. Повторно замораживать нельзя! Рекомендуем размораживать ровно столько, сколько продадите за 2 дня."
   },
   {
-    q: "Чем ваши креветки отличаются от магазинных?",
-    a: "Минимальный процент глазури (согласно ГОСТ). Мы предлагаем продукцию в заводской упаковке, что гарантирует отсутствие повторной заморозки. Размер по международной классификации соответствует заявленному (например, 16/20 штук на кг).",
+    question: "Можно ли заказывать в замороженном виде и хранить в морозилке?",
+    answer: "Да, именно так мы и рекомендуем! Десерты приезжают замороженными в термосумках -18°C. Храните в морозильной камере до 180 дней при -18°C. Размораживайте по мере необходимости."
   },
   {
-    q: "Есть ли рыба для суши/строганины?",
-    a: "Нет, мы специализируемся на продукции для термообработки. Для употребления в сыром виде требуются специфические условия глубокой заморозки и дополнительные исследования. Мы рекомендуем подвергать всю нашу продукцию термической обработке.",
+    question: "Какие документы вы предоставляете?",
+    answer: "К каждой поставке прикладываем: Декларацию соответствия ТР ТС, протоколы испытаний, товарную накладную ТОРГ-12 и счёт-фактуру. Все документы актуальные и заверенные."
   },
   {
-    q: "Как часто происходят поставки?",
-    a: "Обновление ассортимента происходит 3 раза в неделю. Это позволяет нам поддерживать постоянное наличие ходовых позиций и гарантировать свежесть продукции на складе.",
+    question: "Работаете ли вы на отсрочку?",
+    answer: "Да! После первых 3 успешных заказов открываем отсрочку оплаты 7 дней. Первые 3 заказа — оплата при получении. Плюс скидка 20% на самый первый заказ от 2000₽."
   },
+  {
+    question: "Что делать, если товар пришёл повреждённым?",
+    answer: "Сразу звоните менеджеру. Мы привезём замену в течение 2 часов или вернём деньги. Фото не требуем — верим на слово. Наша задача — чтобы вы были довольны."
+  },
+  {
+    question: "Можно ли заказать упаковку с нашим логотипом?",
+    answer: "Да, при регулярных заказах от 500 упаковок в месяц делаем брендированную упаковку. Стоимость упаковки +10₽ к цене."
+  },
+  {
+    question: "Есть ли сезонные вкусы?",
+    answer: "Да! Производитель регулярно выпускает сезонные лимитированные вкусы: клубника и манго летом, тыква-карамель осенью, мандарин зимой. Следите за новинками!"
+  },
+  {
+    question: "Можно ли вернуть нераспроданный товар?",
+    answer: "Первые 30 дней работы — да, можно вернуть нераспроданные замороженные десерты. После 30 дней — возврат только брака. Но по опыту: 99% партнёров продают всё за неделю."
+  },
+  {
+    question: "Вы сами производите десерты?",
+    answer: "Мы — официальный дистрибьютор премиального производителя. Работаем напрямую с фабрикой без посредников. Это гарантирует заводское качество по дистрибьюторской цене."
+  }
 ]
 
 export function FAQ() {
   return (
-    <section className="py-12 md:py-20 bg-slate-50">
-      <div className="container mx-auto px-4 max-w-4xl">
+    <section id="faq-section" className="py-12 md:py-24 bg-slate-50 overflow-hidden">
+      <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-center mb-16"
         >
-          <h2 className="text-2xl md:text-4xl font-bold text-slate-900 mb-4">
-            Отвечаем на частые вопросы
+          <h2 className="text-2xl md:text-5xl font-extrabold text-slate-900 mb-4 font-heading">
+            Ответы на частые вопросы
           </h2>
+          <p className="text-slate-500 text-lg">
+            Всё, что нужно знать о работе с нами
+          </p>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-        >
-          <Accordion type="single" collapsible className="w-full bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
+        <div className="max-w-3xl mx-auto mb-16">
+          <Accordion type="single" collapsible className="space-y-4">
             {FAQS.map((faq, i) => (
-              <AccordionItem key={i} value={`item-${i}`} className="border-slate-100 px-4 last:border-none">
-                <AccordionTrigger className="text-left font-bold text-slate-800 hover:no-underline py-5">
-                  {faq.q}
+              <AccordionItem key={i} value={`item-${i}`} className="bg-white border border-slate-100 rounded-[24px] px-8 shadow-sm overflow-hidden">
+                <AccordionTrigger className="text-left font-bold text-slate-900 hover:no-underline py-6">
+                  {faq.question}
                 </AccordionTrigger>
                 <AccordionContent className="text-slate-500 leading-relaxed pb-6">
-                  {faq.a}
+                  {faq.answer}
                 </AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
-        </motion.div>
+        </div>
 
-        <div className="mt-12 text-center">
-          <p className="text-slate-500 mb-6">Не нашли ответ?</p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Button variant="outline" className="rounded-full px-6 border-slate-200" asChild>
-              <a href="tel:+79114864797">
-                <Phone className="w-4 h-4 mr-2" />
-                Позвонить нам
-              </a>
-            </Button>
-            <Button variant="outline" className="rounded-full px-6 border-slate-200" asChild>
-              <a href="https://t.me/fishkaliningrad" target="_blank" rel="noopener noreferrer">
-                <Send className="w-4 h-4 mr-2 text-sky-500" />
-                Написать в Telegram
-              </a>
-            </Button>
-          </div>
+        <div className="text-center">
+            <h3 className="text-xl font-bold text-slate-900 mb-8 font-heading">Не нашли ответ? Напишите или позвоните — ответим за 10 минут!</h3>
+            <div className="flex flex-wrap justify-center gap-4">
+                <a
+                    href="tel:+74012000000"
+                    className="flex items-center gap-3 px-8 h-14 bg-white rounded-2xl border border-slate-100 font-bold text-slate-900 shadow-xl shadow-slate-200/50 hover:bg-slate-50 transition-all"
+                >
+                    <Phone className="w-5 h-5 text-primary" />
+                    +7 (4012) XX-XX-XX
+                </a>
+                <a
+                    href="https://t.me/desserts_kaliningrad"
+                    target="_blank"
+                    className="flex items-center gap-3 px-8 h-14 bg-[#0088cc] rounded-2xl font-bold text-white shadow-xl shadow-sky-200/50 hover:bg-[#007bb5] transition-all"
+                >
+                    <Send className="w-5 h-5" />
+                    Написать в Telegram
+                </a>
+            </div>
         </div>
       </div>
     </section>

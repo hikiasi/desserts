@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Ship, ShoppingCart, Phone, Menu, X } from "lucide-react"
+import { Cake, ShoppingCart, Phone, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useCart } from "@/context/CartContext"
 import { cn } from "@/lib/utils"
@@ -20,20 +20,27 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const scrollToRetail = () => {
-    document.getElementById('retail-section')?.scrollIntoView({ behavior: 'smooth' })
+  const scrollToCatalog = () => {
+    document.getElementById('retail-catalog')?.scrollIntoView({ behavior: 'smooth' })
     setIsMobileMenuOpen(false)
   }
 
   const scrollToB2B = () => {
-    document.getElementById('b2b-section')?.scrollIntoView({ behavior: 'smooth' })
+    document.getElementById('b2b-hero')?.scrollIntoView({ behavior: 'smooth' })
     setIsMobileMenuOpen(false)
   }
 
   const navItems = [
-    { label: "Каталог", onClick: scrollToRetail },
-    { label: "Доставка", onClick: scrollToRetail },
-    { label: "Оптовикам", onClick: scrollToB2B },
+    { label: "Каталог", onClick: scrollToCatalog },
+    { label: "Для бизнеса", onClick: scrollToB2B },
+    { label: "Отзывы", onClick: () => {
+      document.getElementById('testimonials')?.scrollIntoView({ behavior: 'smooth' })
+      setIsMobileMenuOpen(false)
+    }},
+    { label: "Доставка", onClick: () => {
+      document.getElementById('delivery')?.scrollIntoView({ behavior: 'smooth' })
+      setIsMobileMenuOpen(false)
+    }},
     { label: "Контакты", onClick: () => {
       document.getElementById('footer')?.scrollIntoView({ behavior: 'smooth' })
       setIsMobileMenuOpen(false)
@@ -60,11 +67,11 @@ export function Header() {
           className="flex items-center gap-2 cursor-pointer group"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
-          <div className="w-10 h-10 bg-sky-600 rounded-full flex items-center justify-center text-white shadow-lg shadow-sky-200 group-hover:scale-110 transition-transform">
-            <Ship className="w-6 h-6" />
+          <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white shadow-lg shadow-primary/20 group-hover:scale-110 transition-transform">
+            <Cake className="w-6 h-6" />
           </div>
-          <div className={cn("hidden sm:block font-bold transition-colors", isScrolled ? "text-slate-900" : "text-sky-900")}>
-            Океаника
+          <div className={cn("hidden sm:block font-bold transition-colors font-heading", isScrolled ? "text-slate-900" : "text-primary")}>
+            Замороженные десерты
           </div>
         </div>
 
@@ -132,7 +139,7 @@ export function Header() {
           </Button>
 
           <Button
-            className="hidden lg:flex bg-sky-600 hover:bg-sky-700 rounded-full px-6"
+            className="hidden lg:flex bg-primary hover:bg-primary/90 rounded-full px-6"
             onClick={() => setIsCallbackOpen(true)}
           >
             Заказать звонок

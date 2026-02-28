@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Send, ShoppingCart, X, Plus, Minus, Trash2 } from "lucide-react"
+import { Send, ShoppingCart, X, Plus, Minus, Trash2, Cake } from "lucide-react"
 import { useCart } from "@/context/CartContext"
 import { Button } from "@/components/ui/button"
 import { useForm } from "react-hook-form"
@@ -60,14 +60,14 @@ export function StickyFeatures() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: "Посетитель сайта (купон)",
+          name: "Посетитель сайта (купон 20%)",
           phone: data.phone,
-          type: "RETAIL",
-          comment: "Заявка на купон 10% из Exit Popup"
+          type: "B2B",
+          comment: "Заявка на пробную партию со скидкой 20% из Exit Popup"
         })
       })
       if (res.ok) {
-        alert("Промокод отправлен!")
+        alert("Заявка отправлена! Мы свяжемся с вами в ближайшее время.")
         setShowExitPopup(false)
       }
     } catch (err) {
@@ -87,12 +87,12 @@ export function StickyFeatures() {
               animate={{ scale: 1, rotate: 0 }}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="w-14 h-12 md:h-14 bg-sky-600 text-white rounded-full shadow-2xl shadow-sky-400/50 flex items-center justify-center relative group"
+              className="w-14 h-12 md:h-14 bg-primary text-white rounded-full shadow-2xl shadow-primary/40 flex items-center justify-center relative group"
               aria-label="Открыть корзину"
             >
               <ShoppingCart className="w-6 h-6" />
               {totalItems > 0 && (
-                <span className="absolute -top-1 -right-1 w-6 h-6 bg-orange-500 text-white text-xs font-bold rounded-full flex items-center justify-center border-2 border-white">
+                <span className="absolute -top-1 -right-1 w-6 h-6 bg-accent text-accent-foreground text-xs font-bold rounded-full flex items-center justify-center border-2 border-white">
                   {totalItems}
                 </span>
               )}
@@ -100,8 +100,8 @@ export function StickyFeatures() {
           </SheetTrigger>
           <SheetContent className="w-full sm:max-w-md p-0 overflow-hidden flex flex-col">
             <SheetHeader className="p-8 border-b border-slate-100 bg-white">
-              <SheetTitle className="text-2xl font-bold flex items-center gap-3">
-                <ShoppingCart className="w-6 h-6 text-sky-600" />
+              <SheetTitle className="text-2xl font-bold flex items-center gap-3 font-heading">
+                <ShoppingCart className="w-6 h-6 text-primary" />
                 Ваша корзина
               </SheetTitle>
             </SheetHeader>
@@ -126,13 +126,13 @@ export function StickyFeatures() {
                         <h4 className="font-bold text-slate-900 text-sm mb-1 leading-tight pr-6">{item.name}</h4>
                         <div className="text-[10px] text-slate-400 uppercase tracking-widest mb-3">{item.weight}</div>
                         <div className="flex items-center justify-between">
-                          <div className="font-bold text-sky-600">{item.price} ₽</div>
+                          <div className="font-bold text-primary">{item.price} ₽</div>
                           <div className="flex items-center gap-3 bg-white rounded-lg border border-slate-200 p-1">
-                            <button className="w-6 h-6 flex items-center justify-center text-slate-400 hover:text-sky-600" onClick={() => decrementQuantity(item.id)} aria-label="Уменьшить количество">
+                            <button className="w-6 h-6 flex items-center justify-center text-slate-400 hover:text-primary" onClick={() => decrementQuantity(item.id)} aria-label="Уменьшить количество">
                               <Minus className="w-3 h-3" />
                             </button>
                             <span className="text-xs font-bold w-4 text-center">{item.quantity}</span>
-                            <button className="w-6 h-6 flex items-center justify-center text-slate-400 hover:text-sky-600" onClick={() => addToCart(item)} aria-label="Увеличить количество">
+                            <button className="w-6 h-6 flex items-center justify-center text-slate-400 hover:text-primary" onClick={() => addToCart(item)} aria-label="Увеличить количество">
                               <Plus className="w-3 h-3" />
                             </button>
                           </div>
@@ -153,6 +153,20 @@ export function StickyFeatures() {
 
             {cart.length > 0 && (
               <div className="p-8 border-t border-slate-100 bg-white">
+                {totalPrice < 2000 && (
+                  <div className="mb-4">
+                    <div className="flex justify-between text-[10px] font-bold uppercase tracking-widest mb-2">
+                      <span className="text-slate-400">До бесплатной доставки:</span>
+                      <span className="text-primary">{(2000 - totalPrice).toLocaleString()} ₽</span>
+                    </div>
+                    <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
+                      <div
+                        className="h-full bg-primary transition-all duration-500"
+                        style={{ width: `${Math.min(100, (totalPrice / 2000) * 100)}%` }}
+                      />
+                    </div>
+                  </div>
+                )}
                 <div className="flex justify-between items-end mb-8">
                   <div>
                     <div className="text-slate-400 text-xs uppercase tracking-widest mb-1">Итого к оплате:</div>
@@ -160,7 +174,7 @@ export function StickyFeatures() {
                   </div>
                 </div>
                 <Button
-                  className="w-full h-12 md:h-14 bg-sky-600 hover:bg-sky-700 text-lg font-bold rounded-2xl shadow-xl shadow-sky-100 transition-all"
+                  className="w-full h-12 md:h-14 bg-primary hover:bg-primary/90 text-lg font-bold rounded-2xl shadow-xl shadow-primary/20 transition-all"
                   onClick={() => setIsCheckoutOpen(true)}
                 >
                   Оформить заказ
@@ -178,14 +192,14 @@ export function StickyFeatures() {
 
         {/* Telegram Button */}
         <motion.a
-          href="https://t.me/fishkaliningrad"
+          href="https://t.me/desserts_kaliningrad"
           target="_blank"
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ delay: 0.2 }}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
-          className="w-14 h-12 md:h-14 bg-white text-[#229ED9] rounded-full shadow-2xl shadow-slate-200 flex items-center justify-center border border-slate-100"
+          className="w-14 h-12 md:h-14 bg-[#0088cc] text-white rounded-full shadow-2xl shadow-sky-400/50 flex items-center justify-center"
           aria-label="Написать в Telegram"
         >
           <Send className="w-6 h-6" />
@@ -215,12 +229,12 @@ export function StickyFeatures() {
               </button>
 
               <div className="relative z-10">
-                <div className="w-20 h-20 bg-sky-100 rounded-full flex items-center justify-center text-sky-600 mx-auto mb-8">
-                  <ShoppingCart className="w-10 h-10" />
+                <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center text-primary mx-auto mb-8">
+                  <Cake className="w-10 h-10" />
                 </div>
-                <h2 className="text-3xl font-extrabold text-slate-900 mb-4">Подождите!</h2>
+                <h2 className="text-3xl font-extrabold text-slate-900 mb-4 font-heading">Подождите!</h2>
                 <p className="text-slate-500 mb-8">
-                  Заберите скидку <span className="text-sky-600 font-bold text-lg">10%</span> на ваш первый заказ. Оставьте телефон, и мы пришлем вам промокод.
+                  Заберите скидку <span className="text-primary font-bold text-lg">20%</span> на ваш первый заказ. Оставьте телефон — расскажем про пробную партию от 2000₽ с автоматической скидкой.
                 </p>
                 
                 <form onSubmit={handleSubmit(onExitSubmit)} className="space-y-4">
@@ -231,7 +245,7 @@ export function StickyFeatures() {
                       onValueChange={(values) => setValue("phone", values.formattedValue)}
                       type="tel"
                       placeholder="+7 (___) ___-__-__"
-                      className="w-full h-12 md:h-14 rounded-2xl bg-slate-50 border border-slate-100 px-6 text-center text-lg focus:outline-none focus:ring-2 focus:ring-sky-500/20 transition-all"
+                      className="w-full h-12 md:h-14 rounded-2xl bg-slate-50 border border-slate-100 px-6 text-center text-lg focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
                     />
                     {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone.message}</p>}
                   </div>
@@ -244,13 +258,13 @@ export function StickyFeatures() {
                       className="mt-1"
                     />
                     <label htmlFor="exit-agree" className="text-[10px] text-slate-400 leading-tight text-left">
-                      Согласен с <a href="/legal/privacy" className="underline hover:text-sky-600">политикой конфиденциальности</a> и даю согласие на <a href="/legal/consent" className="underline hover:text-sky-600">обработку персональных данных</a>
+                      Согласен с <a href="/legal/privacy" className="underline hover:text-primary">политикой конфиденциальности</a> и даю согласие на <a href="/legal/consent" className="underline hover:text-primary">обработку персональных данных</a>
                     </label>
                   </div>
                   {errors.agree && <p className="text-red-500 text-[10px]">{errors.agree.message}</p>}
 
-                  <Button type="submit" className="w-full h-12 md:h-14 bg-sky-600 hover:bg-sky-700 text-lg font-bold rounded-2xl shadow-xl shadow-sky-100 transition-all" disabled={isSubmitting}>
-                    {isSubmitting ? "Отправка..." : "Получить скидку"}
+                  <Button type="submit" className="w-full h-12 md:h-14 bg-primary hover:bg-primary/90 text-lg font-bold rounded-2xl shadow-xl shadow-primary/20 transition-all" disabled={isSubmitting}>
+                    {isSubmitting ? "Отправка..." : "Получить скидку 20%"}
                   </Button>
                 </form>
 

@@ -11,7 +11,8 @@ export default {
   	extend: {
   		fontFamily: {
   			sans: ["var(--font-inter)"],
-  			heading: ["var(--font-manrope)"]
+			heading: ["var(--font-montserrat)"],
+			nunito: ["var(--font-nunito)"]
   		},
   		colors: {
   			background: 'var(--background)',

@@ -33,25 +33,30 @@ const RetailCTA = dynamic(() => import("@/components/sections/RetailCTA").then(m
 
 const B2BCTA = dynamic(() => import("@/components/sections/B2BCTA").then(mod => mod.B2BCTA))
 
+const WhyUs = dynamic(() => import("@/components/sections/WhyUs").then(mod => mod.WhyUs))
+
 export default function Home() {
   return (
     <main className="min-h-screen">
       <Header />
       
-      <HeroSplitter />
+      {/* <HeroSplitter /> */}
       
-      {/* B2B Section - Main focus now */}
-      <div id="b2b-section">
+      <div id="main-content">
         <Suspense fallback={<div>Загрузка...</div>}>
           <B2BHero />
         </Suspense>
 
         <Suspense fallback={<div>Загрузка...</div>}>
-          <B2BEconomy />
+          <RetailCatalog />
         </Suspense>
 
         <Suspense fallback={<div>Загрузка...</div>}>
-          <RetailCatalog />
+          <WhyUs />
+        </Suspense>
+
+        <Suspense fallback={<div>Загрузка...</div>}>
+          <B2BEconomy />
         </Suspense>
 
         <Suspense fallback={<div>Загрузка...</div>}>
@@ -66,9 +71,9 @@ export default function Home() {
           <B2BCases />
         </Suspense>
 
-        <Suspense fallback={<div>Загрузка...</div>}>
+        {/* <Suspense fallback={<div>Загрузка...</div>}>
           <B2BDocuments />
-        </Suspense>
+        </Suspense> */}
 
         <Suspense fallback={<div>Загрузка...</div>}>
           <GuaranteesDelivery />
