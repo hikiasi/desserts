@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
-import { ChevronRight, Package, Truck, Clock, CreditCard } from "lucide-react"
+import { ChevronRight, Package, Truck, Clock, CreditCard, Star } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
   Accordion,
@@ -46,11 +46,14 @@ export function B2BCatalog() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-2xl md:text-4xl font-bold text-slate-900 mb-4">
-            Оптовый ассортимент • Цены от 1 кор.
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-[10px] font-black uppercase tracking-widest mb-6">
+            <Star className="w-3 h-3 fill-primary" /> Оптовый ассортимент
+          </div>
+          <h2 className="text-2xl md:text-5xl font-extrabold text-slate-900 mb-4 font-heading">
+            Цены от 20 шт. — Максимальная выгода
           </h2>
-          <p className="text-slate-500">
-            Актуальный прайс — в PDF после запроса
+          <p className="text-slate-500 text-lg max-w-2xl mx-auto">
+            Оптовая цена применяется автоматически при добавлении в корзину от 20 упаковок любой позиции
           </p>
         </motion.div>
 
@@ -58,37 +61,38 @@ export function B2BCatalog() {
           {products.length > 0 ? (
             <Accordion type="multiple" defaultValue={categories.slice(0, 1)} className="space-y-4">
               {categories.map((cat, i) => (
-                <AccordionItem key={i} value={cat} className="bg-white border border-slate-100 rounded-2xl px-6 shadow-sm overflow-hidden">
-                  <AccordionTrigger className="hover:no-underline py-6">
-                    <span className="text-xl font-bold text-slate-900">{cat}</span>
+                <AccordionItem key={i} value={cat} className="bg-white border border-slate-100 rounded-[32px] px-8 shadow-xl shadow-slate-200/50 overflow-hidden transition-all duration-300">
+                  <AccordionTrigger className="hover:no-underline py-8">
+                    <span className="text-2xl font-black text-slate-900 font-heading">{cat}</span>
                   </AccordionTrigger>
-                  <AccordionContent className="pb-6">
+                  <AccordionContent className="pb-8">
                     <div className="overflow-x-auto">
                       <table className="w-full text-left min-w-[600px]">
                         <thead>
-                          <tr className="text-[10px] font-bold text-slate-400 uppercase tracking-widest border-b border-slate-50">
+                          <tr className="text-[10px] font-black text-slate-400 uppercase tracking-widest border-b border-slate-50">
                             <th className="pb-4">Наименование</th>
-                            <th className="pb-4">Упаковка</th>
-                            <th className="pb-4">Цена (опт)</th>
-                            <th className="pb-4">Цена (от 200 кг)</th>
+                            <th className="pb-4">Вес/Упак.</th>
+                            <th className="pb-4">Розница</th>
+                            <th className="pb-4 text-primary">Опт (от 20 шт)</th>
                           </tr>
                         </thead>
                         <tbody className="divide-y divide-slate-50">
                           {products.filter(p => p.category === cat).map((item, j) => (
-                            <tr key={j} className="text-sm">
-                              <td className="py-4 font-bold text-slate-800">{item.name}</td>
-                              <td className="py-4 text-slate-500">{item.weight}</td>
-                              <td className="py-4 text-slate-900 font-medium">{item.price}₽/кг</td>
-                              <td className="py-4 text-sky-600 font-bold">{item.price200 || item.price}₽/кг</td>
+                            <tr key={j} className="text-sm group">
+                              <td className="py-5 font-bold text-slate-800 group-hover:text-primary transition-colors">{item.name}</td>
+                              <td className="py-5 text-slate-500">{item.weight}</td>
+                              <td className="py-5 text-slate-400 font-medium">{item.oldPrice}₽</td>
+                              <td className="py-5 text-primary font-black text-lg">{item.price}₽</td>
                             </tr>
                           ))}
                         </tbody>
                       </table>
                     </div>
-                    <Button variant="ghost" className="mt-4 text-sky-600 font-bold hover:bg-sky-50">
-                      Ещё позиции в категории
-                      <ChevronRight className="w-4 h-4 ml-1" />
-                    </Button>
+                    <div className="mt-8 p-6 bg-slate-50 rounded-2xl border border-slate-100">
+                        <p className="text-sm text-slate-600 leading-relaxed italic">
+                            <b>Примечание:</b> {cat === 'Профитроли' ? 'Наш хит! Срок хранения 180 дней. Разморозка 2-3 часа.' : cat === 'ЗОЖ-линейка' ? 'Тренд 2024 года! Увеличивает охват аудитории на 30%.' : 'Классические вкусы, которые всегда в спросе.'}
+                        </p>
+                    </div>
                   </AccordionContent>
                 </AccordionItem>
               ))}
@@ -108,16 +112,18 @@ export function B2BCatalog() {
         {/* Special Conditions */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto mb-16">
           {[
-            { icon: Package, title: "Мин. заказ: 1 кор.", sub: "Для бесплатной доставки" },
-            { icon: Truck, title: "Доставка 0₽", sub: "По Калининграду" },
-            { icon: CreditCard, title: "Отсрочка платежа", sub: "7-14 дней с первого заказа" },
-            { icon: Clock, title: "Любая упаковка", sub: "Вакуум или коробки" },
+            { icon: Package, title: "Минимальный заказ", sub: "От 2000₽ (любые позиции)" },
+            { icon: Truck, title: "Бесплатная доставка", sub: "По Калининграду от 2000₽" },
+            { icon: CreditCard, title: "Отсрочка платежа", sub: "7 дней после 3-го заказа" },
+            { icon: Clock, title: "180 дней хранения", sub: "Шоковая заморозка -18°C" },
           ].map((cond, i) => (
-            <div key={i} className="flex items-start gap-4 p-5 bg-white rounded-2xl border border-slate-100 shadow-sm">
-              <cond.icon className="w-6 h-6 text-sky-500 shrink-0" />
+            <div key={i} className="flex items-start gap-4 p-6 bg-white rounded-[24px] border border-slate-100 shadow-lg shadow-slate-200/30">
+              <div className="w-10 h-10 bg-primary/5 rounded-xl flex items-center justify-center text-primary shrink-0">
+                <cond.icon className="w-5 h-5" />
+              </div>
               <div>
-                <div className="text-sm font-bold text-slate-900 mb-1">{cond.title}</div>
-                <div className="text-xs text-slate-500">{cond.sub}</div>
+                <div className="text-sm font-black text-slate-900 mb-1 uppercase tracking-tight">{cond.title}</div>
+                <div className="text-xs text-slate-500 leading-tight">{cond.sub}</div>
               </div>
             </div>
           ))}
@@ -127,12 +133,12 @@ export function B2BCatalog() {
           <Button 
             onClick={() => setIsModalOpen(true)}
             size="lg" 
-            className="bg-sky-600 hover:bg-sky-700 h-12 sm:h-14 px-10 text-lg shadow-xl shadow-sky-100 rounded-2xl"
+            className="bg-primary hover:bg-primary/90 h-16 px-12 text-lg font-black shadow-xl shadow-primary/20 rounded-2xl transition-all hover:scale-105"
           >
-            Запросить актуальный прайс
+            Скачать полный прайс (PDF)
           </Button>
-          <p className="mt-4 text-xs text-slate-400 font-medium uppercase tracking-widest">
-            Получите индивидуальное коммерческое предложение
+          <p className="mt-6 text-[10px] text-slate-400 font-black uppercase tracking-[0.2em]">
+            ИНДИВИДУАЛЬНЫЕ УСЛОВИЯ ДЛЯ СЕТЕВЫХ ЗАВЕДЕНИЙ
           </p>
         </div>
       </div>

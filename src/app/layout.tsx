@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Manrope } from "next/font/google";
+import { Inter, Montserrat, Nunito } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "@/context/CartContext";
 import { CookieBanner } from "@/components/layout/CookieBanner";
@@ -10,14 +10,19 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-const manrope = Manrope({
+const montserrat = Montserrat({
   subsets: ["latin", "cyrillic"],
-  variable: "--font-manrope",
+  variable: "--font-montserrat",
+});
+
+const nunito = Nunito({
+  subsets: ["latin", "cyrillic"],
+  variable: "--font-nunito",
 });
 
 export const metadata: Metadata = {
-  title: "Океаника | Продажа свежемороженой рыбы и морепродуктов",
-  description: "Океаника — оптовые поставки замороженной рыбы и морепродуктов в Калининграде. Прямые поставки высокого качества, без лишнего льда.",
+  title: "Премиальные замороженные десерты для кафе и магазинов в Калининграде",
+  description: "Замороженные десерты для кафе, ресторанов, магазинов в Калининграде. Профитроли, торты, ЗОЖ-линейка. Прямые поставки от производителя. Срок хранения 180 дней. Доставка от 2000₽ бесплатно.",
 };
 
 export default function RootLayout({
@@ -31,7 +36,7 @@ export default function RootLayout({
         <meta name="yandex-verification" content="8fcd8e67616dddd3" />
       </head>
       <body
-        className={`${inter.variable} ${manrope.variable} font-sans antialiased bg-slate-50 text-slate-900`}
+        className={`${inter.variable} ${montserrat.variable} ${nunito.variable} font-sans antialiased bg-white text-slate-900`}
       >
         <CartProvider>
           {children}

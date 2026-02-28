@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { ShoppingCart, Snowflake, Box, Timer, ChevronDown, Frown, CheckCircle2 } from "lucide-react"
+import { ShoppingCart, Snowflake, Timer, ChevronDown, Frown, CheckCircle2, TrendingUp } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -13,12 +13,11 @@ import Image from "next/image"
 
 const CATEGORIES = [
   "Все",
-  "Филе и стейки",
-  "Целая рыба",
-  "Креветки и раки",
-  "Кальмары и осьминоги",
-  "Икра и деликатесы",
-  "Готовые наборы",
+  "Профитроли",
+  "ЗОЖ-линейка",
+  "Торты",
+  "Хиты продаж",
+  "Новинки",
 ]
 
 function ExpandableDescription({ text }: { text: string }) {
@@ -36,7 +35,7 @@ function ExpandableDescription({ text }: { text: string }) {
             e.stopPropagation();
             setIsExpanded(!isExpanded);
           }}
-          className="text-sky-500 text-xs font-bold hover:underline mt-1"
+          className="text-primary text-xs font-bold hover:underline mt-1"
         >
           {isExpanded ? "Свернуть" : "Читать далее"}
         </button>
@@ -83,7 +82,7 @@ export function RetailCatalog() {
   }
 
   return (
-    <section id="retail-catalog" className="py-12 md:py-20 bg-white min-h-[600px]">
+    <section id="retail-catalog" className="py-12 md:py-24 bg-white min-h-[600px]">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -91,9 +90,12 @@ export function RetailCatalog() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-2xl md:text-4xl font-bold text-slate-900 mb-4">
-            Каталог продукции
+          <h2 className="text-2xl md:text-5xl font-extrabold text-slate-900 mb-4 font-heading">
+            Наш ассортимент
           </h2>
+          <p className="text-slate-500 mb-8 max-w-2xl mx-auto">
+            Цены указаны розничные. При заказе от 20 шт. любой позиции автоматически применяется оптовая цена (скидка ~15%).
+          </p>
           <div className="flex flex-wrap justify-center gap-2 mt-8">
             {CATEGORIES.map((category) => (
               <button
@@ -103,10 +105,10 @@ export function RetailCatalog() {
                   setLimit(9)
                 }}
                 className={cn(
-                  "px-4 py-2 rounded-full text-sm font-medium transition-all",
+                  "px-6 py-2.5 rounded-full text-sm font-bold transition-all",
                   activeCategory === category
-                    ? "bg-sky-600 text-white shadow-md"
-                    : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                    ? "bg-primary text-white shadow-lg shadow-primary/20"
+                    : "bg-slate-50 text-slate-500 hover:bg-slate-100"
                 )}
                 aria-label={`Выбрать категорию ${category}`}
               >
@@ -119,7 +121,7 @@ export function RetailCatalog() {
         {loading && products.length === 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-pulse">
             {[...Array(6)].map((_, i) => (
-              <div key={i} className="h-[400px] bg-slate-100 rounded-3xl" />
+              <div key={i} className="h-[500px] bg-slate-50 rounded-[40px]" />
             ))}
           </div>
         ) : products.length === 0 ? (
@@ -140,74 +142,78 @@ export function RetailCatalog() {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
-                  whileHover={{ y: -5 }}
+                  whileHover={{ y: -8 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <Card className="h-full overflow-hidden border-slate-100 shadow-sm hover:shadow-xl transition-shadow flex flex-col rounded-3xl">
+                  <Card className="h-full overflow-hidden border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 flex flex-col rounded-[40px] bg-white group">
                     <div className="relative aspect-[4/3] overflow-hidden">
                       <Image
                         src={product.image}
                         alt={product.name}
                         fill
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        className="object-cover transition-transform duration-500 hover:scale-110"
+                        className="object-cover transition-transform duration-700 group-hover:scale-110"
                         priority={index < 3}
                       />
-                      <div className="absolute top-3 left-3 flex flex-col gap-2">
+                      <div className="absolute top-4 left-4 flex flex-col gap-2">
                         {product.isHit && (
-                          <Badge className="bg-orange-500 hover:bg-orange-600">ХИТ</Badge>
+                          <Badge className="bg-[#ff136e] hover:bg-[#ff136e] text-white font-bold px-3 py-1 rounded-lg">ХИТ ПРОДАЖ</Badge>
                         )}
                         {product.isNew && (
-                          <Badge className="bg-sky-500 hover:bg-sky-600">НОВИНКА</Badge>
+                          <Badge className="bg-[#704396] hover:bg-[#704396] text-white font-bold px-3 py-1 rounded-lg">НОВИНКА</Badge>
                         )}
-                        {product.oldPrice && (
-                          <Badge className="bg-red-500 hover:bg-red-600">АКЦИЯ -{Math.round((1 - product.price / product.oldPrice) * 100)}%</Badge>
+                        {product.category === 'ЗОЖ-линейка' && (
+                           <Badge className="bg-green-500 hover:bg-green-500 text-white font-bold px-3 py-1 rounded-lg">БЕЗ САХАРА</Badge>
                         )}
                       </div>
                     </div>
                     
-                    <CardContent className="p-5 flex-grow">
-                      <div className="text-xs text-slate-400 mb-1 uppercase tracking-wider font-semibold">
+                    <CardContent className="p-6 md:p-8 flex-grow">
+                      <div className="text-[10px] text-primary mb-2 uppercase tracking-widest font-black">
                         {product.category}
                       </div>
-                      <h3 className="text-lg font-bold text-slate-900 mb-2 leading-tight">
+                      <h3 className="text-xl font-black text-slate-900 mb-3 leading-tight font-heading">
                         {product.name}
                       </h3>
 
                       <ExpandableDescription text={product.description} />
 
-                      <div className="flex items-center gap-4 mb-4">
-                        <div className="flex items-center gap-1 text-[10px] text-slate-400 font-medium">
-                          <Snowflake className="w-3 h-3 text-sky-400" /> -30°C
+                      <div className="grid grid-cols-2 gap-4 mb-6">
+                        <div className="flex items-center gap-2 text-[10px] text-slate-500 font-bold uppercase tracking-tight">
+                          <Snowflake className="w-4 h-4 text-primary" /> 180 дней при -18°C
                         </div>
-                        <div className="flex items-center gap-1 text-[10px] text-slate-400 font-medium">
-                          <Box className="w-3 h-3 text-sky-400" /> Вакуум
+                        <div className="flex items-center gap-2 text-[10px] text-slate-500 font-bold uppercase tracking-tight">
+                          <Timer className="w-4 h-4 text-primary" /> Разморозка 2-3 ч
                         </div>
-                        <div className="flex items-center gap-1 text-[10px] text-slate-400 font-medium">
-                          <CheckCircle2 className="w-3 h-3 text-sky-400" /> В наличии
+                        <div className="flex items-center gap-2 text-[10px] text-slate-500 font-bold uppercase tracking-tight">
+                          <CheckCircle2 className="w-4 h-4 text-primary" /> Натуральный состав
+                        </div>
+                        <div className="flex items-center gap-2 text-[10px] text-slate-500 font-bold uppercase tracking-tight">
+                          <TrendingUp className="w-4 h-4 text-primary" /> Маржа до 150%
                         </div>
                       </div>
 
-                      <div className="flex items-end justify-between">
+                      <div className="flex items-end justify-between border-t border-slate-50 pt-6">
                         <div>
-                          <div className="text-xs text-slate-400 mb-1">Вес: {product.weight}</div>
-                          <div className="flex items-center gap-2">
-                            <span className="text-2xl font-bold text-sky-600">{product.price} ₽</span>
-                            {product.oldPrice && (
-                              <span className="text-sm text-slate-400 line-through decoration-red-400">{product.oldPrice} ₽</span>
-                            )}
+                          <div className="text-[10px] text-slate-400 mb-1 uppercase tracking-widest font-bold">Вес: {product.weight}</div>
+                          <div className="flex items-center gap-3">
+                            <span className="text-3xl font-black text-slate-900">{product.price} ₽</span>
+                            <span className="text-xs text-primary font-bold bg-primary/5 px-2 py-1 rounded-lg">Опт: {Math.round(product.price * 0.85)}₽</span>
                           </div>
                         </div>
                       </div>
+
+                      <div className="mt-4 text-[10px] text-slate-400 italic">
+                        💰 <b>Ваша выгода:</b> Закупка {Math.round(product.price * 0.85)}₽ → Продажа 450-500₽ → Маржа от 175₽
+                      </div>
                     </CardContent>
 
-                    <CardFooter className="p-5 pt-0">
+                    <CardFooter className="p-6 md:p-8 pt-0">
                       <Button
                         onClick={() => handleAddToCart(product)}
-                        variant="secondary"
-                        className="w-full group hover:bg-sky-600 hover:text-white transition-all duration-300 rounded-xl"
+                        className="w-full h-14 bg-slate-900 hover:bg-primary text-white transition-all duration-300 rounded-2xl font-bold text-lg shadow-xl shadow-slate-200 group-hover:shadow-primary/20"
                       >
-                        <ShoppingCart className="w-4 h-4 mr-2" />
+                        <ShoppingCart className="w-5 h-5 mr-2" />
                         В корзину
                       </Button>
                     </CardFooter>
@@ -223,12 +229,12 @@ export function RetailCatalog() {
             <Button
               variant="outline"
               size="lg"
-              className="rounded-full px-8"
+              className="rounded-2xl px-12 h-14 font-bold border-2"
               onClick={() => setLimit(prev => prev + 12)}
               disabled={loading}
             >
-              {loading ? "Загрузка..." : `Показать ещё ${Math.min(12, totalProducts - products.length)} позиций`}
-              <ChevronDown className="w-4 h-4 ml-2" />
+              {loading ? "Загрузка..." : `Показать ещё ${Math.min(12, totalProducts - products.length)} десертов`}
+              <ChevronDown className="w-5 h-5 ml-2" />
             </Button>
           </div>
         )}

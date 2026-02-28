@@ -1,150 +1,92 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Check, Phone, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Checkbox } from "@/components/ui/checkbox"
-import { useForm } from "react-hook-form"
-import { zodResolver } from "@hookform/resolvers/zod"
-import * as z from "zod"
-import { PatternFormat } from "react-number-format"
-
-const b2bCtaSchema = z.object({
-  company: z.string().min(2, "Введите название компании"),
-  name: z.string().min(2, "Введите имя"),
-  phone: z.string().refine((val) => {
-    const digits = val.replace(/\D/g, "");
-    return digits.length === 11;
-  }, "Введите полный номер телефона"),
-  email: z.string().email("Введите корректный email"),
-  interest: z.string().min(1, "Выберите интерес"),
-  agree: z.boolean().refine(val => val === true, "Необходимо согласие")
-})
-
-type B2BCtaValues = z.infer<typeof b2bCtaSchema>
+import { ArrowRight, Cake, CheckCircle2 } from "lucide-react"
 
 export function B2BCTA() {
-  const { register, handleSubmit, setValue, watch, formState: { errors, isSubmitting }, reset } = useForm<B2BCtaValues>({
-    resolver: zodResolver(b2bCtaSchema),
-    defaultValues: { agree: true, interest: "Поставками для ресторана/кафе" }
-  })
+  const scrollToForm = () => {
+    document.getElementById('b2b-hero')?.scrollIntoView({ behavior: 'smooth' })
+  }
 
-  const agree = watch("agree")
-
-  const onSubmit = async (data: B2BCtaValues) => {
-    try {
-      const res = await fetch("/api/orders", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...data, type: "B2B", comment: `Финальный CTA: Интерес - ${data.interest}` })
-      })
-      if (res.ok) {
-        alert("Заявка отправлена! Менеджер свяжется с вами в ближайшее время.")
-        reset()
-      }
-    } catch (err) {
-      alert("Ошибка при отправке")
-    }
+  const scrollToCatalog = () => {
+    document.getElementById('retail-catalog')?.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
-    <section className="py-12 md:py-24 bg-white">
-      <div className="container mx-auto px-4 max-w-6xl">
-        <div className="bg-slate-900 rounded-3xl md:rounded-[40px] overflow-hidden flex flex-col lg:flex-row shadow-2xl">
-          {/* Left Side */}
-          <div className="lg:w-3/5 p-6 md:p-16 text-white bg-gradient-to-br from-slate-900 to-slate-800">
-            <h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold mb-8 leading-tight">
-              Начните экономить уже со следующей поставки
-            </h2>
-            <div className="space-y-6 mb-12">
-              {[
-                "Цены ниже, чем у конкурентов",
-                "Выгодные условия сотрудничества",
-                "Отсрочка 7-14 дней с первого заказа",
-                "Замена брака за 2 часа, без вопросов",
-                "Персональный менеджер и прямой номер",
-              ].map((item, i) => (
-                <div key={i} className="flex items-center gap-4">
-                  <div className="w-6 h-6 bg-sky-500 rounded-full flex items-center justify-center shrink-0">
-                    <Check className="w-4 h-4 text-white" />
-                  </div>
-                  <span className="text-lg text-slate-300 font-medium">{item}</span>
+    <section className="py-12 md:py-24 bg-white px-4">
+      <div className="container mx-auto">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          className="relative rounded-[48px] bg-gradient-to-r from-primary via-[#704396] to-accent p-1 md:p-1.5 shadow-2xl shadow-primary/20 overflow-hidden"
+        >
+          <div className="bg-white rounded-[44px] p-8 md:p-20 relative overflow-hidden">
+            {/* Decoration */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full -mr-32 -mt-32 blur-3xl" />
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/10 rounded-full -ml-32 -mb-32 blur-3xl" />
+
+            <div className="flex flex-col lg:flex-row items-center gap-16 relative z-10">
+              <div className="lg:w-1/2 text-center lg:text-left">
+                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mb-8 mx-auto lg:ml-0">
+                  <Cake className="w-8 h-8" />
                 </div>
-              ))}
+                <h2 className="text-3xl md:text-6xl font-black text-slate-900 mb-6 font-heading leading-tight">
+                  Начните зарабатывать на десертах <span className="text-primary underline decoration-accent underline-offset-8">уже завтра</span>
+                </h2>
+                <p className="text-xl text-slate-500 mb-10 leading-relaxed max-w-xl">
+                  Пробная партия со скидкой 20% + консультация по запуску десертов в вашем меню. Риск равен нулю — результат виден сразу.
+                </p>
+
+                <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                  <Button
+                    onClick={scrollToCatalog}
+                    size="lg"
+                    className="h-16 px-10 bg-primary hover:bg-primary/90 text-white rounded-2xl font-black text-lg shadow-xl shadow-primary/20 transition-all hover:scale-105"
+                  >
+                    Оформить заказ
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </Button>
+                  <Button
+                    onClick={scrollToForm}
+                    variant="outline"
+                    size="lg"
+                    className="h-16 px-10 rounded-2xl font-black text-lg border-2 transition-all hover:bg-slate-50"
+                  >
+                    Заказать со скидкой
+                  </Button>
+                </div>
+              </div>
+
+              <div className="lg:w-1/2">
+                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {[
+                      { title: "Бесплатная доставка", desc: "От 2000₽ по городу", icon: CheckCircle2 },
+                      { title: "Оплата при получении", desc: "Первые 3 заказа", icon: CheckCircle2 },
+                      { title: "Отсрочка 7 дней", desc: "После 3-го заказа", icon: CheckCircle2 },
+                      { title: "Замена брака за 2 ч.", desc: "Без лишних вопросов", icon: CheckCircle2 },
+                    ].map((item, i) => (
+                      <div key={i} className="p-6 rounded-3xl bg-slate-50 border border-slate-100 group hover:border-primary transition-all duration-300">
+                        <item.icon className="w-6 h-6 text-primary mb-4 group-hover:scale-110 transition-transform" />
+                        <h4 className="font-bold text-slate-900 mb-1">{item.title}</h4>
+                        <p className="text-xs text-slate-500">{item.desc}</p>
+                      </div>
+                    ))}
+                 </div>
+
+                 <div className="mt-8 p-6 bg-accent rounded-3xl text-slate-900 text-center relative">
+                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] font-black uppercase tracking-widest px-4 py-1.5 rounded-full">
+                        Акция до конца недели
+                    </div>
+                    <div className="font-bold text-lg mb-1">Первый заказ от 5000₽</div>
+                    <div className="text-2xl font-black uppercase tracking-widest">Бонус 500₽</div>
+                    <div className="text-[10px] opacity-60 mt-2 uppercase tracking-tighter">на ваш второй заказ в нашей компании</div>
+                 </div>
+              </div>
             </div>
-            <p className="text-sky-400 font-bold text-xl">
-              Оставьте заявку — перезвоним за 10 минут и рассчитаем вашу выгоду
-            </p>
           </div>
-
-          {/* Right Side: Form */}
-          <div className="lg:w-2/5 p-6 md:p-12 bg-slate-50">
-            <h3 className="text-2xl font-bold text-slate-900 mb-8">Заявка на сотрудничество</h3>
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-              <Input placeholder="Компания / ресторан" {...register("company")} className="h-12 md:h-14 rounded-2xl border-slate-200 bg-white" aria-label="Компания или ресторан" />
-              {errors.company && <p className="text-red-500 text-xs mt-1">{errors.company.message}</p>}
-
-              <Input placeholder="Контактное лицо" {...register("name")} className="h-12 md:h-14 rounded-2xl border-slate-200 bg-white" aria-label="Контактное лицо" />
-              {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>}
-
-              <PatternFormat
-                format="+7 (###) ###-##-##"
-                mask="_"
-                customInput={Input}
-                onValueChange={(values) => setValue("phone", values.formattedValue)}
-                type="tel"
-                placeholder="+7 (___) ___-__-__"
-                className="h-12 md:h-14 rounded-2xl border-slate-200 bg-white"
-                aria-label="Номер телефона"
-              />
-              {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone.message}</p>}
-
-              <Input placeholder="Email" {...register("email")} className="h-12 md:h-14 rounded-2xl border-slate-200 bg-white" aria-label="Электронная почта" />
-              {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
-
-              <label htmlFor="cta-interest" className="sr-only">Цель обращения</label>
-              <select
-                id="cta-interest"
-                {...register("interest")}
-                className="w-full h-14 rounded-2xl border border-slate-200 bg-white px-4 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500/20"
-              >
-                <option>Поставками для ресторана/кафе</option>
-                <option>Поставками для магазина/сети</option>
-                <option>Разовой закупкой для мероприятия</option>
-                <option>Консультацией по ассортименту</option>
-              </select>
-
-              <div className="flex items-start gap-2 py-2">
-                <Checkbox
-                  id="b2b-cta-agree"
-                  checked={agree}
-                  onCheckedChange={(checked) => setValue("agree", !!checked)}
-                  className="mt-1"
-                />
-                <label htmlFor="b2b-cta-agree" className="text-[10px] text-slate-400 leading-tight">
-                  Согласен с <a href="/legal/privacy" className="underline hover:text-sky-600">политикой конфиденциальности</a> и даю согласие на <a href="/legal/consent" className="underline hover:text-sky-600">обработку персональных данных</a>
-                </label>
-              </div>
-              {errors.agree && <p className="text-red-500 text-[10px]">{errors.agree.message}</p>}
-
-              <Button type="submit" className="w-full h-16 bg-sky-600 hover:bg-sky-700 text-lg font-bold rounded-2xl shadow-xl shadow-sky-100 transition-all" disabled={isSubmitting}>
-                {isSubmitting ? "Отправка..." : "Отправить заявку"}
-              </Button>
-
-              <div className="mt-8 pt-8 border-t border-slate-200 space-y-4">
-                <a href="tel:+79114864797" className="flex items-center gap-3 text-slate-600 font-bold hover:text-sky-600 transition-colors">
-                  <Phone className="w-5 h-5 text-sky-500" />
-                  +7 (911) 486-47-97
-                </a>
-                <a href="mailto:timlistroy@inbox.ru" className="flex items-center gap-3 text-slate-600 font-bold hover:text-sky-600 transition-colors">
-                  <Mail className="w-5 h-5 text-sky-500" />
-                  timlistroy@inbox.ru
-                </a>
-              </div>
-            </form>
-          </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

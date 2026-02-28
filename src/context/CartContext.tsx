@@ -79,7 +79,16 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const clearCart = () => setCart([])
 
   const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0)
-  const totalPrice = cart.reduce((acc, item) => acc + item.price * item.quantity, 0)
+
+  // Logic for wholesale price: if quantity of a specific item >= 20, use wholesale price (price - 15)
+  // Or if the total items in cart >= 20? The requirement says "Если сумма позиций >= 20 шт -> применяется оптовая цена"
+  // Let's assume it means total items in cart.
+  const isWholesale = totalItems >= 20
+
+  const totalPrice = cart.reduce((acc, item) => {
+    const price = isWholesale ? (item.price - 15) : item.price
+    return acc + price * item.quantity
+  }, 0)
 
   return (
     <CartContext.Provider 

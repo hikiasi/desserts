@@ -1,38 +1,52 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Handshake, ClipboardCheck, Repeat, ShieldCheck } from "lucide-react"
+import { MessageSquare, PackageOpen, Truck, Repeat, ShieldCheck } from "lucide-react"
 
 const B2B_STEPS = [
   {
-    icon: Handshake,
-    title: "Знакомство (День 1)",
+    icon: MessageSquare,
+    title: "Шаг 1: День 1 — Знакомство",
+    time: "15 минут",
     details: [
-      "Отправляем актуальный прайс",
-      "Подбираем ассортимент под ваше меню",
-      "Обсуждаем график и объёмы"
+      "Заявка и консультация за 10 минут",
+      "Подбор ассортимента под ваш тип заведения",
+      "Отправка прайса и условий"
     ],
-    benefit: "Понимание качества и цен"
+    benefit: "Полный прайс и рекомендации"
   },
   {
-    icon: ClipboardCheck,
-    title: "Первая поставка (День 2-3)",
+    icon: PackageOpen,
+    title: "Шаг 2: День 2 — Пробная партия",
+    time: "1 день",
     details: [
-      "Заказ от 1 коробки (5-18 кг)",
-      "Полный пакет документов (ВЕТСД)",
-      "Доставка в утреннее окно"
+      "Заказ от 2000₽ с автоскидкой 20%",
+      "Оценка качества на ваших гостях",
+      "Сбор обратной связи и выбор хитов"
     ],
-    benefit: "Проверка логистики и сервиса"
+    benefit: "Реакция гостей без рисков"
+  },
+  {
+    icon: Truck,
+    title: "Шаг 3: День 3 — Первая поставка",
+    time: "1 день",
+    details: [
+      "Полноценный заказ нужных позиций",
+      "Доставка в термосумках -18°C",
+      "Все документы (декларации, накладные)"
+    ],
+    benefit: "Готовый товар на продаже"
   },
   {
     icon: Repeat,
-    title: "Долгосрочная работа",
+    title: "Регулярные поставки",
+    time: "2 раза в неделю",
     details: [
-      "Подписываем договор поставки",
-      "Открываем отсрочку до 14 дней",
-      "Персональный менеджер 24/7"
+      "Фиксированный график (Вт, Пт)",
+      "Заказ за 1 день до доставки",
+      "Отсрочка 7 дней (после 3-х заказов)"
     ],
-    benefit: "Стабильность вашего бизнеса"
+    benefit: "Стабильность и предсказуемость"
   }
 ]
 
@@ -46,35 +60,41 @@ export function B2BProcess() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-2xl md:text-4xl font-bold text-slate-900 mb-4">
-            От заявки до поставки — 3 простых шага
+          <h2 className="text-2xl md:text-5xl font-extrabold text-slate-900 mb-4 font-heading">
+            От заявки до первой продажи — 3 дня
           </h2>
+          <p className="text-slate-500 text-lg max-w-2xl mx-auto">
+            Никаких сложных контрактов и предоплат. Простой и быстрый запуск десертов в вашем меню.
+          </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 max-w-6xl mx-auto mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto mb-20">
           {B2B_STEPS.map((step, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.2 }}
-              className="relative p-8 rounded-3xl bg-slate-50 border border-slate-100 group hover:bg-white hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-500"
+              transition={{ delay: i * 0.1 }}
+              className="relative p-8 rounded-[32px] bg-slate-50 border border-slate-100 group hover:bg-white hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 flex flex-col h-full"
             >
-              <div className="w-16 h-16 bg-white rounded-2xl shadow-sm flex items-center justify-center text-sky-600 mb-8 group-hover:bg-sky-600 group-hover:text-white transition-all">
+              <div className="absolute top-8 right-8 text-[10px] font-black text-primary uppercase tracking-[0.2em]">
+                {step.time}
+              </div>
+              <div className="w-16 h-16 bg-white rounded-2xl shadow-sm flex items-center justify-center text-primary mb-8 group-hover:bg-primary group-hover:text-white transition-all duration-500">
                 <step.icon className="w-8 h-8" />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-6">{step.title}</h3>
-              <ul className="space-y-4 mb-8">
+              <h3 className="text-xl font-bold text-slate-900 mb-6 font-heading leading-tight">{step.title}</h3>
+              <ul className="space-y-4 mb-8 flex-grow">
                 {step.details.map((detail, j) => (
-                  <li key={j} className="flex items-start gap-3 text-sm text-slate-600">
-                    <div className="w-1.5 h-1.5 bg-sky-400 rounded-full mt-1.5 shrink-0" />
+                  <li key={j} className="flex items-start gap-3 text-sm text-slate-600 leading-relaxed">
+                    <div className="w-1.5 h-1.5 bg-primary/40 rounded-full mt-1.5 shrink-0" />
                     {detail}
                   </li>
                 ))}
               </ul>
               <div className="pt-6 border-t border-slate-100 mt-auto">
-                <div className="text-[10px] uppercase tracking-widest text-slate-400 font-bold mb-1">Результат:</div>
+                <div className="text-[10px] uppercase tracking-widest text-slate-400 font-black mb-1">Что получаете:</div>
                 <div className="text-sm font-bold text-slate-900">{step.benefit}</div>
               </div>
             </motion.div>
@@ -85,14 +105,17 @@ export function B2BProcess() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="max-w-3xl mx-auto p-6 bg-sky-50 rounded-2xl border border-sky-100 flex items-center gap-6"
+          className="max-w-4xl mx-auto p-8 bg-primary rounded-[32px] text-white flex flex-col md:flex-row items-center gap-8 shadow-2xl shadow-primary/20"
         >
-          <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-sky-600 shrink-0">
-            <ShieldCheck className="w-6 h-6" />
+          <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center text-white shrink-0">
+            <ShieldCheck className="w-8 h-8" />
           </div>
-          <p className="text-sm text-sky-900 leading-relaxed">
-            <span className="font-bold">Никаких долгосрочных обязательств.</span> Работаем без минимального срока контракта. Не подошли — расстаёмся без штрафов после любой поставки.
-          </p>
+          <div>
+            <h4 className="text-xl font-bold mb-2 font-heading">Наша гарантия</h4>
+            <p className="text-white/80 leading-relaxed">
+              Если десерты не понравятся вам или вашим гостям после пробной партии — <span className="font-bold text-white text-lg underline underline-offset-4 decoration-accent">заберём обратно и вернём деньги</span>. Без вопросов и штрафов. Работаем на доверии.
+            </p>
+          </div>
         </motion.div>
       </div>
     </section>
