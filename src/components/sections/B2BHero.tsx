@@ -57,7 +57,7 @@ export function B2BHero() {
   }
 
   return (
-    <section id="b2b-hero" className="relative py-12 md:py-24 bg-white overflow-hidden">
+    <section id="b2b-hero" className="relative pt-24 pb-12 md:pt-40 md:pb-24 bg-transparent overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-muted/30 -skew-x-12 translate-x-1/2 z-0 hidden lg:block" />
 

@@ -40,7 +40,7 @@ const GUARANTEES = [
   {
     icon: RotateCcw,
     title: "Замена брака за 2 часа",
-    text: "Если что-то не так с товаром — привезём замену мгновенно или вернём деньги. Без вопросов."
+    text: "Если возникли вопросы по качеству — привезём замену в кратчайшие сроки. Гарантируем качество каждой поставки."
   },
   {
     icon: TrendingUp,
@@ -56,7 +56,7 @@ const GUARANTEES = [
 
 export function WhyUs() {
   return (
-    <section className="py-12 md:py-24 bg-slate-50 overflow-hidden">
+    <section className="py-12 md:py-24 bg-transparent overflow-hidden">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

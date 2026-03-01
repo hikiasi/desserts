@@ -1,8 +1,8 @@
 import LegalLayout from '@/components/layout/LegalLayout';
 
 export const metadata = {
-  title: 'Политика использования файлов cookie | Океаника',
-  description: 'Информация об использовании файлов cookie на сайте oceanica-39.ru',
+  title: 'Политика использования файлов cookie | Замороженные десерты',
+  description: 'Информация об использовании файлов cookie на сайте desserts-kaliningrad.ru',
 };
 
 export default function CookiesPage() {

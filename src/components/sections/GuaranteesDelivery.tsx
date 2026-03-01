@@ -106,8 +106,9 @@ export function GuaranteesDelivery() {
                  </div>
                  <div>
                     <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Самовывоз (скидка 5%):</div>
-                    <div className="text-sm font-bold text-slate-900">г. Калининград, Правая набережная 2</div>
+                    <div className="text-sm font-bold text-slate-900">г. Калининград, ул.Профессора Севастьянова, 3 — Маслобаза</div>
                     <div className="text-xs text-slate-500 mt-1">Пн-Пт 9:00-18:00, Сб 10:00-15:00</div>
+                    <div className="text-[10px] text-primary font-bold mt-1 uppercase tracking-wider">Звонить за час для самовывоза</div>
                  </div>
               </div>
             </motion.div>
@@ -142,16 +143,12 @@ export function GuaranteesDelivery() {
                 </div>
               ))}
 
-              <div className="relative h-64 rounded-[40px] overflow-hidden border border-slate-100 shadow-2xl shadow-slate-200">
-                 {/* Placeholder for map */}
-                 <div className="absolute inset-0 bg-slate-100 flex items-center justify-center text-slate-400 text-sm italic font-medium p-8 text-center">
-                    [Интерактивная карта с зонами доставки будет загружена здесь]
-                 </div>
-                 <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-full max-w-xs px-4">
-                    <Button className="w-full bg-slate-900 text-white font-bold h-12 rounded-xl shadow-xl">
-                        Проверить мой адрес
-                    </Button>
-                 </div>
+              <div className="relative h-80 rounded-[40px] overflow-hidden border border-slate-100 shadow-2xl shadow-slate-200">
+                <div style={{ position: 'relative', overflow: 'hidden', height: '100%', width: '100%' }}>
+                  <a href="https://yandex.ru/maps/22/kaliningrad/?utm_medium=mapframe&utm_source=maps" style={{ color: '#eee', fontSize: '12px', position: 'absolute', top: '0px' }}>Калининград</a>
+                  <a href="https://yandex.ru/maps/22/kaliningrad/house/ulitsa_professora_sevastyanova_3/ZkkYcwdnS0AEQFtufXtwdXViYg==/?ll=20.508186%2C54.714013&utm_medium=mapframe&utm_source=maps&z=15.85" style={{ color: '#eee', fontSize: '12px', position: 'absolute', top: '14px' }}>Улица Профессора Севастьянова, 3 — Яндекс Карты</a>
+                  <iframe src="https://yandex.ru/map-widget/v1/?ll=20.508186%2C54.714013&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgg1NjIyNTI5NBJh0KDQvtGB0YHQuNGPLCDQmtCw0LvQuNC90LjQvdCz0YDQsNC0LCDRg9C70LjRhtCwINCf0YDQvtGE0LXRgdGB0L7RgNCwINCh0LXQstCw0YHRgtGM0Y_QvdC-0LLQsCwgMyIKDdgOpEEVE9xaQg%2C%2C&z=15.85" width="100%" height="100%" frameBorder="0" allowFullScreen={true} style={{ position: 'relative' }}></iframe>
+                </div>
               </div>
             </motion.div>
           </div>

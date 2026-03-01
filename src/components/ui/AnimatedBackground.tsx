@@ -69,7 +69,7 @@ export function AnimatedBackground() {
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 -z-20 overflow-hidden pointer-events-none bg-white/50"
+      className="fixed inset-0 z-0 overflow-hidden pointer-events-none"
     />
   )
 }

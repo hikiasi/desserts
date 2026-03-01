@@ -25,7 +25,7 @@ export function RetailCTA() {
   }, [])
 
   return (
-    <section className="py-12 md:py-24 bg-slate-50 overflow-hidden" id="contacts">
+    <section className="py-12 md:py-24 bg-transparent overflow-hidden" id="contacts">
       <div className="container mx-auto px-4">
         <div className="bg-white rounded-[40px] p-8 md:p-20 shadow-2xl shadow-slate-200/50 border border-slate-100 relative overflow-hidden">
           {/* Decoration */}
@@ -73,7 +73,8 @@ export function RetailCTA() {
                 <div className="p-8 rounded-[32px] bg-slate-50 border border-slate-100">
                     <MapPin className="w-8 h-8 text-primary mb-4" />
                     <div className="text-[10px] text-slate-400 font-black uppercase tracking-widest mb-2">Адрес склада:</div>
-                    <div className="text-sm font-bold text-slate-900">г. Калининград, Правая набережная 2</div>
+                    <div className="text-sm font-bold text-slate-900 leading-tight mb-1">г. Калининград, ул.Профессора Севастьянова, 3 — Маслобаза</div>
+                    <div className="text-[10px] text-primary font-bold">Звонить за час для самовывоза</div>
                 </div>
               </div>
 
