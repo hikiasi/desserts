@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { TrendingUp, Clock, Truck, Check } from "lucide-react"
+import { TrendingUp, Clock, Truck, Check, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Checkbox } from "@/components/ui/checkbox"
@@ -70,7 +70,8 @@ export function B2BHero() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-primary/10 text-primary text-sm font-bold tracking-wide uppercase">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-6 rounded-full bg-primary/10 text-primary text-sm font-bold tracking-wide uppercase">
+                <Sparkles className="w-4 h-4 animate-pulse" />
                 Официальный дистрибьютор
               </div>
               <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-slate-900 mb-6 leading-[1.1] font-heading">
@@ -101,7 +102,7 @@ export function B2BHero() {
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
                  <Button
                    size="lg"
-                   className="h-14 px-8 bg-primary hover:bg-primary/90 text-white rounded-2xl font-bold text-lg shadow-xl shadow-primary/20"
+                   className="h-auto min-h-[56px] py-4 px-8 bg-primary hover:bg-primary/90 text-white rounded-2xl font-bold text-lg shadow-xl shadow-primary/20 whitespace-normal"
                    onClick={() => document.getElementById('b2b-form')?.scrollIntoView({ behavior: 'smooth' })}
                  >
                    Получить прайс и условия

@@ -93,11 +93,11 @@ export function FAQ() {
             <h3 className="text-xl font-bold text-slate-900 mb-8 font-heading">Не нашли ответ? Напишите или позвоните — ответим за 10 минут!</h3>
             <div className="flex flex-wrap justify-center gap-4">
                 <a
-                    href="tel:+74012000000"
+                    href="tel:+79114864797"
                     className="flex items-center gap-3 px-8 h-14 bg-white rounded-2xl border border-slate-100 font-bold text-slate-900 shadow-xl shadow-slate-200/50 hover:bg-slate-50 transition-all"
                 >
                     <Phone className="w-5 h-5 text-primary" />
-                    +7 (4012) XX-XX-XX
+                    +7 (911) 486-47-97
                 </a>
                 <a
                     href="https://t.me/desserts_kaliningrad"

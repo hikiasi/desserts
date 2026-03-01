@@ -19,7 +19,7 @@ export function Footer() {
               Официальный дистрибьютор премиальных замороженных десертов в Калининграде. Прямые поставки от производителя.
             </p>
             <div className="flex gap-4">
-              <a href="https://vk.com/market-129683673" target="_blank" className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-primary hover:text-white transition-all" aria-label="ВКонтакте">
+              <a href="https://vk.ru/club233930785" target="_blank" className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-primary hover:text-white transition-all" aria-label="ВКонтакте">
                 <ExternalLink className="w-4 h-4" />
               </a>
               <a href="https://t.me/desserts_kaliningrad" target="_blank" className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-primary hover:text-white transition-all" aria-label="Telegram">
@@ -58,7 +58,7 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-primary mt-1" />
-                <div className="text-sm text-slate-500">г. Калининград, ул. Производственная, 12</div>
+                <div className="text-sm text-slate-500">г. Калининград, Правая набережная 2</div>
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="w-4 h-4 text-primary mt-1" />
