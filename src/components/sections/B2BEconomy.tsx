@@ -164,11 +164,11 @@ export function B2BEconomy() {
           </motion.div>
         </div>
 
-        <div className="text-center">
+        <div className="text-center px-4">
             <Button
                 onClick={() => document.getElementById('b2b-form')?.scrollIntoView({ behavior: 'smooth' })}
                 size="lg"
-                className="h-16 px-12 bg-primary hover:bg-primary/90 text-white rounded-2xl font-bold text-xl shadow-xl shadow-primary/20"
+                className="h-auto min-h-[64px] py-4 px-6 md:px-12 bg-primary hover:bg-primary/90 text-white rounded-2xl font-bold text-base md:text-xl shadow-xl shadow-primary/20 whitespace-normal leading-tight max-w-full"
             >
                 Начать зарабатывать — запросить прайс
             </Button>

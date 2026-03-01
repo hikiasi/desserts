@@ -50,16 +50,16 @@ export function Header() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-4",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-2 sm:px-4",
         isScrolled ? "py-2" : "py-4"
       )}
     >
       <div
         className={cn(
-          "container mx-auto max-w-7xl rounded-full transition-all duration-300 px-4 sm:px-6 py-2 flex items-center justify-between",
+          "container mx-auto max-w-7xl rounded-full transition-all duration-300 px-3 sm:px-6 py-2 flex items-center justify-between",
           isScrolled 
             ? "bg-white/80 backdrop-blur-lg shadow-lg shadow-slate-200/50 border border-slate-200" 
-            : "bg-transparent"
+            : "bg-white sm:bg-transparent shadow-lg sm:shadow-none border border-slate-100 sm:border-none"
         )}
       >
         {/* Logo */}

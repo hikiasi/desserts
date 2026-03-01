@@ -106,7 +106,7 @@ export function GuaranteesDelivery() {
                  </div>
                  <div>
                     <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Самовывоз (скидка 5%):</div>
-                    <div className="text-sm font-bold text-slate-900">г. Калининград, ул. Производственная, 12</div>
+                    <div className="text-sm font-bold text-slate-900">г. Калининград, Правая набережная 2</div>
                     <div className="text-xs text-slate-500 mt-1">Пн-Пт 9:00-18:00, Сб 10:00-15:00</div>
                  </div>
               </div>

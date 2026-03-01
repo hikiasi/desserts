@@ -1,0 +1,18 @@
+
+> landing@0.1.0 start
+> next start
+
+▲ Next.js 16.1.6
+- Local:         http://localhost:3001
+- Network:       http://192.168.0.2:3001
+
+✓ Starting...
+✓ Ready in 754ms
+⨯ The requested resource isn't a valid image for /uploads/cake_napoleon.webp received null
+⨯ The requested resource isn't a valid image for /uploads/cake_medovik.webp received null
+⨯ The requested resource isn't a valid image for /uploads/cake_no_gluten.webp received null
+⨯ The requested resource isn't a valid image for /uploads/profitrole_no_sugar.webp received null
+⨯ The requested resource isn't a valid image for /uploads/profitrole_strawberry.webp received null
+⨯ The requested resource isn't a valid image for /uploads/profitrole_caramel.webp received null
+⨯ The requested resource isn't a valid image for /uploads/profitrole_choco.webp received null
+⨯ The requested resource isn't a valid image for /uploads/profitrole_classic.webp received null

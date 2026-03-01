@@ -3,8 +3,27 @@
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 import { Phone, Send, Mail, MapPin } from "lucide-react"
+import { useEffect, useState } from "react"
 
 export function RetailCTA() {
+  const [isWorking, setIsWorking] = useState(false)
+
+  useEffect(() => {
+    const checkWorkingStatus = () => {
+      // Kaliningrad is UTC+2
+      const now = new Date()
+      const utcTime = now.getTime() + (now.getTimezoneOffset() * 60000)
+      const kaliningradTime = new Date(utcTime + (2 * 3600000))
+
+      const hours = kaliningradTime.getHours()
+      setIsWorking(hours >= 8 && hours < 20)
+    }
+
+    checkWorkingStatus()
+    const interval = setInterval(checkWorkingStatus, 60000)
+    return () => clearInterval(interval)
+  }, [])
+
   return (
     <section className="py-12 md:py-24 bg-slate-50 overflow-hidden" id="contacts">
       <div className="container mx-auto px-4">
@@ -22,13 +41,13 @@ export function RetailCTA() {
               </p>
 
               <div className="space-y-6">
-                <a href="tel:+74012000000" className="flex items-center gap-6 group">
+                <a href="tel:+79114864797" className="flex items-center gap-6 group">
                    <div className="w-14 h-14 bg-primary rounded-2xl flex items-center justify-center text-white shadow-xl shadow-primary/20 group-hover:scale-110 transition-transform">
                       <Phone className="w-6 h-6" />
                    </div>
                    <div>
                       <div className="text-[10px] text-slate-400 font-black uppercase tracking-widest mb-1">Позвонить нам:</div>
-                      <div className="text-2xl font-black text-slate-900">+7 (4012) XX-XX-XX</div>
+                      <div className="text-2xl font-black text-slate-900">+7 (911) 486-47-97</div>
                    </div>
                 </a>
 
@@ -54,7 +73,7 @@ export function RetailCTA() {
                 <div className="p-8 rounded-[32px] bg-slate-50 border border-slate-100">
                     <MapPin className="w-8 h-8 text-primary mb-4" />
                     <div className="text-[10px] text-slate-400 font-black uppercase tracking-widest mb-2">Адрес склада:</div>
-                    <div className="text-sm font-bold text-slate-900">г. Калининград, ул. Производственная, 12</div>
+                    <div className="text-sm font-bold text-slate-900">г. Калининград, Правая набережная 2</div>
                 </div>
               </div>
 
@@ -62,9 +81,9 @@ export function RetailCTA() {
                  <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 rounded-full -mr-16 -mt-16 blur-2xl group-hover:scale-150 transition-transform duration-700" />
                  <h4 className="text-lg font-bold mb-2 font-heading">Режим работы (прием заказов)</h4>
                  <p className="text-white/60 text-sm mb-4">Ежедневно: 8:00 – 20:00</p>
-                 <div className="flex items-center gap-2 text-primary font-black text-[10px] uppercase tracking-widest">
-                    <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-                    Сейчас работаем
+                 <div className={`flex items-center gap-2 font-black text-[10px] uppercase tracking-widest ${isWorking ? 'text-primary' : 'text-slate-500'}`}>
+                    <div className={`w-2 h-2 rounded-full ${isWorking ? 'bg-primary animate-pulse' : 'bg-slate-500'}`} />
+                    {isWorking ? 'Сейчас работаем' : 'Сейчас закрыто'}
                  </div>
               </div>
             </div>
