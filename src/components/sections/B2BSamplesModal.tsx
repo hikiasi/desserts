@@ -47,7 +47,7 @@ export function B2BSamplesModal({ isOpen, onClose }: B2BSamplesModalProps) {
       const res = await fetch("/api/orders", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...data, type: "B2B", comment: "Запрос бесплатных образцов 5 кг" })
+        body: JSON.stringify({ ...data, type: "B2B", comment: "Запрос пробной партии со скидкой 20%" })
       })
       if (res.ok) {
         alert("Заявка принята! Менеджер свяжется с вами для уточнения состава тестового набора.")
@@ -62,14 +62,14 @@ export function B2BSamplesModal({ isOpen, onClose }: B2BSamplesModalProps) {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-[500px] p-0 overflow-hidden rounded-3xl sm:rounded-3xl md:rounded-[40px] border-none [&>button]:text-white">
-        <div className="bg-sky-600 p-6 sm:p-8 text-white relative">
+        <div className="bg-primary p-6 sm:p-8 text-white relative">
           <DialogHeader>
             <DialogTitle className="text-xl sm:text-2xl font-bold flex items-center gap-3 text-white">
               <Package className="w-6 h-6" />
-              Бесплатные образцы
+              Пробная партия
             </DialogTitle>
-            <DialogDescription className="text-sky-100 text-sm sm:text-base">
-              Привезем 5 кг рыбы на пробу. Оплачивается только доставка 400₽.
+            <DialogDescription className="text-white/80 text-sm sm:text-base">
+              Закажите пробную партию от 2000₽ со скидкой 20%.
             </DialogDescription>
           </DialogHeader>
         </div>
@@ -111,18 +111,18 @@ export function B2BSamplesModal({ isOpen, onClose }: B2BSamplesModalProps) {
             </div>
             {errors.agree && <p className="text-red-500 text-[10px]">{errors.agree.message}</p>}
 
-            <Button type="submit" className="w-full h-12 sm:h-14 bg-sky-600 hover:bg-sky-700 text-lg font-bold rounded-2xl shadow-xl shadow-sky-100 transition-all" disabled={isSubmitting}>
-              {isSubmitting ? "Отправка..." : "Получить образцы"}
+            <Button type="submit" className="w-full h-12 sm:h-14 bg-primary hover:bg-primary/90 text-lg font-bold rounded-2xl shadow-xl shadow-primary/10 transition-all" disabled={isSubmitting}>
+              {isSubmitting ? "Отправка..." : "Получить предложение"}
             </Button>
             
             <div className="flex items-center justify-center gap-6 py-2 border-t border-slate-100 mt-4">
               <div className="flex items-center gap-1.5 text-[10px] text-slate-400 font-bold uppercase tracking-wider">
-                <Truck className="w-4 h-4 text-sky-500" />
-                Доставка 400₽
+                <Truck className="w-4 h-4 text-primary" />
+                Доставка от 2000₽ бесплатно
               </div>
               <div className="flex items-center gap-1.5 text-[10px] text-slate-400 font-bold uppercase tracking-wider">
                 <ShieldCheck className="w-4 h-4 text-green-500" />
-                Без обязательств
+                Гарантия качества
               </div>
             </div>
           </div>

@@ -38,7 +38,7 @@ export function B2BCatalog() {
   const categories = Array.from(new Set(products.map(p => p.category)))
 
   return (
-    <section id="b2b-catalog" className="py-12 md:py-24 bg-slate-50">
+    <section id="b2b-catalog" className="py-12 md:py-24 bg-transparent">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -90,7 +90,7 @@ export function B2BCatalog() {
                     </div>
                     <div className="mt-8 p-6 bg-slate-50 rounded-2xl border border-slate-100">
                         <p className="text-sm text-slate-600 leading-relaxed italic">
-                            <b>Примечание:</b> {cat === 'Профитроли' ? 'Наш хит! Срок хранения 180 дней. Разморозка 2-3 часа.' : cat === 'ЗОЖ-линейка' ? 'Тренд 2024 года! Увеличивает охват аудитории на 30%.' : 'Классические вкусы, которые всегда в спросе.'}
+                            <b>Примечание:</b> {cat === 'Профитроли' ? 'Наш хит! Срок хранения 180 дней. Разморозка 2-3 часа.' : cat === 'ЗОЖ-линейка' ? 'Тренд 2026 года! Увеличивает охват аудитории на 30%.' : 'Классические вкусы, которые всегда в спросе.'}
                         </p>
                     </div>
                   </AccordionContent>

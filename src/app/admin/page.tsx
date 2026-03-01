@@ -39,7 +39,7 @@ export default function AdminDashboard() {
     price200: "",
     oldPrice: "",
     weight: "",
-    category: "Филе и стейки",
+    category: "Профитроли",
     description: "",
     image: "",
     isHit: false,
@@ -125,7 +125,7 @@ export default function AdminDashboard() {
           price200: "",
           oldPrice: "",
           weight: "",
-          category: formData.type === "retail" ? "Филе и стейки" : "Филе и стейки рыб",
+          category: formData.type === "retail" ? "Профитроли" : "Профитроли",
           description: "",
           image: "",
           isHit: false,
@@ -318,12 +318,11 @@ export default function AdminDashboard() {
                         value={formData.category}
                         onChange={e => setFormData({...formData, category: e.target.value})}
                       >
-                        <option>Филе и стейки</option>
-                        <option>Целая рыба</option>
-                        <option>Креветки и раки</option>
-                        <option>Кальмары и осьминоги</option>
-                        <option>Икра и деликатесы</option>
-                        <option>Готовые наборы</option>
+                        <option>Профитроли</option>
+                        <option>ЗОЖ-линейка</option>
+                        <option>Торты</option>
+                        <option>Новинки</option>
+                        <option>Хиты продаж</option>
                       </select>
                       <Textarea
                         placeholder="Описание"
@@ -504,11 +503,9 @@ export default function AdminDashboard() {
                         value={formData.category}
                         onChange={e => setFormData({...formData, category: e.target.value})}
                       >
-                        <option>Филе и стейки рыб</option>
-                        <option>Креветки и раки</option>
-                        <option>Мидии, гребешки, кальмары</option>
-                        <option>Красная икра</option>
-                        <option>Крабы</option>
+                        <option>Профитроли</option>
+                        <option>ЗОЖ-линейка</option>
+                        <option>Торты</option>
                       </select>
                       <Textarea
                         placeholder="Описание"
@@ -752,20 +749,17 @@ export default function AdminDashboard() {
                 >
                   {editingProduct.type === 'retail' ? (
                     <>
-                      <option>Филе и стейки</option>
-                      <option>Целая рыба</option>
-                      <option>Креветки и раки</option>
-                      <option>Кальмары и осьминоги</option>
-                      <option>Икра и деликатесы</option>
-                      <option>Готовые наборы</option>
+                      <option>Профитроли</option>
+                      <option>ЗОЖ-линейка</option>
+                      <option>Торты</option>
+                      <option>Новинки</option>
+                      <option>Хиты продаж</option>
                     </>
                   ) : (
                     <>
-                      <option>Филе и стейки рыб</option>
-                      <option>Креветки и раки</option>
-                      <option>Мидии, гребешки, кальмары</option>
-                      <option>Красная икра</option>
-                      <option>Крабы</option>
+                      <option>Профитроли</option>
+                      <option>ЗОЖ-линейка</option>
+                      <option>Торты</option>
                     </>
                   )}
                 </select>

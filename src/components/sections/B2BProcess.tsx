@@ -113,7 +113,7 @@ export function B2BProcess() {
           <div>
             <h4 className="text-xl font-bold mb-2 font-heading">Наша гарантия</h4>
             <p className="text-white/80 leading-relaxed">
-              Если десерты не понравятся вам или вашим гостям после пробной партии — <span className="font-bold text-white text-lg underline underline-offset-4 decoration-accent">заберём обратно и вернём деньги</span>. Без вопросов и штрафов. Работаем на доверии.
+              Мы гарантируем высокое качество каждой партии. Если возникнут вопросы по качеству товара — <span className="font-bold text-white text-lg underline underline-offset-4 decoration-accent">оперативно заменим партию</span> на новую. Работаем на долгосрочное партнерство.
             </p>
           </div>
         </motion.div>

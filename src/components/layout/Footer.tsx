@@ -58,7 +58,10 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-primary mt-1" />
-                <div className="text-sm text-slate-500">г. Калининград, Правая набережная 2</div>
+                <div className="text-sm text-slate-500">
+                  г. Калининград, ул.Профессора Севастьянова, 3 — Маслобаза
+                  <div className="text-[10px] text-primary font-bold mt-1">Звонить за час для самовывоза</div>
+                </div>
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="w-4 h-4 text-primary mt-1" />
