@@ -80,9 +80,9 @@ export function WhyUs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="bg-white p-8 rounded-[32px] border border-slate-100 shadow-xl shadow-slate-200/50 flex flex-col group hover:bg-primary transition-all duration-500"
+              className="bg-white/60 backdrop-blur-sm p-8 rounded-[32px] border border-slate-100 shadow-xl shadow-slate-200/50 flex flex-col group hover:bg-primary transition-all duration-500"
             >
-              <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-6 group-hover:bg-white transition-all duration-500">
+              <div className="w-12 h-12 bg-primary/10 backdrop-blur-sm rounded-xl flex items-center justify-center text-primary mb-6 group-hover:bg-white transition-all duration-500">
                 <reason.icon className="w-6 h-6" />
               </div>
               <h3 className="text-lg font-black text-slate-900 mb-4 font-heading leading-tight group-hover:text-white">{reason.title}</h3>

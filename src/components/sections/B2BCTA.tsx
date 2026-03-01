@@ -14,7 +14,7 @@ export function B2BCTA() {
   }
 
   return (
-    <section className="py-12 md:py-24 bg-white px-4">
+    <section className="py-12 md:py-24 bg-transparent px-4">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
@@ -22,7 +22,7 @@ export function B2BCTA() {
           viewport={{ once: true }}
           className="relative rounded-[48px] bg-gradient-to-r from-primary via-[#704396] to-accent p-1 md:p-1.5 shadow-2xl shadow-primary/20 overflow-hidden"
         >
-          <div className="bg-white rounded-[44px] p-8 md:p-20 relative overflow-hidden">
+          <div className="bg-transparent rounded-[44px] p-8 md:p-20 relative overflow-hidden">
             {/* Decoration */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full -mr-32 -mt-32 blur-3xl" />
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/10 rounded-full -ml-32 -mb-32 blur-3xl" />

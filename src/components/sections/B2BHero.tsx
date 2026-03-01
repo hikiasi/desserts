@@ -125,7 +125,7 @@ export function B2BHero() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-white rounded-[40px] p-8 md:p-12 border border-slate-100 shadow-2xl shadow-slate-200/50"
+              className="bg-white/40 backdrop-blur-md rounded-[40px] p-8 md:p-12 border border-slate-100 shadow-2xl shadow-slate-200/50"
             >
               <h3 className="text-2xl font-bold text-slate-900 mb-2 font-heading">Получите прайс и условия</h3>
               <p className="text-slate-500 mb-8">Отправим за 10 минут + пробная партия со скидкой 20%</p>
@@ -133,12 +133,12 @@ export function B2BHero() {
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                 <div className="space-y-4">
                   <div>
-                    <Input placeholder="Название заведения (напр. Кафе «Сладкая жизнь»)" {...register("company")} className="h-14 rounded-2xl border-slate-100 bg-slate-50 focus:bg-white transition-all" />
+                    <Input placeholder="Название заведения (напр. Кафе «Сладкая жизнь»)" {...register("company")} className="h-14 rounded-2xl border-slate-100 bg-white/40 backdrop-blur-sm focus:bg-white transition-all" />
                     {errors.company && <p className="text-red-500 text-xs mt-1 px-2">{errors.company.message}</p>}
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <Input placeholder="Как к вам обращаться?" {...register("name")} className="h-14 rounded-2xl border-slate-100 bg-slate-50 focus:bg-white transition-all" />
+                      <Input placeholder="Как к вам обращаться?" {...register("name")} className="h-14 rounded-2xl border-slate-100 bg-white/40 backdrop-blur-sm focus:bg-white transition-all" />
                       {errors.name && <p className="text-red-500 text-xs mt-1 px-2">{errors.name.message}</p>}
                     </div>
                     <div>
@@ -149,19 +149,19 @@ export function B2BHero() {
                         onValueChange={(values) => setValue("phone", values.formattedValue)}
                         type="tel"
                         placeholder="+7 (___) ___-__-__"
-                        className="h-14 rounded-2xl border-slate-100 bg-slate-50 focus:bg-white transition-all"
+                        className="h-14 rounded-2xl border-slate-100 bg-white/40 backdrop-blur-sm focus:bg-white transition-all"
                       />
                       {errors.phone && <p className="text-red-500 text-xs mt-1 px-2">{errors.phone.message}</p>}
                     </div>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <Input placeholder="Email (опционально)" {...register("email")} className="h-14 rounded-2xl border-slate-100 bg-slate-50 focus:bg-white transition-all" />
+                      <Input placeholder="Email (опционально)" {...register("email")} className="h-14 rounded-2xl border-slate-100 bg-white/40 backdrop-blur-sm focus:bg-white transition-all" />
                       {errors.email && <p className="text-red-500 text-xs mt-1 px-2">{errors.email.message}</p>}
                     </div>
                     <div>
                       <Select onValueChange={(val) => setValue("businessType", val)}>
-                        <SelectTrigger className="h-14 rounded-2xl border-slate-100 bg-slate-50 focus:bg-white transition-all">
+                        <SelectTrigger className="h-14 rounded-2xl border-slate-100 bg-white/40 backdrop-blur-sm focus:bg-white transition-all">
                           <SelectValue placeholder="Тип бизнеса" />
                         </SelectTrigger>
                         <SelectContent>
@@ -178,7 +178,7 @@ export function B2BHero() {
                   </div>
                 </div>
                 
-                <div className="flex items-center gap-3 p-4 bg-primary/5 rounded-2xl border border-primary/10">
+                <div className="flex items-center gap-3 p-4 bg-primary/10 backdrop-blur-sm rounded-2xl border border-primary/10">
                   <Checkbox
                     id="sample-request"
                     checked={watch("sampleRequested")}

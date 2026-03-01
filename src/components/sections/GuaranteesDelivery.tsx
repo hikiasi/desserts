@@ -30,7 +30,7 @@ const DELIVERY_ZONES = [
 
 export function GuaranteesDelivery() {
   return (
-    <section id="delivery" className="py-12 md:py-24 bg-white overflow-hidden">
+    <section id="delivery" className="py-12 md:py-24 bg-transparent overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row gap-16 items-start">
           {/* Left: Content */}
@@ -46,7 +46,7 @@ export function GuaranteesDelivery() {
 
               <div className="space-y-6 mb-12">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="p-6 bg-slate-50 rounded-[32px] border border-slate-100">
+                    <div className="p-6 bg-white/60 backdrop-blur-sm rounded-[32px] border border-slate-100">
                         <div className="flex items-center gap-4 mb-4">
                             <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary">
                                 <Package className="w-5 h-5" />
@@ -69,7 +69,7 @@ export function GuaranteesDelivery() {
                         </ul>
                     </div>
 
-                    <div className="p-6 bg-slate-50 rounded-[32px] border border-slate-100">
+                    <div className="p-6 bg-white/60 backdrop-blur-sm rounded-[32px] border border-slate-100">
                         <div className="flex items-center gap-4 mb-4">
                             <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary">
                                 <CreditCard className="w-5 h-5" />
@@ -86,7 +86,7 @@ export function GuaranteesDelivery() {
 
                 <div className="p-8 bg-slate-900 rounded-[32px] text-white">
                     <div className="flex items-center gap-4 mb-6">
-                        <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center text-white">
+                        <div className="w-10 h-10 bg-transparent/10 rounded-xl flex items-center justify-center text-white">
                             <Snowflake className="w-5 h-5" />
                         </div>
                         <h3 className="font-bold font-heading">Особые условия перевозки</h3>
@@ -101,7 +101,7 @@ export function GuaranteesDelivery() {
               </div>
 
               <div className="p-8 border-2 border-dashed border-slate-100 rounded-[32px] flex items-center gap-6">
-                 <div className="w-12 h-12 bg-slate-50 rounded-full flex items-center justify-center text-slate-400 shrink-0">
+                 <div className="w-12 h-12 bg-white/40 backdrop-blur-sm rounded-full flex items-center justify-center text-slate-400 shrink-0">
                     <MapPin className="w-6 h-6" />
                  </div>
                  <div>
@@ -123,7 +123,7 @@ export function GuaranteesDelivery() {
               className="space-y-6"
             >
               {DELIVERY_ZONES.map((zone, i) => (
-                <div key={i} className="group relative p-8 rounded-[40px] bg-white border border-slate-100 shadow-xl shadow-slate-200/50 hover:border-primary transition-all duration-500 overflow-hidden">
+                <div key={i} className="group relative p-8 rounded-[40px] bg-transparent border border-slate-100 shadow-xl shadow-slate-200/50 hover:border-primary transition-all duration-500 overflow-hidden">
                     <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-full -mr-8 -mt-8 transition-all group-hover:bg-primary group-hover:scale-150 duration-700" />
 
                     <div className="flex justify-between items-start mb-6 relative z-10">

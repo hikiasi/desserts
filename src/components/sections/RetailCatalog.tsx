@@ -82,7 +82,7 @@ export function RetailCatalog() {
   }
 
   return (
-    <section id="retail-catalog" className="py-12 md:py-24 bg-white min-h-[600px]">
+    <section id="retail-catalog" className="py-12 md:py-24 bg-transparent min-h-[600px]">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -108,7 +108,7 @@ export function RetailCatalog() {
                   "px-6 py-2.5 rounded-full text-sm font-bold transition-all",
                   activeCategory === category
                     ? "bg-primary text-white shadow-lg shadow-primary/20"
-                    : "bg-slate-50 text-slate-500 hover:bg-slate-100"
+                    : "bg-white/40 backdrop-blur-sm text-slate-500 hover:bg-slate-100"
                 )}
                 aria-label={`Выбрать категорию ${category}`}
               >
@@ -121,7 +121,7 @@ export function RetailCatalog() {
         {loading && products.length === 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-pulse">
             {[...Array(6)].map((_, i) => (
-              <div key={i} className="h-[500px] bg-slate-50 rounded-[40px]" />
+              <div key={i} className="h-[500px] bg-white/40 backdrop-blur-sm rounded-[40px]" />
             ))}
           </div>
         ) : products.length === 0 ? (
@@ -145,7 +145,7 @@ export function RetailCatalog() {
                   whileHover={{ y: -8 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <Card className="h-full overflow-hidden border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 flex flex-col rounded-[40px] bg-white group">
+                  <Card className="h-full overflow-hidden border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 flex flex-col rounded-[40px] bg-transparent group">
                     <div className="relative aspect-[4/3] overflow-hidden">
                       <Image
                         src={product.image}
