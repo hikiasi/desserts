@@ -1,0 +1,151 @@
+
+> landing@0.1.0 dev
+> next dev
+
+⚠ Port 3000 is in use by an unknown process, using available port 3002 instead.
+▲ Next.js 16.1.6 (Turbopack)
+- Local:         http://localhost:3002
+- Network:       http://192.168.0.2:3002
+
+✓ Starting...
+✓ Ready in 1736ms
+○ Compiling / ...
+ GET / 200 in 8.9s (compile: 7.8s, render: 1141ms)
+ GET /api/products?type=b2b 200 in 783ms (compile: 639ms, proxy.ts: 84ms, render: 61ms)
+ GET /api/products?type=retail&category=%D0%92%D1%81%D0%B5&limit=9 200 in 641ms (compile: 537ms, proxy.ts: 18ms, render: 85ms)
+ GET /uploads/cake_napoleon.webp 404 in 1014ms (compile: 990ms, render: 24ms)
+ GET /uploads/cake_medovik.webp 404 in 1091ms (compile: 987ms, render: 104ms)
+ GET /uploads/cake_no_gluten.webp 404 in 1093ms (compile: 986ms, render: 107ms)
+⨯ The requested resource isn't a valid image for /uploads/cake_napoleon.webp received null
+⨯ The requested resource isn't a valid image for /uploads/cake_medovik.webp received null
+⨯ The requested resource isn't a valid image for /uploads/cake_no_gluten.webp received null
+ GET /uploads/profitrole_no_sugar.webp 404 in 68ms (compile: 40ms, render: 28ms)
+ GET /uploads/profitrole_strawberry.webp 404 in 69ms (compile: 44ms, render: 24ms)
+ GET /uploads/profitrole_caramel.webp 404 in 70ms (compile: 49ms, render: 21ms)
+ GET /uploads/profitrole_choco.webp 404 in 72ms (compile: 53ms, render: 19ms)
+ GET /uploads/profitrole_classic.webp 404 in 73ms (compile: 58ms, render: 15ms)
+⨯ The requested resource isn't a valid image for /uploads/profitrole_no_sugar.webp received null
+⨯ The requested resource isn't a valid image for /uploads/profitrole_strawberry.webp received null
+⨯ The requested resource isn't a valid image for /uploads/profitrole_caramel.webp received null
+⨯ The requested resource isn't a valid image for /uploads/profitrole_choco.webp received null
+⨯ The requested resource isn't a valid image for /uploads/profitrole_classic.webp received null
+ GET / 200 in 266ms (compile: 8ms, render: 258ms)
+ GET /api/products?type=retail&category=%D0%92%D1%81%D0%B5&limit=9 200 in 48ms (compile: 11ms, proxy.ts: 23ms, render: 14ms)
+ GET /api/products?type=b2b 200 in 46ms (compile: 16ms, proxy.ts: 21ms, render: 9ms)
+ GET /uploads/cake_napoleon.webp 404 in 73ms (compile: 47ms, render: 26ms)
+⨯ The requested resource isn't a valid image for /uploads/cake_napoleon.webp received null
+ GET /uploads/cake_medovik.webp 404 in 17ms (compile: 5ms, render: 11ms)
+⨯ The requested resource isn't a valid image for /uploads/cake_medovik.webp received null
+ GET /uploads/cake_no_gluten.webp 404 in 9ms (compile: 4ms, render: 5ms)
+⨯ The requested resource isn't a valid image for /uploads/cake_no_gluten.webp received null
+ GET / 200 in 318ms (compile: 8ms, render: 310ms)
+ GET /api/products?type=b2b 200 in 22ms (compile: 5ms, proxy.ts: 9ms, render: 8ms)
+ GET /api/products?type=retail&category=%D0%92%D1%81%D0%B5&limit=9 200 in 32ms (compile: 9ms, proxy.ts: 6ms, render: 17ms)
+ GET /uploads/cake_napoleon.webp 404 in 53ms (compile: 41ms, render: 13ms)
+⨯ The requested resource isn't a valid image for /uploads/cake_napoleon.webp received null
+ GET /uploads/cake_medovik.webp 404 in 12ms (compile: 6ms, render: 6ms)
+⨯ The requested resource isn't a valid image for /uploads/cake_medovik.webp received null
+ GET /uploads/cake_no_gluten.webp 404 in 10ms (compile: 5ms, render: 5ms)
+⨯ The requested resource isn't a valid image for /uploads/cake_no_gluten.webp received null
+ GET /uploads/profitrole_no_sugar.webp 404 in 54ms (compile: 43ms, render: 11ms)
+ GET /uploads/profitrole_strawberry.webp 404 in 54ms (compile: 47ms, render: 7ms)
+⨯ The requested resource isn't a valid image for /uploads/profitrole_no_sugar.webp received null
+⨯ The requested resource isn't a valid image for /uploads/profitrole_strawberry.webp received null
+ GET /uploads/profitrole_caramel.webp 404 in 87ms (compile: 56ms, render: 31ms)
+ GET /uploads/profitrole_choco.webp 404 in 88ms (compile: 59ms, render: 28ms)
+ GET /uploads/profitrole_classic.webp 404 in 88ms (compile: 63ms, render: 25ms)
+⨯ The requested resource isn't a valid image for /uploads/profitrole_choco.webp received null
+⨯ The requested resource isn't a valid image for /uploads/profitrole_caramel.webp received null
+⨯ The requested resource isn't a valid image for /uploads/profitrole_classic.webp received null
+ GET / 200 in 365ms (compile: 7ms, render: 359ms)
+ GET /api/products?type=b2b 200 in 28ms (compile: 9ms, proxy.ts: 11ms, render: 8ms)
+ GET /api/products?type=retail&category=%D0%92%D1%81%D0%B5&limit=9 200 in 39ms (compile: 7ms, proxy.ts: 11ms, render: 22ms)
+ GET /uploads/cake_napoleon.webp 404 in 43ms (compile: 37ms, render: 6ms)
+⨯ The requested resource isn't a valid image for /uploads/cake_napoleon.webp received null
+ GET /uploads/cake_medovik.webp 404 in 18ms (compile: 5ms, render: 12ms)
+⨯ The requested resource isn't a valid image for /uploads/cake_medovik.webp received null
+ GET /uploads/cake_no_gluten.webp 404 in 19ms (compile: 15ms, render: 4ms)
+⨯ The requested resource isn't a valid image for /uploads/cake_no_gluten.webp received null
+ GET / 200 in 208ms (compile: 4ms, render: 204ms)
+ GET /api/products?type=b2b 200 in 29ms (compile: 13ms, proxy.ts: 10ms, render: 5ms)
+ GET /api/products?type=retail&category=%D0%92%D1%81%D0%B5&limit=9 200 in 32ms (compile: 10ms, proxy.ts: 10ms, render: 12ms)
+ GET /uploads/cake_napoleon.webp 404 in 42ms (compile: 35ms, render: 6ms)
+⨯ The requested resource isn't a valid image for /uploads/cake_napoleon.webp received null
+ GET /uploads/cake_no_gluten.webp 404 in 14ms (compile: 3ms, render: 10ms)
+ GET /uploads/cake_medovik.webp 404 in 15ms (compile: 7ms, render: 8ms)
+⨯ The requested resource isn't a valid image for /uploads/cake_no_gluten.webp received null
+⨯ The requested resource isn't a valid image for /uploads/cake_medovik.webp received null
+ GET / 200 in 171ms (compile: 4ms, render: 167ms)
+ GET /api/products?type=b2b 200 in 27ms (compile: 9ms, proxy.ts: 8ms, render: 10ms)
+ GET /api/products?type=retail&category=%D0%92%D1%81%D0%B5&limit=9 200 in 30ms (compile: 6ms, proxy.ts: 7ms, render: 16ms)
+ GET /uploads/cake_napoleon.webp 404 in 47ms (compile: 41ms, render: 6ms)
+⨯ The requested resource isn't a valid image for /uploads/cake_napoleon.webp received null
+ GET /uploads/cake_medovik.webp 404 in 22ms (compile: 17ms, render: 5ms)
+⨯ The requested resource isn't a valid image for /uploads/cake_medovik.webp received null
+ GET /uploads/cake_no_gluten.webp 404 in 10ms (compile: 4ms, render: 6ms)
+⨯ The requested resource isn't a valid image for /uploads/cake_no_gluten.webp received null
+ GET / 200 in 184ms (compile: 5ms, render: 180ms)
+ GET /api/products?type=b2b 200 in 87ms (compile: 50ms, proxy.ts: 22ms, render: 15ms)
+ GET /api/products?type=retail&category=%D0%92%D1%81%D0%B5&limit=9 200 in 97ms (compile: 42ms, proxy.ts: 14ms, render: 41ms)
+ GET /uploads/cake_napoleon.webp 404 in 41ms (compile: 36ms, render: 5ms)
+⨯ The requested resource isn't a valid image for /uploads/cake_napoleon.webp received null
+ GET /uploads/cake_medovik.webp 404 in 9ms (compile: 5ms, render: 4ms)
+⨯ The requested resource isn't a valid image for /uploads/cake_medovik.webp received null
+ GET /uploads/cake_no_gluten.webp 404 in 15ms (compile: 10ms, render: 5ms)
+⨯ The requested resource isn't a valid image for /uploads/cake_no_gluten.webp received null
+ GET / 200 in 204ms (compile: 6ms, render: 198ms)
+ GET /api/products?type=b2b 200 in 22ms (compile: 8ms, proxy.ts: 8ms, render: 5ms)
+ GET /api/products?type=retail&category=%D0%92%D1%81%D0%B5&limit=9 200 in 25ms (compile: 6ms, proxy.ts: 8ms, render: 11ms)
+ GET /uploads/cake_napoleon.webp 404 in 48ms (compile: 38ms, render: 10ms)
+⨯ The requested resource isn't a valid image for /uploads/cake_napoleon.webp received null
+ GET /uploads/cake_medovik.webp 404 in 7ms (compile: 4ms, render: 4ms)
+⨯ The requested resource isn't a valid image for /uploads/cake_medovik.webp received null
+ GET /uploads/cake_no_gluten.webp 404 in 14ms (compile: 8ms, render: 5ms)
+⨯ The requested resource isn't a valid image for /uploads/cake_no_gluten.webp received null
+ GET / 200 in 201ms (compile: 5ms, render: 196ms)
+ GET /api/products?type=retail&category=%D0%92%D1%81%D0%B5&limit=9 200 in 25ms (compile: 6ms, proxy.ts: 8ms, render: 11ms)
+ GET /api/products?type=b2b 200 in 24ms (compile: 8ms, proxy.ts: 7ms, render: 8ms)
+ GET /uploads/cake_napoleon.webp 404 in 43ms (compile: 38ms, render: 5ms)
+⨯ The requested resource isn't a valid image for /uploads/cake_napoleon.webp received null
+ GET /uploads/cake_no_gluten.webp 404 in 10ms (compile: 2ms, render: 7ms)
+ GET /uploads/cake_medovik.webp 404 in 13ms (compile: 7ms, render: 6ms)
+⨯ The requested resource isn't a valid image for /uploads/cake_no_gluten.webp received null
+⨯ The requested resource isn't a valid image for /uploads/cake_medovik.webp received null
+ GET /uploads/profitrole_no_sugar.webp 404 in 54ms (compile: 40ms, render: 14ms)
+ GET /uploads/profitrole_strawberry.webp 404 in 55ms (compile: 44ms, render: 11ms)
+ GET /uploads/profitrole_caramel.webp 404 in 56ms (compile: 48ms, render: 8ms)
+⨯ The requested resource isn't a valid image for /uploads/profitrole_no_sugar.webp received null
+⨯ The requested resource isn't a valid image for /uploads/profitrole_strawberry.webp received null
+⨯ The requested resource isn't a valid image for /uploads/profitrole_caramel.webp received null
+ GET /uploads/profitrole_choco.webp 404 in 70ms (compile: 58ms, render: 12ms)
+ GET /uploads/profitrole_classic.webp 404 in 71ms (compile: 62ms, render: 9ms)
+⨯ The requested resource isn't a valid image for /uploads/profitrole_choco.webp received null
+⨯ The requested resource isn't a valid image for /uploads/profitrole_classic.webp received null
+ GET / 200 in 249ms (compile: 6ms, render: 243ms)
+ GET /api/products?type=retail&category=%D0%92%D1%81%D0%B5&limit=9 200 in 37ms (compile: 7ms, proxy.ts: 12ms, render: 17ms)
+ GET /api/products?type=b2b 200 in 31ms (compile: 13ms, proxy.ts: 9ms, render: 10ms)
+ GET /uploads/cake_napoleon.webp 404 in 49ms (compile: 38ms, render: 12ms)
+⨯ The requested resource isn't a valid image for /uploads/cake_napoleon.webp received null
+ GET /uploads/cake_medovik.webp 404 in 8ms (compile: 3ms, render: 5ms)
+⨯ The requested resource isn't a valid image for /uploads/cake_medovik.webp received null
+ GET /uploads/cake_no_gluten.webp 404 in 9ms (compile: 4ms, render: 5ms)
+⨯ The requested resource isn't a valid image for /uploads/cake_no_gluten.webp received null
+ GET / 200 in 216ms (compile: 6ms, render: 210ms)
+ GET /api/products?type=b2b 200 in 21ms (compile: 3ms, proxy.ts: 7ms, render: 11ms)
+ GET /api/products?type=retail&category=%D0%92%D1%81%D0%B5&limit=9 200 in 22ms (compile: 3ms, proxy.ts: 8ms, render: 12ms)
+ GET /uploads/cake_napoleon.webp 404 in 76ms (compile: 56ms, render: 20ms)
+⨯ The requested resource isn't a valid image for /uploads/cake_napoleon.webp received null
+ GET /uploads/cake_medovik.webp 404 in 12ms (compile: 7ms, render: 5ms)
+⨯ The requested resource isn't a valid image for /uploads/cake_medovik.webp received null
+ GET /uploads/cake_no_gluten.webp 404 in 14ms (compile: 4ms, render: 9ms)
+⨯ The requested resource isn't a valid image for /uploads/cake_no_gluten.webp received null
+ GET /uploads/profitrole_no_sugar.webp 404 in 59ms (compile: 38ms, render: 21ms)
+ GET /uploads/profitrole_strawberry.webp 404 in 63ms (compile: 42ms, render: 20ms)
+ GET /uploads/profitrole_caramel.webp 404 in 64ms (compile: 46ms, render: 18ms)
+⨯ The requested resource isn't a valid image for /uploads/profitrole_no_sugar.webp received null
+⨯ The requested resource isn't a valid image for /uploads/profitrole_strawberry.webp received null
+⨯ The requested resource isn't a valid image for /uploads/profitrole_caramel.webp received null
+ GET /uploads/profitrole_choco.webp 404 in 86ms (compile: 65ms, render: 21ms)
+ GET /uploads/profitrole_classic.webp 404 in 95ms (compile: 69ms, render: 26ms)
+⨯ The requested resource isn't a valid image for /uploads/profitrole_choco.webp received null
+⨯ The requested resource isn't a valid image for /uploads/profitrole_classic.webp received null

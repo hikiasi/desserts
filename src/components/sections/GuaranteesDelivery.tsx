@@ -46,7 +46,7 @@ export function GuaranteesDelivery() {
 
               <div className="space-y-6 mb-12">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="p-6 bg-white/60 backdrop-blur-sm rounded-[32px] border border-slate-100">
+                    <div className="p-6 bg-white/95 backdrop-blur-sm rounded-[32px] border border-slate-100 shadow-sm">
                         <div className="flex items-center gap-4 mb-4">
                             <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary">
                                 <Package className="w-5 h-5" />
@@ -69,7 +69,7 @@ export function GuaranteesDelivery() {
                         </ul>
                     </div>
 
-                    <div className="p-6 bg-white/60 backdrop-blur-sm rounded-[32px] border border-slate-100">
+                    <div className="p-6 bg-white/95 backdrop-blur-sm rounded-[32px] border border-slate-100 shadow-sm">
                         <div className="flex items-center gap-4 mb-4">
                             <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary">
                                 <CreditCard className="w-5 h-5" />
@@ -123,7 +123,7 @@ export function GuaranteesDelivery() {
               className="space-y-6"
             >
               {DELIVERY_ZONES.map((zone, i) => (
-                <div key={i} className="group relative p-8 rounded-[40px] bg-transparent border border-slate-100 shadow-xl shadow-slate-200/50 hover:border-primary transition-all duration-500 overflow-hidden">
+                <div key={i} className="group relative p-8 rounded-[40px] bg-white/95 backdrop-blur-sm border border-slate-100 shadow-xl shadow-slate-200/50 hover:border-primary transition-all duration-500 overflow-hidden">
                     <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-full -mr-8 -mt-8 transition-all group-hover:bg-primary group-hover:scale-150 duration-700" />
 
                     <div className="flex justify-between items-start mb-6 relative z-10">
