@@ -54,7 +54,7 @@ const CASES = [
 
 export function B2BCases() {
   return (
-    <section id="cases-section" className="py-12 md:py-24 bg-white overflow-hidden">
+    <section id="cases-section" className="py-12 md:py-24 bg-transparent overflow-hidden">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -102,11 +102,11 @@ export function B2BCases() {
               {/* Content side */}
               <div className="w-full lg:w-1/2 space-y-8">
                 <div className="space-y-4">
-                    <div className="p-6 bg-slate-50 rounded-2xl border border-slate-100">
+                    <div className="p-6 bg-white/40 backdrop-blur-sm rounded-2xl border border-slate-100">
                         <div className="text-[10px] font-black text-red-500 uppercase tracking-widest mb-2">Проблема:</div>
                         <p className="text-slate-600 text-sm italic">"{caseItem.problem}"</p>
                     </div>
-                    <div className="p-6 bg-green-50 rounded-2xl border border-green-100">
+                    <div className="p-6 bg-green-50/40 backdrop-blur-sm rounded-2xl border border-green-100">
                         <div className="text-[10px] font-black text-green-600 uppercase tracking-widest mb-2">Решение:</div>
                         <p className="text-slate-700 text-sm font-medium">"{caseItem.solution}"</p>
                     </div>
@@ -114,7 +114,7 @@ export function B2BCases() {
 
                 <div className="grid grid-cols-3 gap-4">
                   {caseItem.results.map((res, j) => (
-                    <div key={j} className="text-center p-4 rounded-2xl bg-white border border-slate-100 shadow-sm">
+                    <div key={j} className="text-center p-4 rounded-2xl bg-transparent border border-slate-100 shadow-sm">
                       <div className="text-2xl font-black text-primary mb-1">{res.value}</div>
                       <div className="text-[10px] font-black text-slate-900 uppercase tracking-tight mb-1">{res.label}</div>
                       <div className="text-[9px] text-slate-400 leading-tight uppercase">{res.desc}</div>
@@ -122,7 +122,7 @@ export function B2BCases() {
                   ))}
                 </div>
 
-                <div className="relative p-8 rounded-3xl bg-slate-50 italic text-slate-600 leading-relaxed border-l-4 border-primary">
+                <div className="relative p-8 rounded-3xl bg-white/40 backdrop-blur-sm italic text-slate-600 leading-relaxed border-l-4 border-primary">
                     "{caseItem.quote}"
                     <div className="mt-4 not-italic font-bold text-slate-900 text-sm">— {caseItem.author}</div>
                 </div>

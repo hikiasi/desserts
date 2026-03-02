@@ -15,7 +15,7 @@ export function B2BEconomy() {
   const yearlyProfit = monthlyProfit * 12
 
   return (
-    <section className="py-12 md:py-24 bg-slate-50" id="economy-section">
+    <section className="py-12 md:py-24 bg-transparent" id="economy-section">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -37,7 +37,7 @@ export function B2BEconomy() {
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="bg-white rounded-[40px] p-8 md:p-12 shadow-xl shadow-slate-200/50 border border-slate-100"
+            className="bg-white/40 backdrop-blur-md rounded-[40px] p-8 md:p-12 shadow-xl shadow-slate-200/50 border border-slate-100"
           >
             <div className="flex items-center gap-4 mb-8">
                 <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center text-primary">
@@ -117,7 +117,7 @@ export function B2BEconomy() {
             viewport={{ once: true }}
             className="flex flex-col"
           >
-            <div className="bg-white rounded-[40px] p-8 md:p-12 shadow-xl shadow-slate-200/50 border border-slate-100 flex-grow">
+            <div className="bg-white/40 backdrop-blur-md rounded-[40px] p-8 md:p-12 shadow-xl shadow-slate-200/50 border border-slate-100 flex-grow">
                 <h3 className="text-2xl font-bold mb-8 font-heading">Зачем делать десерты самим?</h3>
 
                 <div className="overflow-x-auto">
@@ -152,7 +152,7 @@ export function B2BEconomy() {
                     </table>
                 </div>
 
-                <div className="mt-8 p-6 bg-accent/20 rounded-2xl border border-accent/30 text-slate-900">
+                <div className="mt-8 p-6 bg-accent/20 backdrop-blur-sm rounded-2xl border border-accent/30 text-slate-900">
                     <div className="flex items-start gap-3">
                         <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                         <p className="text-sm leading-relaxed">

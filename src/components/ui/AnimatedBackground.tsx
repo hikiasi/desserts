@@ -11,20 +11,20 @@ export function AnimatedBackground() {
 
     const container = containerRef.current
     const bubbles: HTMLDivElement[] = []
-    const count = 12
+    const count = 16
 
     for (let i = 0; i < count; i++) {
       const bubble = document.createElement("div")
-      bubble.className = "absolute rounded-full pointer-events-none blur-[100px]"
+      bubble.className = "absolute rounded-full pointer-events-none blur-[150px]"
 
-      const size = Math.random() * 400 + 200
+      const size = Math.random() * 600 + 300
       bubble.style.width = `${size}px`
       bubble.style.height = `${size}px`
 
-      // Dessert palette colors
-      const colors = ["#ff136e", "#704396", "#fcf84e", "#ff8eba"]
+      // Expanded dessert palette colors
+      const colors = ["#ff136e", "#704396", "#fcf84e", "#ff8eba", "#ffecf3", "#f3e8ff"]
       bubble.style.background = colors[i % colors.length]
-      bubble.style.opacity = "0.08"
+      bubble.style.opacity = (Math.random() * 0.03 + 0.02).toString() // Very subtle: 0.02 - 0.05
 
       container.appendChild(bubble)
       bubbles.push(bubble)
@@ -32,18 +32,30 @@ export function AnimatedBackground() {
       gsap.set(bubble, {
         x: Math.random() * window.innerWidth,
         y: Math.random() * window.innerHeight,
+        scale: Math.random() * 0.5 + 0.75,
       })
 
       animateBubble(bubble)
+      pulseBubble(bubble)
     }
 
     function animateBubble(el: HTMLDivElement) {
       gsap.to(el, {
         x: Math.random() * window.innerWidth,
         y: Math.random() * window.innerHeight,
-        duration: Math.random() * 20 + 20,
+        duration: Math.random() * 30 + 30, // Slower movement
         ease: "sine.inOut",
         onComplete: () => animateBubble(el)
+      })
+    }
+
+    function pulseBubble(el: HTMLDivElement) {
+      gsap.to(el, {
+        scale: Math.random() * 0.4 + 1.1,
+        duration: Math.random() * 5 + 5,
+        yoyo: true,
+        repeat: -1,
+        ease: "sine.inOut"
       })
     }
 
@@ -69,7 +81,7 @@ export function AnimatedBackground() {
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 z-0 overflow-hidden pointer-events-none"
+      className="fixed inset-0 z-[-1] overflow-hidden pointer-events-none bg-white"
     />
   )
 }

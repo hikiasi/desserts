@@ -28,7 +28,7 @@ const DOCS = [
 
 export function B2BDocuments() {
   return (
-    <section className="py-12 md:py-24 bg-white">
+    <section className="py-12 md:py-24 bg-transparent">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -49,9 +49,9 @@ export function B2BDocuments() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="p-8 rounded-3xl bg-slate-50 border border-slate-100 flex flex-col items-center text-center group hover:bg-white hover:shadow-xl transition-all"
+              className="p-8 rounded-3xl bg-white/40 backdrop-blur-sm border border-slate-100 flex flex-col items-center text-center group hover:bg-transparent hover:shadow-xl transition-all"
             >
-              <div className="w-16 h-16 bg-white rounded-2xl shadow-sm flex items-center justify-center text-sky-600 mb-6 group-hover:bg-sky-600 group-hover:text-white transition-all">
+              <div className="w-16 h-16 bg-transparent rounded-2xl shadow-sm flex items-center justify-center text-sky-600 mb-6 group-hover:bg-sky-600 group-hover:text-white transition-all">
                 <doc.icon className="w-8 h-8" />
               </div>
               <h3 className="text-sm font-bold text-slate-900 mb-3">{doc.title}</h3>
@@ -78,7 +78,7 @@ export function B2BDocuments() {
           <p className="text-slate-400 text-sm mb-4 italic">
             К каждой поставке прикладываем: ВЕТСД, товарная накладная ТОРГ-12, счёт-фактура (для плательщиков НДС).
           </p>
-          <div className="h-px bg-white/10 w-24 mx-auto mb-6" />
+          <div className="h-px bg-transparent/10 w-24 mx-auto mb-6" />
           <h4 className="text-xl font-bold">
             Работаем по <span className="text-sky-400">44-ФЗ и 223-ФЗ</span> (госзакупки)
           </h4>

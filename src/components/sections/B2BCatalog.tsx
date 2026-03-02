@@ -61,7 +61,7 @@ export function B2BCatalog() {
           {products.length > 0 ? (
             <Accordion type="multiple" defaultValue={categories.slice(0, 1)} className="space-y-4">
               {categories.map((cat, i) => (
-                <AccordionItem key={i} value={cat} className="bg-white border border-slate-100 rounded-[32px] px-8 shadow-xl shadow-slate-200/50 overflow-hidden transition-all duration-300">
+                <AccordionItem key={i} value={cat} className="bg-white/60 backdrop-blur-sm border border-slate-100 rounded-[32px] px-8 shadow-xl shadow-slate-200/50 overflow-hidden transition-all duration-300">
                   <AccordionTrigger className="hover:no-underline py-8">
                     <span className="text-2xl font-black text-slate-900 font-heading">{cat}</span>
                   </AccordionTrigger>
@@ -88,7 +88,7 @@ export function B2BCatalog() {
                         </tbody>
                       </table>
                     </div>
-                    <div className="mt-8 p-6 bg-slate-50 rounded-2xl border border-slate-100">
+                    <div className="mt-8 p-6 bg-white/40 backdrop-blur-sm rounded-2xl border border-slate-100">
                         <p className="text-sm text-slate-600 leading-relaxed italic">
                             <b>Примечание:</b> {cat === 'Профитроли' ? 'Наш хит! Срок хранения 180 дней. Разморозка 2-3 часа.' : cat === 'ЗОЖ-линейка' ? 'Тренд 2026 года! Увеличивает охват аудитории на 30%.' : 'Классические вкусы, которые всегда в спросе.'}
                         </p>

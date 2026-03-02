@@ -47,7 +47,7 @@ const TESTIMONIALS = [
 
 export function Testimonials() {
   return (
-    <section id="testimonials" className="py-12 md:py-24 bg-white overflow-hidden">
+    <section id="testimonials" className="py-12 md:py-24 bg-transparent overflow-hidden">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -74,7 +74,7 @@ export function Testimonials() {
             <CarouselContent className="-ml-4">
               {TESTIMONIALS.map((t, i) => (
                 <CarouselItem key={i} className="pl-4 md:basis-1/2 lg:basis-1/3">
-                  <div className="h-full bg-slate-50 p-8 rounded-[40px] border border-slate-100 flex flex-col relative group hover:bg-white hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500">
+                  <div className="h-full bg-white/60 backdrop-blur-sm p-8 rounded-[40px] border border-slate-100 flex flex-col relative group hover:bg-transparent hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500">
                     <Quote className="absolute top-8 right-8 w-12 h-12 text-primary/10 group-hover:text-primary/20 transition-colors" />
 
                     <div className="flex gap-1 mb-6">
@@ -91,7 +91,7 @@ export function Testimonials() {
                     </p>
 
                     <div className="flex items-center gap-4 pt-6 border-t border-slate-100">
-                        <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-primary font-black shadow-sm border border-slate-100">
+                        <div className="w-12 h-12 bg-transparent rounded-full flex items-center justify-center text-primary font-black shadow-sm border border-slate-100">
                             {t.name[0]}
                         </div>
                         <div>

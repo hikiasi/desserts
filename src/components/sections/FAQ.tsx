@@ -54,7 +54,7 @@ const FAQS = [
 
 export function FAQ() {
   return (
-    <section id="faq-section" className="py-12 md:py-24 bg-slate-50 overflow-hidden">
+    <section id="faq-section" className="py-12 md:py-24 bg-transparent overflow-hidden">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -73,7 +73,7 @@ export function FAQ() {
         <div className="max-w-3xl mx-auto mb-16">
           <Accordion type="single" collapsible className="space-y-4">
             {FAQS.map((faq, i) => (
-              <AccordionItem key={i} value={`item-${i}`} className="bg-white border border-slate-100 rounded-[24px] px-8 shadow-sm overflow-hidden">
+              <AccordionItem key={i} value={`item-${i}`} className="bg-white/60 backdrop-blur-sm border border-slate-100 rounded-[24px] px-8 shadow-sm overflow-hidden">
                 <AccordionTrigger className="text-left font-bold text-slate-900 hover:no-underline py-6">
                   {faq.question}
                 </AccordionTrigger>
@@ -90,7 +90,7 @@ export function FAQ() {
             <div className="flex flex-wrap justify-center gap-4">
                 <a
                     href="tel:+79114864797"
-                    className="flex items-center gap-3 px-8 h-14 bg-white rounded-2xl border border-slate-100 font-bold text-slate-900 shadow-xl shadow-slate-200/50 hover:bg-slate-50 transition-all"
+                    className="flex items-center gap-3 px-8 h-14 bg-white/60 backdrop-blur-sm rounded-2xl border border-slate-100 font-bold text-slate-900 shadow-xl shadow-slate-200/50 hover:bg-slate-50 transition-all"
                 >
                     <Phone className="w-5 h-5 text-primary" />
                     +7 (911) 486-47-97

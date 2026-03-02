@@ -52,7 +52,7 @@ const B2B_STEPS = [
 
 export function B2BProcess() {
   return (
-    <section className="py-12 md:py-24 bg-white overflow-hidden">
+    <section className="py-12 md:py-24 bg-transparent overflow-hidden">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -76,12 +76,12 @@ export function B2BProcess() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="relative p-8 rounded-[32px] bg-slate-50 border border-slate-100 group hover:bg-white hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 flex flex-col h-full"
+              className="relative p-8 rounded-[32px] bg-white/40 backdrop-blur-sm border border-slate-100 group hover:bg-transparent hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 flex flex-col h-full"
             >
               <div className="absolute top-8 right-8 text-[10px] font-black text-primary uppercase tracking-[0.2em]">
                 {step.time}
               </div>
-              <div className="w-16 h-16 bg-white rounded-2xl shadow-sm flex items-center justify-center text-primary mb-8 group-hover:bg-primary group-hover:text-white transition-all duration-500">
+              <div className="w-16 h-16 bg-transparent rounded-2xl shadow-sm flex items-center justify-center text-primary mb-8 group-hover:bg-primary group-hover:text-white transition-all duration-500">
                 <step.icon className="w-8 h-8" />
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-6 font-heading leading-tight">{step.title}</h3>
@@ -107,7 +107,7 @@ export function B2BProcess() {
           viewport={{ once: true }}
           className="max-w-4xl mx-auto p-8 bg-primary rounded-[32px] text-white flex flex-col md:flex-row items-center gap-8 shadow-2xl shadow-primary/20"
         >
-          <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center text-white shrink-0">
+          <div className="w-16 h-16 bg-transparent/10 rounded-full flex items-center justify-center text-white shrink-0">
             <ShieldCheck className="w-8 h-8" />
           </div>
           <div>
