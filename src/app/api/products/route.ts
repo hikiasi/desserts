@@ -16,7 +16,13 @@ export async function GET(req: NextRequest) {
     } else {
       const where: any = {}
       if (category && category !== "Все") {
-        where.category = category
+        if (category === "Хиты продаж") {
+          where.isHit = true
+        } else if (category === "Новинки") {
+          where.isNew = true
+        } else {
+          where.category = category
+        }
       }
 
       const products = await prisma.product.findMany({
