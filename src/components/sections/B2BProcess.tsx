@@ -76,7 +76,7 @@ export function B2BProcess() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="relative p-8 rounded-[32px] bg-white/40 backdrop-blur-sm border border-slate-100 group hover:bg-transparent hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 flex flex-col h-full"
+              className="relative p-8 rounded-[32px] bg-white/95 backdrop-blur-sm border border-slate-100 group hover:bg-white hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 flex flex-col h-full shadow-sm"
             >
               <div className="absolute top-8 right-8 text-[10px] font-black text-primary uppercase tracking-[0.2em]">
                 {step.time}

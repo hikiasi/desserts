@@ -20,22 +20,22 @@ export function B2BCTA() {
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="relative rounded-[48px] bg-gradient-to-r from-primary via-[#704396] to-accent p-1 md:p-1.5 shadow-2xl shadow-primary/20 overflow-hidden"
+          className="relative rounded-[48px] bg-gradient-to-r from-primary via-[#704396] to-accent p-0.5 md:p-1 shadow-2xl shadow-primary/20 overflow-hidden"
         >
-          <div className="bg-transparent rounded-[44px] p-8 md:p-20 relative overflow-hidden">
+          <div className="bg-white/95 backdrop-blur-sm rounded-[46px] p-8 md:p-16 relative overflow-hidden">
             {/* Decoration */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full -mr-32 -mt-32 blur-3xl" />
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/10 rounded-full -ml-32 -mb-32 blur-3xl" />
 
             <div className="flex flex-col lg:flex-row items-center gap-16 relative z-10">
-              <div className="lg:w-1/2 text-center lg:text-left">
-                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mb-8 mx-auto lg:ml-0">
-                  <Cake className="w-8 h-8" />
+              <div className="lg:w-7/12 text-center lg:text-left">
+                <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mb-6 mx-auto lg:ml-0">
+                  <Cake className="w-7 h-7" />
                 </div>
-                <h2 className="text-3xl md:text-6xl font-black text-slate-900 mb-6 font-heading leading-tight">
+                <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 mb-6 font-heading leading-[1.1]">
                   Начните зарабатывать на десертах <span className="text-primary underline decoration-accent underline-offset-8">уже завтра</span>
                 </h2>
-                <p className="text-xl text-slate-500 mb-10 leading-relaxed max-w-xl">
+                <p className="text-lg md:text-xl text-slate-600 mb-10 leading-relaxed max-w-2xl">
                   Пробная партия со скидкой 20% + консультация по запуску десертов в вашем меню. Риск равен нулю — результат виден сразу.
                 </p>
 

@@ -98,11 +98,11 @@ export function B2BEconomy() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
+                <div className="bg-white/5 p-4 rounded-2xl">
                     <div className="text-[10px] text-primary font-black uppercase tracking-widest mb-1">Прибыль в месяц:</div>
                     <div className="text-4xl font-black">{monthlyProfit.toLocaleString()} ₽</div>
                 </div>
-                <div>
+                <div className="bg-white/5 p-4 rounded-2xl">
                     <div className="text-[10px] text-primary font-black uppercase tracking-widest mb-1">Годовая выгода:</div>
                     <div className="text-4xl font-black text-primary">{(yearlyProfit / 1000000).toFixed(1)} млн ₽</div>
                 </div>
@@ -121,11 +121,11 @@ export function B2BEconomy() {
                 <h3 className="text-2xl font-bold mb-8 font-heading">Зачем делать десерты самим?</h3>
 
                 <div className="overflow-x-auto">
-                    <table className="w-full text-left">
+                    <table className="w-full text-left border-collapse">
                         <thead>
                             <tr className="border-b border-slate-100">
-                                <th className="pb-4 text-[10px] font-black text-slate-400 uppercase tracking-widest">Параметр</th>
-                                <th className="pb-4 text-[10px] font-black text-slate-400 uppercase tracking-widest">Собственное пр-во</th>
+                                <th className="pb-4 pr-4 text-[10px] font-black text-slate-400 uppercase tracking-widest">Параметр</th>
+                                <th className="pb-4 pr-4 text-[10px] font-black text-slate-400 uppercase tracking-widest">Собственное пр-во</th>
                                 <th className="pb-4 text-[10px] font-black text-primary uppercase tracking-widest">Наши десерты</th>
                             </tr>
                         </thead>
@@ -139,8 +139,8 @@ export function B2BEconomy() {
                                 { label: "Сертификаты", self: "Нужны свои", we: "Уже есть у нас" },
                             ].map((row, i) => (
                                 <tr key={i} className="text-sm">
-                                    <td className="py-4 font-bold text-slate-900">{row.label}</td>
-                                    <td className="py-4 text-slate-400">{row.self}</td>
+                                    <td className="py-4 pr-4 font-bold text-slate-900 leading-tight">{row.label}</td>
+                                    <td className="py-4 pr-4 text-slate-500">{row.self}</td>
                                     <td className="py-4 text-primary font-bold">
                                         <div className="flex items-center gap-1">
                                             <Check className="w-4 h-4" /> {row.we}
@@ -152,7 +152,7 @@ export function B2BEconomy() {
                     </table>
                 </div>
 
-                <div className="mt-8 p-6 bg-accent/20 backdrop-blur-sm rounded-2xl border border-accent/30 text-slate-900">
+                <div className="mt-8 p-6 bg-white/80 backdrop-blur-sm rounded-2xl border border-accent/30 text-slate-900 shadow-sm">
                     <div className="flex items-start gap-3">
                         <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                         <p className="text-sm leading-relaxed">
