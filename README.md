@@ -24,7 +24,7 @@
 ## 🛠 Технологический стек
 
 - **Frontend:** Next.js 15 (App Router), React 19, Tailwind CSS, shadcn/ui.
-- **Animations:** GSAP, Framer Motion.
+- **Animations:** Framer Motion (производительные анимации для мобильных устройств).
 - **Backend:** Next.js API Routes, Prisma ORM.
 - **Database:** SQLite (локальное хранилище для максимальной скорости).
 - **Validation:** Zod, React Hook Form.

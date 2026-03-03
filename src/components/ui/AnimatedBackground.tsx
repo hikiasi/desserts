@@ -1,87 +1,116 @@
 "use client"
 
-import { useEffect, useRef } from "react"
-import gsap from "gsap"
+import { useEffect, useState, useMemo } from "react"
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion"
+
+const COLORS = ["#ff136e", "#704396", "#fcf84e", "#ff8eba", "#ffecf3", "#f3e8ff"]
+const BUBBLE_COUNT = 12
 
 export function AnimatedBackground() {
-  const containerRef = useRef<HTMLDivElement>(null)
+  const [windowSize, setWindowSize] = useState({ width: 0, height: 0 })
+  const mouseX = useMotionValue(0)
+  const mouseY = useMotionValue(0)
+
+  // Use springs for smooth mouse-reactive movement
+  const springX = useSpring(mouseX, { damping: 50, stiffness: 200 })
+  const springY = useSpring(mouseY, { damping: 50, stiffness: 200 })
 
   useEffect(() => {
-    if (!containerRef.current) return
-
-    const container = containerRef.current
-    const bubbles: HTMLDivElement[] = []
-    const count = 16
-
-    for (let i = 0; i < count; i++) {
-      const bubble = document.createElement("div")
-      bubble.className = "absolute rounded-full pointer-events-none blur-[150px]"
-
-      const size = Math.random() * 600 + 300
-      bubble.style.width = `${size}px`
-      bubble.style.height = `${size}px`
-
-      // Expanded dessert palette colors
-      const colors = ["#ff136e", "#704396", "#fcf84e", "#ff8eba", "#ffecf3", "#f3e8ff"]
-      bubble.style.background = colors[i % colors.length]
-      bubble.style.opacity = (Math.random() * 0.03 + 0.02).toString() // Very subtle: 0.02 - 0.05
-
-      container.appendChild(bubble)
-      bubbles.push(bubble)
-
-      gsap.set(bubble, {
-        x: Math.random() * window.innerWidth,
-        y: Math.random() * window.innerHeight,
-        scale: Math.random() * 0.5 + 0.75,
-      })
-
-      animateBubble(bubble)
-      pulseBubble(bubble)
+    const updateSize = () => {
+      setWindowSize({ width: window.innerWidth, height: window.innerHeight })
     }
 
-    function animateBubble(el: HTMLDivElement) {
-      gsap.to(el, {
-        x: Math.random() * window.innerWidth,
-        y: Math.random() * window.innerHeight,
-        duration: Math.random() * 30 + 30, // Slower movement
-        ease: "sine.inOut",
-        onComplete: () => animateBubble(el)
-      })
-    }
-
-    function pulseBubble(el: HTMLDivElement) {
-      gsap.to(el, {
-        scale: Math.random() * 0.4 + 1.1,
-        duration: Math.random() * 5 + 5,
-        yoyo: true,
-        repeat: -1,
-        ease: "sine.inOut"
-      })
-    }
+    updateSize()
+    window.addEventListener("resize", updateSize)
 
     const handleMouseMove = (e: MouseEvent) => {
-      bubbles.forEach((bubble, i) => {
-        gsap.to(bubble, {
-          x: `+=${(e.clientX - window.innerWidth / 2) * 0.01 * (i + 1) / count}`,
-          y: `+=${(e.clientY - window.innerHeight / 2) * 0.01 * (i + 1) / count}`,
-          duration: 2,
-          ease: "power2.out"
-        })
-      })
+      // Normalize mouse position from -0.5 to 0.5
+      mouseX.set((e.clientX / window.innerWidth) - 0.5)
+      mouseY.set((e.clientY / window.innerHeight) - 0.5)
     }
 
     window.addEventListener("mousemove", handleMouseMove)
 
     return () => {
+      window.removeEventListener("resize", updateSize)
       window.removeEventListener("mousemove", handleMouseMove)
-      if (container) container.innerHTML = ""
     }
+  }, [mouseX, mouseY])
+
+  // Memoize bubbles to prevent regeneration on every render
+  const bubbles = useMemo(() => {
+    return Array.from({ length: BUBBLE_COUNT }).map((_, i) => ({
+      id: i,
+      size: Math.random() * 500 + 300,
+      color: COLORS[i % COLORS.length],
+      initialX: Math.random() * 100, // percentage
+      initialY: Math.random() * 100, // percentage
+      duration: Math.random() * 20 + 20,
+      delay: Math.random() * -20,
+      scaleDuration: Math.random() * 5 + 5,
+      // Reactivity multiplier: bubbles move differently based on their index
+      multiplier: (i + 1) * 20
+    }))
   }, [])
 
+  if (windowSize.width === 0) return <div className="fixed inset-0 z-[-1] bg-white" />
+
   return (
-    <div
-      ref={containerRef}
-      className="fixed inset-0 z-[-1] overflow-hidden pointer-events-none bg-white"
+    <div className="fixed inset-0 z-[-1] overflow-hidden pointer-events-none bg-white">
+      {bubbles.map((bubble) => (
+        <Bubble
+          key={bubble.id}
+          {...bubble}
+          springX={springX}
+          springY={springY}
+        />
+      ))}
+    </div>
+  )
+}
+
+function Bubble({ size, color, initialX, initialY, duration, delay, scaleDuration, multiplier, springX, springY }: any) {
+  // Transform mouse spring values to pixel offsets for this specific bubble
+  const moveX = useTransform(springX, (v: number) => v * multiplier)
+  const moveY = useTransform(springY, (v: number) => v * multiplier)
+
+  return (
+    <motion.div
+      className="absolute rounded-full blur-[120px]"
+      style={{
+        width: size,
+        height: size,
+        backgroundColor: color,
+        left: `${initialX}%`,
+        top: `${initialY}%`,
+        x: moveX,
+        y: moveY,
+        opacity: 0.04,
+      }}
+      animate={{
+        // Slow floating movement
+        x: [0, Math.random() * 100 - 50, 0],
+        y: [0, Math.random() * 100 - 50, 0],
+        // Pulsing scale
+        scale: [1, 1.2, 1],
+      }}
+      transition={{
+        x: {
+          duration: duration,
+          repeat: Infinity,
+          ease: "easeInOut",
+        },
+        y: {
+          duration: duration + 5,
+          repeat: Infinity,
+          ease: "easeInOut",
+        },
+        scale: {
+          duration: scaleDuration,
+          repeat: Infinity,
+          ease: "easeInOut",
+        },
+      }}
     />
   )
 }

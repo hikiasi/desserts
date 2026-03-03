@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Send, ShoppingCart, X, Plus, Minus, Trash2, Cake } from "lucide-react"
 import { useCart } from "@/context/CartContext"
 import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
@@ -31,7 +32,7 @@ const exitFormSchema = z.object({
 type ExitFormValues = z.infer<typeof exitFormSchema>
 
 export function StickyFeatures() {
-  const { cart, totalItems, totalPrice, addToCart, decrementQuantity, removeFromCart, isCartOpen, setIsCartOpen } = useCart()
+  const { cart, totalItems, totalPrice, isWholesale, isTrial, addToCart, decrementQuantity, removeFromCart, isCartOpen, setIsCartOpen } = useCart()
   const [showExitPopup, setShowExitPopup] = useState(false)
   const [hasShownExitPopup, setHasShownExitPopup] = useState(false)
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false)
@@ -126,7 +127,16 @@ export function StickyFeatures() {
                         <h4 className="font-bold text-slate-900 text-sm mb-1 leading-tight pr-6">{item.name}</h4>
                         <div className="text-[10px] text-slate-400 uppercase tracking-widest mb-3">{item.weight}</div>
                         <div className="flex items-center justify-between">
-                          <div className="font-bold text-primary">{item.price} ₽</div>
+                          <div className="flex flex-col">
+                            <div className={cn("font-bold", isWholesale ? "text-slate-400 text-xs line-through" : "text-primary")}>
+                              {item.price} ₽
+                            </div>
+                            {isWholesale && (
+                              <div className="font-bold text-primary">
+                                {item.price - 15} ₽
+                              </div>
+                            )}
+                          </div>
                           <div className="flex items-center gap-3 bg-white rounded-lg border border-slate-200 p-1">
                             <button className="w-6 h-6 flex items-center justify-center text-slate-400 hover:text-primary" onClick={() => decrementQuantity(item.id)} aria-label="Уменьшить количество">
                               <Minus className="w-3 h-3" />
@@ -167,10 +177,18 @@ export function StickyFeatures() {
                     </div>
                   </div>
                 )}
-                <div className="flex justify-between items-end mb-8">
-                  <div>
-                    <div className="text-slate-400 text-xs uppercase tracking-widest mb-1">Итого к оплате:</div>
-                    <div className="text-3xl font-extrabold text-slate-900">{totalPrice.toLocaleString()} ₽</div>
+                <div className="flex flex-col gap-2 mb-8">
+                  {isTrial && (
+                    <div className="flex justify-between items-center bg-green-50 p-3 rounded-xl border border-green-100">
+                      <div className="text-[10px] text-green-700 font-bold uppercase tracking-widest">Пробная скидка 20%</div>
+                      <div className="text-xs font-black text-green-700">АКТИВНА</div>
+                    </div>
+                  )}
+                  <div className="flex justify-between items-end">
+                    <div>
+                      <div className="text-slate-400 text-xs uppercase tracking-widest mb-1">Итого к оплате:</div>
+                      <div className="text-3xl font-extrabold text-slate-900">{totalPrice.toLocaleString()} ₽</div>
+                    </div>
                   </div>
                 </div>
                 <Button

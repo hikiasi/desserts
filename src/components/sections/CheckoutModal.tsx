@@ -39,7 +39,7 @@ interface CheckoutModalProps {
 }
 
 export function CheckoutModal({ isOpen, onClose, type }: CheckoutModalProps) {
-  const { cart, totalPrice, clearCart, totalItems } = useCart()
+  const { cart, totalPrice, clearCart, totalItems, isWholesale, isTrial } = useCart()
   const { register, handleSubmit, formState: { errors, isSubmitting }, reset, setValue, watch } = useForm<CheckoutValues>({
     resolver: zodResolver(checkoutSchema),
     defaultValues: { agree: true, businessType: "Частное лицо" }
@@ -95,7 +95,6 @@ export function CheckoutModal({ isOpen, onClose, type }: CheckoutModalProps) {
           {type === "CART" && cart.length > 0 && (
             <div className="max-h-40 overflow-y-auto space-y-2 mb-4 pr-2 bg-slate-50 p-4 rounded-2xl border border-slate-100">
               {cart.map((item, idx) => {
-                const isWholesale = totalItems >= 20
                 const itemPrice = isWholesale ? (item.price - 15) : item.price
                 return (
                   <div key={idx} className="flex justify-between text-xs">
@@ -108,9 +107,14 @@ export function CheckoutModal({ isOpen, onClose, type }: CheckoutModalProps) {
                 <span>Итого:</span>
                 <span>{totalPrice.toLocaleString()} ₽</span>
               </div>
-              {totalItems >= 20 && (
+              {isWholesale && (
                 <div className="text-[10px] text-green-600 font-bold uppercase tracking-tight text-right mt-1">
-                   Применена оптовая скидка
+                   Применена оптовая скидка (-15₽/шт)
+                </div>
+              )}
+              {isTrial && (
+                <div className="text-[10px] text-green-600 font-bold uppercase tracking-tight text-right mt-1">
+                   Применена пробная скидка 20%
                 </div>
               )}
             </div>
