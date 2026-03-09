@@ -189,7 +189,7 @@ export function RetailCatalog() {
                           <CheckCircle2 className="w-4 h-4 text-primary" /> Натуральный состав
                         </div>
                         <div className="flex items-center gap-2 text-[10px] text-slate-500 font-bold uppercase tracking-tight">
-                          <TrendingUp className="w-4 h-4 text-primary" /> Маржа до 150%
+                          <TrendingUp className="w-4 h-4 text-primary" /> Маржа до 100%
                         </div>
                       </div>
 
@@ -204,7 +204,7 @@ export function RetailCatalog() {
                       </div>
 
                       <div className="mt-4 text-[10px] text-slate-400 italic">
-                        💰 <b>Ваша выгода:</b> Закупка {Math.round(product.price * 0.85)}₽ → Продажа 450-500₽ → Маржа от 175₽
+                        💰 <b>Ваша выгода:</b> Закупка 165₽ → Продажа 240-350₽ → Наценка до 50%
                       </div>
                     </CardContent>
 

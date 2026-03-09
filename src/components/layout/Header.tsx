@@ -33,8 +33,8 @@ export function Header() {
   const navItems = [
     { label: "Каталог", onClick: scrollToCatalog },
     { label: "Для бизнеса", onClick: scrollToB2B },
-    { label: "Отзывы", onClick: () => {
-      document.getElementById('testimonials')?.scrollIntoView({ behavior: 'smooth' })
+    { label: "Кейсы", onClick: () => {
+      document.getElementById('cases-section')?.scrollIntoView({ behavior: 'smooth' })
       setIsMobileMenuOpen(false)
     }},
     { label: "Доставка", onClick: () => {

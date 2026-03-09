@@ -36,7 +36,7 @@ export function Footer() {
                 { name: "Каталог десертов", href: "/#retail-catalog" },
                 { name: "Для бизнеса", href: "/#b2b-hero" },
                 { name: "Доставка и оплата", href: "/#delivery" },
-                { name: "Отзывы клиентов", href: "/#testimonials" },
+                { name: "Кейсы клиентов", href: "/#cases-section" },
               ].map((item, i) => (
                 <li key={i}>
                   <a href={item.href} className="text-sm text-slate-500 hover:text-sky-600 transition-colors">{item.name}</a>

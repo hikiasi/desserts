@@ -7,9 +7,9 @@ import { Button } from "@/components/ui/button"
 
 export function B2BEconomy() {
   const [dailySales, setDailySales] = useState(20)
-  const [salePrice, setSalePrice] = useState(450)
+  const [salePrice, setSalePrice] = useState(240)
 
-  const purchasePrice = 275 // average wholesale price
+  const purchasePrice = 165 // average wholesale price
   const dailyProfit = (salePrice - purchasePrice) * dailySales
   const monthlyProfit = dailyProfit * 30
   const yearlyProfit = monthlyProfit * 12
@@ -73,9 +73,9 @@ export function B2BEconomy() {
                 <input
                   id="sale-price"
                   type="range"
-                  min="300"
-                  max="600"
-                  step="10"
+                  min="165"
+                  max="500"
+                  step="5"
                   value={salePrice}
                   onChange={(e) => setSalePrice(parseInt(e.target.value))}
                   className="w-full h-3 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-primary"
@@ -156,7 +156,7 @@ export function B2BEconomy() {
                     <div className="flex items-start gap-3">
                         <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                         <p className="text-sm leading-relaxed">
-                            <span className="font-bold">ИТОГО:</span> Вы экономите 60 000₽ зарплаты + 0 брак + 4 часа времени в день. <span className="font-bold">Чистая выгода: +45 000₽/мес</span> + освобождённое время на развитие бизнеса.
+                            <span className="font-bold">ИТОГО:</span> При наценке 50% и продажах 20 порций в день вы получаете <span className="font-bold">чистую выгоду 45 000₽/мес</span>, экономя на зарплате кондитера и списаниях.
                         </p>
                     </div>
                 </div>
