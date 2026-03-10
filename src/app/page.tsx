@@ -58,9 +58,9 @@ export default function Home() {
           <B2BCatalog />
         </Suspense>
 
-        <Suspense fallback={<div>Загрузка...</div>}>
+        {/* <Suspense fallback={<div>Загрузка...</div>}>
           <B2BProcess />
-        </Suspense>
+        </Suspense> */}
 
         <Suspense fallback={<div>Загрузка...</div>}>
           <B2BCases />
