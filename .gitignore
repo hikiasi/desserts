@@ -26,6 +26,8 @@ next-env.d.ts
 
 node_modules
 dev.db
+prisma/db.sqlite
+npm_output.log
 .next
 .DS_Store
 test-results/

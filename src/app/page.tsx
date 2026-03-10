@@ -41,8 +41,6 @@ export default function Home() {
       <AnimatedBackground />
       <Header />
       
-      {/* <HeroSplitter /> */}
-      
       <div id="main-content">
         <Suspense fallback={<div>Загрузка...</div>}>
           <B2BHero />
@@ -50,10 +48,6 @@ export default function Home() {
 
         <Suspense fallback={<div>Загрузка...</div>}>
           <RetailCatalog />
-        </Suspense>
-
-        <Suspense fallback={<div>Загрузка...</div>}>
-          <WhyUs />
         </Suspense>
 
         <Suspense fallback={<div>Загрузка...</div>}>
@@ -72,16 +66,8 @@ export default function Home() {
           <B2BCases />
         </Suspense>
 
-        {/* <Suspense fallback={<div>Загрузка...</div>}>
-          <B2BDocuments />
-        </Suspense> */}
-
         <Suspense fallback={<div>Загрузка...</div>}>
           <GuaranteesDelivery />
-        </Suspense>
-
-        <Suspense fallback={<div>Загрузка...</div>}>
-          <Testimonials />
         </Suspense>
 
         <Suspense fallback={<div>Загрузка...</div>}>
