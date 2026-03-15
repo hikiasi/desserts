@@ -71,7 +71,7 @@ export function Header() {
             <Cake className="w-6 h-6" />
           </div>
           <div className={cn("hidden sm:block font-bold transition-colors font-heading", isScrolled ? "text-slate-900" : "text-primary")}>
-            Замороженные десерты
+            Ледяной десерт
           </div>
         </div>
 

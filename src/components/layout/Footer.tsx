@@ -13,7 +13,7 @@ export function Footer() {
               <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white shadow-lg shadow-primary/20">
                 <Cake className="w-6 h-6" />
               </div>
-              <span className="font-bold text-xl text-slate-900 font-heading">Десерты</span>
+              <span className="font-bold text-xl text-slate-900 font-heading">Ледяной десерт</span>
             </div>
             <p className="text-slate-500 text-sm leading-relaxed">
               Официальный дистрибьютор премиальных замороженных десертов в Калининграде. Прямые поставки от производителя.
@@ -67,7 +67,7 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="w-4 h-4 text-primary mt-1" />
-                <a href="mailto:info@desserts-kaliningrad.ru" className="text-sm text-slate-500 hover:text-primary transition-colors">info@desserts-kaliningrad.ru</a>
+                <a href="mailto:tim21-liz30@yandex.ru" className="text-sm text-slate-500 hover:text-primary transition-colors">tim21-liz30@yandex.ru</a>
               </li>
             </ul>
           </div>
@@ -99,7 +99,7 @@ export function Footer() {
 
         <div className="pt-8 border-t border-slate-50 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-xs text-slate-400">
-            © {new Date().getFullYear()} Замороженные десерты в Калининграде. Все права защищены.
+            © {new Date().getFullYear()} Ледяной десерт в Калининграде. Все права защищены.
           </div>
           <div className="flex items-center gap-4 text-[10px] text-slate-300 font-bold uppercase tracking-widest">
             47 ПАРТНЁРОВ В ГОРОДЕ И ОБЛАСТИ
