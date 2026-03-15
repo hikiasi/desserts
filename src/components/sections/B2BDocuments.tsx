@@ -51,7 +51,7 @@ export function B2BDocuments() {
               transition={{ delay: i * 0.1 }}
               className="p-8 rounded-3xl bg-white/40 backdrop-blur-sm border border-slate-100 flex flex-col items-center text-center group hover:bg-transparent hover:shadow-xl transition-all"
             >
-              <div className="w-16 h-16 bg-transparent rounded-2xl shadow-sm flex items-center justify-center text-sky-600 mb-6 group-hover:bg-sky-600 group-hover:text-white transition-all">
+              <div className="w-16 h-16 bg-transparent rounded-2xl shadow-sm flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-all">
                 <doc.icon className="w-8 h-8" />
               </div>
               <h3 className="text-sm font-bold text-slate-900 mb-3">{doc.title}</h3>
@@ -59,7 +59,7 @@ export function B2BDocuments() {
                 {doc.desc}
               </p>
               {/* <button
-                className="mt-auto flex items-center gap-2 text-[10px] font-bold text-sky-600 uppercase tracking-widest hover:underline"
+                className="mt-auto flex items-center gap-2 text-[10px] font-bold text-primary uppercase tracking-widest hover:underline"
                 aria-label={`Скачать пример ${doc.title}`}
               >
                 <Download className="w-3 h-3" />
@@ -80,7 +80,7 @@ export function B2BDocuments() {
           </p>
           <div className="h-px bg-transparent/10 w-24 mx-auto mb-6" />
           <h4 className="text-xl font-bold">
-            Работаем по <span className="text-sky-400">44-ФЗ и 223-ФЗ</span> (госзакупки)
+            Работаем по <span className="text-primary">44-ФЗ и 223-ФЗ</span> (госзакупки)
           </h4>
           <p className="text-slate-500 text-sm mt-2">
             Участвуем в тендерах, предоставляем необходимые документы для площадок.

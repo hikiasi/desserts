@@ -217,7 +217,7 @@ export function StickyFeatures() {
           transition={{ delay: 0.2 }}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
-          className="w-14 h-12 md:h-14 bg-[#0088cc] text-white rounded-full shadow-2xl shadow-sky-400/50 flex items-center justify-center"
+          className="w-14 h-12 md:h-14 bg-[#0088cc] text-white rounded-full shadow-2xl shadow-primary/20 flex items-center justify-center"
           aria-label="Написать в Telegram"
         >
           <Send className="w-6 h-6" />

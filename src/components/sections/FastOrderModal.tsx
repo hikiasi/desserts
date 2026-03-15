@@ -72,13 +72,13 @@ export function FastOrderModal({ product, isOpen, onClose }: FastOrderModalProps
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-[500px] p-0 overflow-hidden rounded-3xl sm:rounded-3xl md:rounded-[40px] border-none [&>button]:text-white">
-        <div className="bg-sky-600 p-6 sm:p-8 text-white relative">
+        <div className="bg-primary p-6 sm:p-8 text-white relative">
           <DialogHeader>
             <DialogTitle className="text-xl sm:text-2xl font-bold flex items-center gap-3 text-white">
               <ShoppingCart className="w-6 h-6" />
               Быстрый заказ
             </DialogTitle>
-            <DialogDescription className="text-sky-100 text-sm sm:text-base">
+            <DialogDescription className="text-white/80 text-sm sm:text-base">
               Оформите заказ за 30 секунд. Мы перезвоним для подтверждения.
             </DialogDescription>
           </DialogHeader>
@@ -91,7 +91,7 @@ export function FastOrderModal({ product, isOpen, onClose }: FastOrderModalProps
             </div>
             <div>
               <h4 className="font-bold text-slate-900 text-sm leading-tight">{product.name}</h4>
-              <div className="text-sky-600 font-bold mt-1">{product.price} ₽</div>
+              <div className="text-primary font-bold mt-1">{product.price} ₽</div>
             </div>
           </div>
 
@@ -130,14 +130,14 @@ export function FastOrderModal({ product, isOpen, onClose }: FastOrderModalProps
                 className="mt-1"
               />
               <label htmlFor="agree" className="text-[10px] text-slate-400 leading-tight">
-                Согласен с <a href="/legal/privacy" className="underline hover:text-sky-600">политикой конфиденциальности</a> и даю согласие на <a href="/legal/consent" className="underline hover:text-sky-600">обработку персональных данных</a>
+                Согласен с <a href="/legal/privacy" className="underline hover:text-primary">политикой конфиденциальности</a> и даю согласие на <a href="/legal/consent" className="underline hover:text-primary">обработку персональных данных</a>
               </label>
             </div>
             {errors.agree && <p className="text-red-500 text-[10px]">{errors.agree.message}</p>}
 
             <Button
               type="submit"
-              className="w-full h-12 sm:h-14 bg-sky-600 hover:bg-sky-700 text-lg font-bold rounded-2xl shadow-xl shadow-sky-100 transition-all"
+              className="w-full h-12 sm:h-14 bg-primary hover:bg-primary/90 text-lg font-bold rounded-2xl shadow-xl shadow-primary/20 transition-all"
               disabled={isSubmitting}
             >
               {isSubmitting ? "Отправка..." : "Заказать"}
@@ -149,7 +149,7 @@ export function FastOrderModal({ product, isOpen, onClose }: FastOrderModalProps
                 Без предоплаты
               </div>
               <div className="flex items-center gap-1.5 text-[10px] text-slate-400 font-bold uppercase tracking-wider">
-                <Clock className="w-4 h-4 text-sky-500" />
+                <Clock className="w-4 h-4 text-primary" />
                 Доставка сегодня
               </div>
             </div>

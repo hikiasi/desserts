@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Ship } from "lucide-react"
+import { Cake } from "lucide-react"
 
 export default function AdminLogin() {
   const [username, setUsername] = useState("")
@@ -41,12 +41,12 @@ export default function AdminLogin() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-slate-50 px-4">
       <Card className="w-full max-w-md shadow-xl border-none rounded-3xl overflow-hidden">
-        <div className="bg-sky-600 p-8 text-white flex flex-col items-center">
+        <div className="bg-primary p-8 text-white flex flex-col items-center">
           <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-4">
-            <Ship className="w-10 h-10" />
+            <Cake className="w-10 h-10" />
           </div>
           <CardTitle className="text-2xl font-bold">Админ-панель</CardTitle>
-          <p className="text-sky-100 text-sm mt-2">Вход для управления каталогом</p>
+          <p className="text-white/80 text-sm mt-2">Вход для управления каталогом</p>
         </div>
         <CardContent className="p-8">
           <form onSubmit={handleLogin} className="space-y-6">
@@ -74,7 +74,7 @@ export default function AdminLogin() {
             {error && <p className="text-red-500 text-sm font-medium">{error}</p>}
             <Button
               type="submit"
-              className="w-full h-12 bg-sky-600 hover:bg-sky-700 rounded-xl font-bold text-lg transition-all"
+              className="w-full h-12 bg-primary hover:bg-primary/90 rounded-xl font-bold text-lg transition-all"
               disabled={loading}
             >
               {loading ? "Вход..." : "Войти"}
