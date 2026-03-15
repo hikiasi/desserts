@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-const SITE_URL = 'https://desserts-kaliningrad.ru/';
+const SITE_URL = 'https://gelatodessert.ru/';
 
 export async function GET() {
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

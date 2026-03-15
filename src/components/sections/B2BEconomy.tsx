@@ -157,7 +157,7 @@ export function B2BEconomy() {
                     <div className="flex items-start gap-3">
                         <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                         <p className="text-sm leading-relaxed">
-                            <span className="font-bold">ИТОГО:</span> Вы теряете немного маржи на порции, но <span className="font-bold">экономите 60 000₽ зарплаты + 0 брака + 4 часа времени</span> в день. <span className="font-bold">Чистая выгода: +45 000₽/мес</span> + освобождённое время.
+                            <span className="font-bold">ИТОГО:</span> При наценке 50% и продажах 20 порций в день вы получаете <span className="font-bold">чистую выгоду 45 000₽/мес</span>, экономя на зарплате кондитера и списаниях.
                         </p>
                     </div>
                 </div>

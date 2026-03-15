@@ -70,7 +70,7 @@ export function RetailCTA() {
                 <div className="p-8 rounded-[32px] bg-slate-50 border border-slate-100">
                     <Mail className="w-8 h-8 text-primary mb-4" />
                     <div className="text-[10px] text-slate-400 font-black uppercase tracking-widest mb-2">Наш Email:</div>
-                    <div className="text-sm font-bold text-slate-900 break-all">info@desserts-kaliningrad.ru</div>
+                    <div className="text-sm font-bold text-slate-900 break-all">tim21-liz30@yandex.ru</div>
                 </div>
                 <div className="p-8 rounded-[32px] bg-slate-50 border border-slate-100">
                     <MapPin className="w-8 h-8 text-primary mb-4" />
