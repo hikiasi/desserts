@@ -228,7 +228,7 @@ export default function AdminDashboard() {
 
   const getStatusBadge = (status: string) => {
     switch (status) {
-      case 'NEW': return <Badge className="bg-blue-500">Новая</Badge>
+      case 'NEW': return <Badge className="bg-primary">Новая</Badge>
       case 'IN_WORK': return <Badge className="bg-orange-500">В работе</Badge>
       case 'COMPLETED': return <Badge className="bg-green-500">Выполнена</Badge>
       case 'CANCELLED': return <Badge variant="outline" className="text-slate-400">Отменена</Badge>
@@ -241,7 +241,7 @@ export default function AdminDashboard() {
       <header className="bg-white border-b border-slate-200 py-4 mb-8 sticky top-0 z-10">
         <div className="container mx-auto px-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-sky-600 rounded-full flex items-center justify-center text-white">
+            <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white">
               <Package className="w-6 h-6" />
             </div>
             <h1 className="text-xl font-bold text-slate-900">Админ-панель</h1>
@@ -280,7 +280,7 @@ export default function AdminDashboard() {
                 <Card className="rounded-3xl border-none shadow-sm sticky top-24">
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
-                      <Plus className="w-5 h-5 text-sky-600" />
+                      <Plus className="w-5 h-5 text-primary" />
                       Добавить розничный товар
                     </CardTitle>
                   </CardHeader>
@@ -314,7 +314,7 @@ export default function AdminDashboard() {
                         required
                       />
                       <select
-                        className="w-full h-10 px-3 rounded-md border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500/20"
+                        className="w-full h-10 px-3 rounded-md border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20"
                         value={formData.category}
                         onChange={e => setFormData({...formData, category: e.target.value})}
                       >
@@ -378,7 +378,7 @@ export default function AdminDashboard() {
                         </div>
                       </div>
 
-                      <Button type="submit" className="w-full bg-sky-600 hover:bg-sky-700">
+                      <Button type="submit" className="w-full bg-primary hover:bg-primary/90">
                         Добавить
                       </Button>
                     </form>
@@ -429,13 +429,13 @@ export default function AdminDashboard() {
                           <div className="flex-grow">
                             <div className="text-xs text-slate-400 font-bold uppercase tracking-wider">{p.category}</div>
                             <h4 className="font-bold text-slate-900">{p.name}</h4>
-                            <div className="text-sm text-sky-600 font-bold">{p.price} ₽</div>
+                            <div className="text-sm text-primary font-bold">{p.price} ₽</div>
                           </div>
                           <div className="flex gap-2">
                             <Button
                               variant="ghost"
                               size="icon"
-                              className="text-slate-300 hover:text-sky-500 transition-colors"
+                              className="text-slate-300 hover:text-primary transition-colors"
                               onClick={() => openEditModal(p, "retail")}
                             >
                               <Pencil className="w-5 h-5" />
@@ -465,7 +465,7 @@ export default function AdminDashboard() {
                 <Card className="rounded-3xl border-none shadow-sm sticky top-24">
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
-                      <Plus className="w-5 h-5 text-sky-600" />
+                      <Plus className="w-5 h-5 text-primary" />
                       Добавить оптовый товар
                     </CardTitle>
                   </CardHeader>
@@ -499,7 +499,7 @@ export default function AdminDashboard() {
                         required
                       />
                       <select
-                        className="w-full h-10 px-3 rounded-md border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500/20"
+                        className="w-full h-10 px-3 rounded-md border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20"
                         value={formData.category}
                         onChange={e => setFormData({...formData, category: e.target.value})}
                       >
@@ -537,7 +537,7 @@ export default function AdminDashboard() {
                         </div>
                       </div>
 
-                      <Button type="submit" className="w-full bg-sky-600 hover:bg-sky-700">
+                      <Button type="submit" className="w-full bg-primary hover:bg-primary/90">
                         Добавить в опт
                       </Button>
                     </form>
@@ -589,7 +589,7 @@ export default function AdminDashboard() {
                             <div className="text-xs text-slate-400 font-bold uppercase tracking-wider">{p.category}</div>
                             <h4 className="font-bold text-slate-900">{p.name}</h4>
                             <div className="text-sm flex gap-4">
-                              <span className="text-sky-600 font-bold">{p.price} ₽</span>
+                              <span className="text-primary font-bold">{p.price} ₽</span>
                               {p.price200 && <span className="text-slate-400">{p.price200} ₽ (от 200кг)</span>}
                             </div>
                           </div>
@@ -597,7 +597,7 @@ export default function AdminDashboard() {
                             <Button
                               variant="ghost"
                               size="icon"
-                              className="text-slate-300 hover:text-sky-500 transition-colors"
+                              className="text-slate-300 hover:text-primary transition-colors"
                               onClick={() => openEditModal(p, "b2b")}
                             >
                               <Pencil className="w-5 h-5" />
@@ -631,7 +631,7 @@ export default function AdminDashboard() {
                       <div key={o.id} className="p-6 bg-white rounded-2xl border border-slate-100 shadow-sm">
                         <div className="flex justify-between items-start mb-4">
                           <div className="flex items-center gap-3">
-                            <Badge className={o.type === "B2B" ? "bg-purple-500" : "bg-sky-500"}>
+                            <Badge className={o.type === "B2B" ? "bg-secondary" : "bg-primary"}>
                               {o.type}
                             </Badge>
                             {getStatusBadge(o.status)}
@@ -669,7 +669,7 @@ export default function AdminDashboard() {
                               <option value="CANCELLED">Отменена</option>
                             </select>
                           </div>
-                          {o.total && <div className="font-bold text-sky-600">Итого: {o.total} ₽</div>}
+                          {o.total && <div className="font-bold text-primary">Итого: {o.total} ₽</div>}
                         </div>
                       </div>
                     ))}
@@ -827,7 +827,7 @@ export default function AdminDashboard() {
                 <Button type="button" variant="outline" className="flex-1" onClick={() => setIsEditModalOpen(false)}>
                   Отмена
                 </Button>
-                <Button type="submit" className="flex-1 bg-sky-600 hover:bg-sky-700">
+                <Button type="submit" className="flex-1 bg-primary hover:bg-primary/90">
                   Сохранить
                 </Button>
               </div>

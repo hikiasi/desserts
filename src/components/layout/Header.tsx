@@ -82,7 +82,7 @@ export function Header() {
               key={i}
               onClick={item.onClick}
               className={cn(
-                "text-sm font-bold transition-colors hover:text-sky-600",
+                "text-sm font-bold transition-colors hover:text-primary",
                 isScrolled ? "text-slate-600" : "text-slate-900"
               )}
             >
@@ -96,11 +96,11 @@ export function Header() {
           <a 
             href="tel:+79114864797"
             className={cn(
-              "hidden md:flex items-center gap-2 text-sm font-bold hover:text-sky-600 transition-colors",
+              "hidden md:flex items-center gap-2 text-sm font-bold hover:text-primary transition-colors",
               isScrolled ? "text-slate-900" : "text-slate-900"
             )}
           >
-            <Phone className="w-4 h-4 text-sky-500" />
+            <Phone className="w-4 h-4 text-primary" />
             +7 (911) 486-47-97
           </a>
           
@@ -172,7 +172,7 @@ export function Header() {
               </button>
             ))}
             <div className="h-px bg-slate-100 my-2" />
-            <a href="tel:+79114864797" className="flex items-center gap-3 py-3 px-4 font-bold text-sky-600">
+            <a href="tel:+79114864797" className="flex items-center gap-3 py-3 px-4 font-bold text-primary">
               <Phone className="w-5 h-5" />
               +7 (911) 486-47-97
             </a>

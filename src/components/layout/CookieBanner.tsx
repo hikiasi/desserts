@@ -25,11 +25,11 @@ export function CookieBanner() {
     <div className="fixed bottom-4 right-4 z-[9999] max-w-sm w-full animate-in fade-in slide-in-from-bottom-4 duration-500">
       <div className="bg-slate-900 text-white p-6 rounded-2xl shadow-2xl border border-white/10 relative overflow-hidden group">
         {/* Background glow */}
-        <div className="absolute top-0 right-0 -mr-8 -mt-8 w-24 h-24 bg-blue-500/20 rounded-full blur-2xl group-hover:bg-blue-500/30 transition-colors" />
+        <div className="absolute top-0 right-0 -mr-8 -mt-8 w-24 h-24 bg-primary/20 rounded-full blur-2xl group-hover:bg-primary/30 transition-colors" />
 
         <div className="relative flex gap-4">
           <div className="flex-shrink-0">
-            <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center">
+            <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center">
               <Cookie className="w-6 h-6 text-white" />
             </div>
           </div>
@@ -45,7 +45,7 @@ export function CookieBanner() {
 
             <p className="text-sm leading-relaxed text-slate-300 mb-4">
               Сайт использует файлы cookie и сервис Яндекс.Метрика. Данные не передаются третьим лицам. Подробнее в{' '}
-              <a href="/legal/cookies" className="text-blue-400 hover:underline">политике использования cookie</a>.
+              <a href="/legal/cookies" className="text-primary hover:underline">политике использования cookie</a>.
               Продолжая пользоваться сайтом, вы соглашаетесь с этим.
             </p>
 

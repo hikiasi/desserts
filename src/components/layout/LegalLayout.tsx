@@ -15,7 +15,7 @@ export default function LegalLayout({ title, children, lastUpdated }: LegalLayou
         <div className="max-w-4xl mx-auto">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-slate-500 hover:text-sky-600 transition-colors mb-8 group"
+            className="inline-flex items-center gap-2 text-slate-500 hover:text-primary transition-colors mb-8 group"
           >
             <ChevronLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
             Назад на главную

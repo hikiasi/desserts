@@ -7,9 +7,9 @@ import { Button } from "@/components/ui/button"
 
 export function B2BEconomy() {
   const [dailySales, setDailySales] = useState(20)
-  const [salePrice, setSalePrice] = useState(240)
+  const [salePrice, setSalePrice] = useState(450)
 
-  const purchasePrice = 165 // average wholesale price
+  const purchasePrice = 275 // average wholesale price for profitroles
   const dailyProfit = (salePrice - purchasePrice) * dailySales
   const monthlyProfit = dailyProfit * 30
   const yearlyProfit = monthlyProfit * 12
@@ -73,8 +73,8 @@ export function B2BEconomy() {
                 <input
                   id="sale-price"
                   type="range"
-                  min="165"
-                  max="500"
+                  min="300"
+                  max="600"
                   step="5"
                   value={salePrice}
                   onChange={(e) => setSalePrice(parseInt(e.target.value))}
@@ -134,9 +134,10 @@ export function B2BEconomy() {
                                 { label: "Стартовые вложения", self: "500 000₽+", we: "0₽ (работаем на отсрочку)" },
                                 { label: "Зарплата кондитера", self: "60 000₽/мес", we: "0₽" },
                                 { label: "Списания (брак)", self: "15-25%", we: "0% (хранение 180 дней)" },
-                                { label: "Время на пр-во", self: "4-6 часов/день", we: "0 часов (разморозка)" },
-                                { label: "Стабильность", self: "Зависит от повара", we: "100% всегда одинаково" },
-                                { label: "Сертификаты", self: "Нужны свои", we: "Уже есть у нас" },
+                                { label: "Время на пр-во", self: "4-6 часов/день", we: "0 часов (разморозка 2-3 ч)" },
+                                { label: "Стабильность качества", self: "Зависит от кондитера", we: "100% одинаковые каждый раз" },
+                                { label: "Сертификаты/лицензии", self: "Нужны (Роспотребнадзор)", we: "Уже есть у нас" },
+                                { label: "Себестоимость порции", self: "180-220₽", we: "275₽ (оптом)" },
                             ].map((row, i) => (
                                 <tr key={i} className="text-sm">
                                     <td className="py-4 pr-4 font-bold text-slate-900 leading-tight">{row.label}</td>
@@ -152,11 +153,11 @@ export function B2BEconomy() {
                     </table>
                 </div>
 
-                <div className="mt-8 p-6 bg-white/80 backdrop-blur-sm rounded-2xl border border-accent/30 text-slate-900 shadow-sm">
+                <div className="mt-8 p-6 bg-[#fcf84e] rounded-2xl border border-accent/30 text-slate-900 shadow-sm">
                     <div className="flex items-start gap-3">
                         <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                         <p className="text-sm leading-relaxed">
-                            <span className="font-bold">ИТОГО:</span> При наценке 50% и продажах 20 порций в день вы получаете <span className="font-bold">чистую выгоду 45 000₽/мес</span>, экономя на зарплате кондитера и списаниях.
+                            <span className="font-bold">ИТОГО:</span> Вы теряете немного маржи на порции, но <span className="font-bold">экономите 60 000₽ зарплаты + 0 брака + 4 часа времени</span> в день. <span className="font-bold">Чистая выгода: +45 000₽/мес</span> + освобождённое время.
                         </p>
                     </div>
                 </div>
