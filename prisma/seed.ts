@@ -31,7 +31,7 @@ async function main() {
       carbs: "38,1 г",
       kcal: "307 ккал",
       price: 165,
-      image: "/uploads/cake_milk_girl.webp"
+      image: "/uploads/cake_molochnaya_devochka.webp"
     },
     {
       category: "Торты",
@@ -43,7 +43,7 @@ async function main() {
       carbs: "38,4 г",
       kcal: "307 ккал",
       price: 165,
-      image: "/uploads/cake_snikers.webp",
+      image: "/uploads/cake_snickers.webp",
       isHit: true
     },
     {
@@ -83,7 +83,7 @@ async function main() {
       carbs: "20,1 г",
       kcal: "179 ккал",
       price: 175,
-      image: "/uploads/cake_snikers_no_sugar.webp",
+      image: "/uploads/cake_snickers_sugarfree.webp",
       isHit: true
     },
     {
@@ -96,7 +96,7 @@ async function main() {
       carbs: "21,4 г",
       kcal: "201 ккал",
       price: 175,
-      image: "/uploads/cake_napoleon_no_sugar.webp"
+      image: "/uploads/cake_napoleon_sugarfree.webp"
     },
     {
       category: "ЗОЖ-линейка",
@@ -108,19 +108,19 @@ async function main() {
       carbs: "20,5 г",
       kcal: "154 ккал",
       price: 175,
-      image: "/uploads/cake_medovik_no_sugar.webp"
+      image: "/uploads/cake_medovik_sugarfree.webp"
     },
     {
       category: "ЗОЖ-линейка",
       name: "БАНАН В ШОКОЛАДЕ (Без сахара)",
-      composition: "Молоко 2,5%, молоко сухое обезжиренное, мука пшеничная цельнозерновая, сыр творожный, кукурузный крахмал, какао, пюре банана, желатин, яйцо куриное, сливки 22%, масло растительное, яблочный уксус, соль, сода, сахарозаменитель Fit Parad №10, ароматизатор «Ванилин».",
+      composition: "Молоко 2,5%, молоко сухое обезжиренное, мука пшеничная цельнозерновая, сыр творожный, кукурузный крахмал, какао, пюре банана, желатин, яйцо куриное, сливки 22%, масло растительное, яблочный уксус, соль, сода, сахарозаменитель Fit Parad №10, ароматизатор «Ванилин$.",
       weight: "130 г",
       proteins: "11,8 г",
       fats: "9,7 г",
       carbs: "14,2 г",
       kcal: "191 ккал",
       price: 175,
-      image: "/uploads/cake_banana_no_sugar.webp",
+      image: "/uploads/cake_banana_chocolate.webp",
       isNew: true
     },
 
@@ -148,7 +148,7 @@ async function main() {
       carbs: "16,8 г",
       kcal: "259 ккал",
       price: 290,
-      image: "/uploads/profitrole_choco.webp"
+      image: "/uploads/profitrole_chocolate.webp"
     },
     {
       category: "Профитроли",

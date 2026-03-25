@@ -99,7 +99,7 @@ export function B2BHero() {
                 ))}
               </div>
 
-              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-16">
                  <Button
                    size="lg"
                    className="h-auto min-h-[56px] py-4 px-8 bg-primary hover:bg-primary/90 text-white rounded-2xl font-bold text-lg shadow-xl shadow-primary/20 whitespace-normal"
@@ -119,14 +119,36 @@ export function B2BHero() {
             </motion.div>
           </div>
 
-          {/* Right: Form */}
-          <div id="b2b-form" className="lg:w-1/2 w-full max-w-xl mx-auto">
+          {/* Right: Image & Form */}
+          <div className="lg:w-1/2 w-full flex flex-col gap-12">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="bg-white/40 backdrop-blur-md rounded-[40px] p-8 md:p-12 border border-slate-100 shadow-2xl shadow-slate-200/50"
+              className="relative aspect-[4/3] w-full rounded-[40px] overflow-hidden shadow-2xl border-4 border-white"
             >
+              <Image
+                src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&q=80&w=1200"
+                alt="Профитроли премиум качества"
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+              <div className="absolute bottom-8 left-8 text-white">
+                <div className="text-sm font-bold uppercase tracking-widest mb-2">Наши десерты</div>
+                <div className="text-2xl font-black">Профитроли в разрезе</div>
+              </div>
+            </motion.div>
+
+            <div id="b2b-form" className="w-full max-w-xl mx-auto">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="bg-white/40 backdrop-blur-md rounded-[40px] p-8 md:p-12 border border-slate-100 shadow-2xl shadow-slate-200/50"
+              >
               <h3 className="text-2xl font-bold text-slate-900 mb-2 font-heading">Получите прайс и условия</h3>
               <p className="text-slate-500 mb-8">Отправим за 10 минут + пробная партия со скидкой 20%</p>
 
@@ -202,11 +224,12 @@ export function B2BHero() {
                 </div>
                 {errors.agree && <p className="text-red-500 text-[10px]">{errors.agree.message}</p>}
 
-                <Button type="submit" className="w-full h-16 bg-primary hover:bg-primary/90 text-white text-lg font-bold rounded-2xl shadow-xl shadow-primary/20 transition-all" disabled={isSubmitting}>
-                  {isSubmitting ? "Отправка..." : "Получить прайс"}
-                </Button>
-              </form>
-            </motion.div>
+                  <Button type="submit" className="w-full h-16 bg-primary hover:bg-primary/90 text-white text-lg font-bold rounded-2xl shadow-xl shadow-primary/20 transition-all" disabled={isSubmitting}>
+                    {isSubmitting ? "Отправка..." : "Получить прайс"}
+                  </Button>
+                </form>
+              </motion.div>
+            </div>
           </div>
         </div>
       </div>

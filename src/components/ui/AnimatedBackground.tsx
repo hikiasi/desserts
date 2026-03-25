@@ -3,8 +3,8 @@
 import { useEffect, useState, useMemo } from "react"
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion"
 
-const COLORS = ["#ff136e", "#704396", "#fcf84e", "#ff8eba", "#ffecf3", "#f3e8ff"]
-const BUBBLE_COUNT = 12
+const COLORS = ["#ff136e", "#704396", "#fcf84e", "#ff8eba"]
+const BUBBLE_COUNT = 6
 
 export function AnimatedBackground() {
   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 })
@@ -88,23 +88,10 @@ function Bubble({ size, color, initialX, initialY, duration, delay, scaleDuratio
         opacity: 0.04,
       }}
       animate={{
-        // Slow floating movement
-        x: [0, Math.random() * 100 - 50, 0],
-        y: [0, Math.random() * 100 - 50, 0],
         // Pulsing scale
-        scale: [1, 1.2, 1],
+        scale: [1, 1.15, 1],
       }}
       transition={{
-        x: {
-          duration: duration,
-          repeat: Infinity,
-          ease: "easeInOut",
-        },
-        y: {
-          duration: duration + 5,
-          repeat: Infinity,
-          ease: "easeInOut",
-        },
         scale: {
           duration: scaleDuration,
           repeat: Infinity,
