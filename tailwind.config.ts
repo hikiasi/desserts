@@ -11,8 +11,7 @@ export default {
   	extend: {
   		fontFamily: {
   			sans: ["var(--font-inter)"],
-			heading: ["var(--font-montserrat)"],
-			nunito: ["var(--font-nunito)"]
+			heading: ["var(--font-montserrat)"]
   		},
   		colors: {
   			background: 'var(--background)',

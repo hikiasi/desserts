@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { Truck, MapPin, Package, CreditCard, Clock, Snowflake } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { LazyMap } from "@/components/ui/LazyMap"
 
 const DELIVERY_ZONES = [
   {
@@ -144,11 +145,10 @@ export function GuaranteesDelivery() {
               ))}
 
               <div className="relative h-80 rounded-[40px] overflow-hidden border border-slate-100 shadow-2xl shadow-slate-200">
-                <div style={{ position: 'relative', overflow: 'hidden', height: '100%', width: '100%' }}>
-                  <a href="https://yandex.ru/maps/22/kaliningrad/?utm_medium=mapframe&utm_source=maps" style={{ color: '#eee', fontSize: '12px', position: 'absolute', top: '0px' }}>Калининград</a>
-                  <a href="https://yandex.ru/maps/22/kaliningrad/house/ulitsa_professora_sevastyanova_3/ZkkYcwdnS0AEQFtufXtwdXViYg==/?ll=20.508186%2C54.714013&utm_medium=mapframe&utm_source=maps&z=15.85" style={{ color: '#eee', fontSize: '12px', position: 'absolute', top: '14px' }}>Улица Профессора Севастьянова, 3 — Яндекс Карты</a>
-                  <iframe src="https://yandex.ru/map-widget/v1/?ll=20.508186%2C54.714013&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgg1NjIyNTI5NBJh0KDQvtGB0YHQuNGPLCDQmtCw0LvQuNC90LjQvdCz0YDQsNC0LCDRg9C70LjRhtCwINCf0YDQvtGE0LXRgdGB0L7RgNCwINCh0LXQstCw0YHRgtGM0Y_QvdC-0LLQsCwgMyIKDdgOpEEVE9xaQg%2C%2C&z=15.85" width="100%" height="100%" frameBorder="0" allowFullScreen={true} style={{ position: 'relative' }}></iframe>
-                </div>
+                <LazyMap
+                  src="https://yandex.ru/map-widget/v1/?ll=20.508186%2C54.714013&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgg1NjIyNTI5NBJh0KDQvtGB0YHQuNGPLCDQmtCw0LvQuNC90LjQvdCz0YDQsNC0LCDRg9C70LjRhtCwINCf0YDQvtGE0LXRgdGB0L7RgNCwINCh0LXQstCw0YHRgtGM0Y_QvdC-0LLQsCwgMyIKDdgOpEEVE9xaQg%2C%2C&z=15.85"
+                  title="Адрес склада на карте"
+                />
               </div>
             </motion.div>
           </div>

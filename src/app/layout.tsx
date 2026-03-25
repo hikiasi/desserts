@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Montserrat, Nunito } from "next/font/google";
+import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "@/context/CartContext";
 import { CookieBanner } from "@/components/layout/CookieBanner";
@@ -8,16 +8,13 @@ import Script from "next/script";
 const inter = Inter({
   subsets: ["latin", "cyrillic"],
   variable: "--font-inter",
+  display: 'swap',
 });
 
 const montserrat = Montserrat({
   subsets: ["latin", "cyrillic"],
   variable: "--font-montserrat",
-});
-
-const nunito = Nunito({
-  subsets: ["latin", "cyrillic"],
-  variable: "--font-nunito",
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -34,15 +31,19 @@ export default function RootLayout({
     <html lang="ru">
       <head>
         <meta name="yandex-verification" content="8fcd8e67616dddd3" />
+        <link rel="preconnect" href="https://mc.yandex.ru" />
+        <link rel="preconnect" href="https://mc.yandex.com" />
+        <link rel="preconnect" href="https://maps.yastatic.net" />
+        <link rel="preconnect" href="https://yandex.ru" />
       </head>
       <body
-        className={`${inter.variable} ${montserrat.variable} ${nunito.variable} font-sans antialiased bg-white text-slate-900`}
+        className={`${inter.variable} ${montserrat.variable} font-sans antialiased bg-white text-slate-900`}
       >
         <CartProvider>
           {children}
           <CookieBanner />
         </CartProvider>
-        <Script id="yandex-metrika" strategy="afterInteractive">
+        <Script id="yandex-metrika" strategy="lazyOnload">
           {`
             (function(m,e,t,r,i,k,a){
               m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
