@@ -20,9 +20,9 @@ async function main() {
   await prisma.b2BProduct.deleteMany({})
 
   const products = [
-    // Мини торты (С сахаром) -> Торты
+    // Мини торты (С сахаром) -> Мини торты
     {
-      category: "Торты",
+      category: "Мини торты",
       name: "МОЛОЧНАЯ ДЕВОЧКА",
       composition: "Сгущенное молоко, молоко 2.5%, сыр творожный, яйцо куриное, сметана 15%, кукурузный крахмал, мука в/с, разрыхлитель, сливки с змж 33%, сахар, соль, сода.",
       weight: "130 г",
@@ -34,7 +34,7 @@ async function main() {
       image: "/uploads/cake_molochnaya_devochka.webp"
     },
     {
-      category: "Торты",
+      category: "Мини торты",
       name: "СНИКЕРС",
       composition: "Сыр творожный, сметана 15%, молоко 2,5%, сахар-песок, сливки 33%, яйцо куриное, мука в/с, молоко 2,5%, арахис, какао, крахмал кукурузный, масло растительное, сливки с змж 33%.",
       weight: "140 г",
@@ -47,7 +47,7 @@ async function main() {
       isHit: true
     },
     {
-      category: "Торты",
+      category: "Мини торты",
       name: "МЕДОВИК",
       composition: "Молоко 2,5%, мука в/с, яйцо куриное, молоко сгущенное вареное, крахмал кукурузный, маргарин, мед, сахар-песок, сливки с змж 33%, соль, сода.",
       weight: "125 г",
@@ -59,7 +59,7 @@ async function main() {
       image: "/uploads/cake_medovik.webp"
     },
     {
-      category: "Торты",
+      category: "Мини торты",
       name: "НАПОЛЕОН КАРАМЕЛЬНЫЙ",
       composition: "Молоко 2,5%, мука пшеничная в/с, яйцо куриное, молоко сгущенное вареное, крахмал кукурузный, сахар-песок, уксус яблочный, сливки с змж 33%, маргарин, соль.",
       weight: "125 г",
@@ -167,7 +167,6 @@ async function main() {
 
   for (const p of products) {
     const description = `Состав: ${p.composition}\n\nПищевая ценность на 100г:\nБелки: ${p.proteins}\nЖиры: ${p.fats}\nУглеводы: ${p.carbs}\nКалорийность: ${p.kcal}`;
-    const priceWholesale = p.price - 15;
 
     await prisma.product.create({
       data: {
@@ -186,9 +185,9 @@ async function main() {
     await prisma.b2BProduct.create({
       data: {
         name: p.name,
-        price: priceWholesale,
-        price200: Math.round(priceWholesale * 0.9),
-        oldPrice: p.price,
+        price: p.price,
+        price200: Math.round(p.price * 0.95),
+        oldPrice: Math.round(p.price * 1.15),
         weight: p.weight,
         category: p.category,
         description: description,

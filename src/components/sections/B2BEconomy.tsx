@@ -87,7 +87,7 @@ export function B2BEconomy() {
             <div className="p-8 bg-slate-900 rounded-[32px] text-white">
               <div className="space-y-4 mb-8">
                 <div className="flex justify-between text-sm text-slate-400">
-                    <span>Закупка (опт):</span>
+                    <span>Закупка:</span>
                     <span>{dailySales} × {purchasePrice}₽ = {(dailySales * purchasePrice).toLocaleString()} ₽</span>
                 </div>
                 <div className="flex justify-between text-sm text-slate-400">
@@ -103,7 +103,7 @@ export function B2BEconomy() {
                     <div className="text-4xl font-black">{monthlyProfit.toLocaleString()} ₽</div>
                 </div>
                 <div className="bg-white/5 p-4 rounded-2xl">
-                    <div className="text-[10px] text-primary font-black uppercase tracking-widest mb-1">Годовая выгода:</div>
+                    <div className="text-[10px] text-primary font-black uppercase tracking-widest mb-1">Годовая прибыль:</div>
                     <div className="text-4xl font-black text-primary">{(yearlyProfit / 1000000).toFixed(1)} млн ₽</div>
                 </div>
               </div>
@@ -137,7 +137,7 @@ export function B2BEconomy() {
                                 { label: "Время на пр-во", self: "4-6 часов/день", we: "0 часов (разморозка 2-3 ч)" },
                                 { label: "Стабильность качества", self: "Зависит от кондитера", we: "100% одинаковые каждый раз" },
                                 { label: "Сертификаты/лицензии", self: "Нужны (Роспотребнадзор)", we: "Уже есть у нас" },
-                                { label: "Себестоимость порции", self: "180-220₽", we: "275₽ (оптом)" },
+                                { label: "Себестоимость порции", self: "180-220₽", we: "275₽" },
                             ].map((row, i) => (
                                 <tr key={i} className="text-sm">
                                     <td className="py-4 pr-4 font-bold text-slate-900 leading-tight">{row.label}</td>

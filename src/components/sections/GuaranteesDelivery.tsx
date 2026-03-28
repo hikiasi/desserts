@@ -60,8 +60,8 @@ export function GuaranteesDelivery() {
                                 <span className="font-bold text-slate-900">2000 ₽</span>
                             </li>
                             <li className="flex justify-between">
-                                <span>Оптовая цена:</span>
-                                <span className="font-bold text-primary">от 20 шт.</span>
+                                <span>Доставка:</span>
+                                <span className="font-bold text-primary">бесплатно от 2000₽</span>
                             </li>
                             <li className="flex justify-between">
                                 <span>Первый заказ:</span>
@@ -119,7 +119,7 @@ export function GuaranteesDelivery() {
           <div className="lg:w-1/2 w-full">
             <motion.div
               initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               className="space-y-6"
             >
