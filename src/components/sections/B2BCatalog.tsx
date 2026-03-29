@@ -47,13 +47,13 @@ export function B2BCatalog() {
           className="text-center mb-16"
         >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-[10px] font-black uppercase tracking-widest mb-6">
-            <Star className="w-3 h-3 fill-primary" /> Оптовый ассортимент
+            <Star className="w-3 h-3 fill-primary" /> Ассортимент для бизнеса
           </div>
           <h2 className="text-2xl md:text-5xl font-extrabold text-slate-900 mb-4 font-heading">
-            Цены от 20 шт. — Максимальная выгода
+            Премиальные десерты для вашего меню
           </h2>
           <p className="text-slate-500 text-lg max-w-2xl mx-auto">
-            Оптовая цена применяется автоматически при добавлении в корзину от 20 упаковок любой позиции
+            Честные цены и стабильное качество для кафе, магазинов и ресторанов
           </p>
         </motion.div>
 
@@ -72,8 +72,7 @@ export function B2BCatalog() {
                           <tr className="text-[10px] font-black text-slate-400 uppercase tracking-widest border-b border-slate-50">
                             <th className="pb-4">Наименование</th>
                             <th className="pb-4">Вес/Упак.</th>
-                            <th className="pb-4">Розница</th>
-                            <th className="pb-4 text-primary">Опт (от 20 шт)</th>
+                            <th className="pb-4 text-primary">Цена</th>
                           </tr>
                         </thead>
                         <tbody className="divide-y divide-slate-50">
@@ -81,7 +80,6 @@ export function B2BCatalog() {
                             <tr key={j} className="text-sm group">
                               <td className="py-5 font-bold text-slate-800 group-hover:text-primary transition-colors">{item.name}</td>
                               <td className="py-5 text-slate-500">{item.weight}</td>
-                              <td className="py-5 text-slate-400 font-medium">{item.oldPrice}₽</td>
                               <td className="py-5 text-primary font-black text-lg">{item.price}₽</td>
                             </tr>
                           ))}

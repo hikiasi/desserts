@@ -320,7 +320,7 @@ export default function AdminDashboard() {
                       >
                         <option>Профитроли</option>
                         <option>ЗОЖ-линейка</option>
-                        <option>Торты</option>
+                        <option>Мини торты</option>
                         <option>Новинки</option>
                         <option>Хиты продаж</option>
                       </select>
@@ -751,7 +751,7 @@ export default function AdminDashboard() {
                     <>
                       <option>Профитроли</option>
                       <option>ЗОЖ-линейка</option>
-                      <option>Торты</option>
+                      <option>Мини торты</option>
                       <option>Новинки</option>
                       <option>Хиты продаж</option>
                     </>

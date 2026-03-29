@@ -15,7 +15,7 @@ const CATEGORIES = [
   "Все",
   "Профитроли",
   "ЗОЖ-линейка",
-  "Торты",
+  "Мини торты",
   "Хиты продаж",
   "Новинки",
 ]
@@ -94,7 +94,7 @@ export function RetailCatalog() {
             Наш ассортимент
           </h2>
           <p className="text-slate-500 mb-8 max-w-2xl mx-auto">
-            Цены указаны розничные. При заказе от 20 шт. любой позиции автоматически применяется оптовая цена (скидка ~15%).
+            Премиальные десерты шоковой заморозки. Натуральный состав и удобный формат для вашего заведения.
           </p>
           <div className="flex flex-wrap justify-center gap-2 mt-8">
             {CATEGORIES.map((category) => (
@@ -198,13 +198,8 @@ export function RetailCatalog() {
                           <div className="text-[10px] text-slate-400 mb-1 uppercase tracking-widest font-bold">Вес: {product.weight}</div>
                           <div className="flex items-center gap-3">
                             <span className="text-3xl font-black text-slate-900">{product.price} ₽</span>
-                            <span className="text-xs text-primary font-bold bg-primary/5 px-2 py-1 rounded-lg">Опт: {Math.round(product.price * 0.85)}₽</span>
                           </div>
                         </div>
-                      </div>
-
-                      <div className="mt-4 text-[10px] text-slate-400 italic">
-                        💰 <b>Ваша выгода:</b> Закупка 165₽ → Продажа 240-350₽ → Наценка до 50%
                       </div>
                     </CardContent>
 

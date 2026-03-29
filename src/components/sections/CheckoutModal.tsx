@@ -95,7 +95,7 @@ export function CheckoutModal({ isOpen, onClose, type }: CheckoutModalProps) {
           {type === "CART" && cart.length > 0 && (
             <div className="max-h-40 overflow-y-auto space-y-2 mb-4 pr-2 bg-slate-50 p-4 rounded-2xl border border-slate-100">
               {cart.map((item, idx) => {
-                const itemPrice = isWholesale ? (item.price - 15) : item.price
+                const itemPrice = item.price
                 return (
                   <div key={idx} className="flex justify-between text-xs">
                     <span className="text-slate-600 font-medium">{item.name} x {item.quantity}</span>
@@ -107,14 +107,9 @@ export function CheckoutModal({ isOpen, onClose, type }: CheckoutModalProps) {
                 <span>Итого:</span>
                 <span>{totalPrice.toLocaleString()} ₽</span>
               </div>
-              {isWholesale && (
-                <div className="text-[10px] text-green-600 font-bold uppercase tracking-tight text-right mt-1">
-                   Применена оптовая скидка (-15₽/шт)
-                </div>
-              )}
               {isTrial && (
                 <div className="text-[10px] text-green-600 font-bold uppercase tracking-tight text-right mt-1">
-                   Применена пробная скидка 20%
+                   Применена скидка 20%
                 </div>
               )}
             </div>

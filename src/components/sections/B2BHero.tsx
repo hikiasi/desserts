@@ -83,7 +83,7 @@ export function B2BHero() {
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-12">
                 {[
-                  { icon: TrendingUp, title: "Маржа до 100%", desc: "Закупка от 165₽, наценка до 50%" },
+                  { icon: TrendingUp, title: "Маржа до 100%", desc: "Закупка от 165₽, быстрая окупаемость" },
                   { icon: Clock, title: "180 дней хранения", desc: "Минимум списаний" },
                   { icon: Truck, title: "Доставка 2 раза в неделю", desc: "Бесплатно от 2000₽" },
                 ].map((item, i) => (
