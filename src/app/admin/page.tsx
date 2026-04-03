@@ -505,7 +505,7 @@ export default function AdminDashboard() {
                       >
                         <option>Профитроли</option>
                         <option>ЗОЖ-линейка</option>
-                        <option>Торты</option>
+                        <option>Мини торты</option>
                       </select>
                       <Textarea
                         placeholder="Описание"
@@ -759,7 +759,7 @@ export default function AdminDashboard() {
                     <>
                       <option>Профитроли</option>
                       <option>ЗОЖ-линейка</option>
-                      <option>Торты</option>
+                      <option>Мини торты</option>
                     </>
                   )}
                 </select>

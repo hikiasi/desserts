@@ -99,7 +99,7 @@ export function Footer() {
 
         <div className="pt-8 border-t border-slate-50 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-xs text-slate-400">
-            © {new Date().getFullYear()} Ледяной десерт в Калининграде. Все права защищены.
+            © {new Date().getFullYear()} Ледяной десерт — замороженные десерты, профитроли и мини торты для кафе и ресторанов в Калининграде.
           </div>
           <div className="flex items-center gap-4 text-[10px] text-slate-300 font-bold uppercase tracking-widest">
             47 ПАРТНЁРОВ В ГОРОДЕ И ОБЛАСТИ

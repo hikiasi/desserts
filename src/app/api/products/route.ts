@@ -28,7 +28,7 @@ export async function GET(req: NextRequest) {
       const products = await prisma.product.findMany({
         where,
         take: limit,
-        orderBy: { createdAt: "desc" },
+        orderBy: { price: "asc" },
       })
 
       const totalCount = await prisma.product.count({ where })

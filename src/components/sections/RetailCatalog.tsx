@@ -183,7 +183,7 @@ export function RetailCatalog() {
                           <Snowflake className="w-4 h-4 text-primary" /> 180 дней при -18°C
                         </div>
                         <div className="flex items-center gap-2 text-[10px] text-slate-500 font-bold uppercase tracking-tight">
-                          <Timer className="w-4 h-4 text-primary" /> Разморозка 2-3 ч
+                          <Timer className="w-4 h-4 text-primary" /> Разморозка - 15 мин
                         </div>
                         <div className="flex items-center gap-2 text-[10px] text-slate-500 font-bold uppercase tracking-tight">
                           <CheckCircle2 className="w-4 h-4 text-primary" /> Натуральный состав
