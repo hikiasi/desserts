@@ -10,10 +10,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
-import { B2BSamplesModal } from "./B2BSamplesModal"
-
 export function B2BCatalog() {
-  const [isModalOpen, setIsModalOpen] = useState(false)
   const [products, setProducts] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
 
@@ -129,19 +126,17 @@ export function B2BCatalog() {
 
         <div className="flex flex-col items-center">
           <Button 
-            onClick={() => setIsModalOpen(true)}
+            onClick={() => document.getElementById('b2b-form')?.scrollIntoView({ behavior: 'smooth' })}
             size="lg" 
             className="bg-primary hover:bg-primary/90 h-16 px-12 text-lg font-black shadow-xl shadow-primary/20 rounded-2xl transition-all hover:scale-105"
           >
-            Скачать полный прайс (PDF)
+            Запросить условия
           </Button>
           <p className="mt-6 text-[10px] text-slate-400 font-black uppercase tracking-[0.2em]">
             ИНДИВИДУАЛЬНЫЕ УСЛОВИЯ ДЛЯ СЕТЕВЫХ ЗАВЕДЕНИЙ
           </p>
         </div>
       </div>
-
-      <B2BSamplesModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   )
 }

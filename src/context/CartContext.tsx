@@ -29,7 +29,6 @@ interface CartContextType {
   totalItems: number
   totalPrice: number
   isWholesale: boolean
-  isTrial: boolean
   isCartOpen: boolean
   setIsCartOpen: (isOpen: boolean) => void
   showFastOrderOnce: () => boolean
@@ -85,13 +84,9 @@ export function CartProvider({ children }: { children: ReactNode }) {
   // Fixed pricing for all quantities
   const isWholesale = false
 
-  const baseTotal = cart.reduce((acc, item) => {
+  const totalPrice = cart.reduce((acc, item) => {
     return acc + item.price * item.quantity
   }, 0)
-
-  // Trial discount: 20% off if order >= 2000
-  const isTrial = baseTotal >= 2000
-  const totalPrice = isTrial ? Math.round(baseTotal * 0.8) : baseTotal
 
   return (
     <CartContext.Provider 
@@ -104,7 +99,6 @@ export function CartProvider({ children }: { children: ReactNode }) {
         totalItems, 
         totalPrice, 
         isWholesale,
-        isTrial,
         isCartOpen, 
         setIsCartOpen,
         showFastOrderOnce

@@ -20,7 +20,6 @@ const b2bHeroSchema = z.object({
   email: z.string().email("Введите корректный email").optional().or(z.literal("")),
   businessType: z.string().min(1, "Выберите тип бизнеса"),
   comment: z.string().optional(),
-  sampleRequested: z.boolean().default(false),
   agree: z.boolean().refine(val => val === true, "Необходимо согласие")
 })
 
@@ -29,7 +28,7 @@ type B2BHeroValues = z.infer<typeof b2bHeroSchema>
 export function B2BHeroForm() {
   const { register, handleSubmit, setValue, watch, formState: { errors, isSubmitting }, reset } = useForm<B2BHeroValues>({
     resolver: zodResolver(b2bHeroSchema),
-    defaultValues: { agree: true, sampleRequested: false, businessType: "" }
+    defaultValues: { agree: true, businessType: "" }
   })
 
   const agree = watch("agree")
@@ -42,7 +41,7 @@ export function B2BHeroForm() {
         body: JSON.stringify({
           ...data,
           type: "B2B",
-          comment: `[${data.businessType}] ${data.comment || ""}. 1-ая партия: ${data.sampleRequested ? "Да" : "Нет"}`
+          comment: `[${data.businessType}] ${data.comment || ""}`
         })
       })
       if (res.ok) {
@@ -63,7 +62,7 @@ export function B2BHeroForm() {
         className="bg-white/40 backdrop-blur-md rounded-[40px] p-8 md:p-12 border border-slate-100 shadow-2xl shadow-slate-200/50"
       >
         <h3 className="text-2xl font-bold text-slate-900 mb-2 font-heading">Получите прайс и условия</h3>
-        <p className="text-slate-500 mb-8">Отправим за 10 минут + 1-ая партия со скидкой 20%</p>
+        <p className="text-slate-500 mb-8">Отправим за 10 минут наш актуальный каталог и условия сотрудничества</p>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div className="space-y-4">
@@ -113,16 +112,6 @@ export function B2BHeroForm() {
             </div>
           </div>
 
-          <div className="flex items-center gap-3 p-4 bg-primary/10 backdrop-blur-sm rounded-2xl border border-primary/10">
-            <Checkbox
-              id="sample-request"
-              checked={watch("sampleRequested")}
-              onCheckedChange={(checked) => setValue("sampleRequested", !!checked)}
-            />
-            <label htmlFor="sample-request" className="text-sm font-bold text-slate-700 cursor-pointer">
-              Хочу получить 1-ую партию со скидкой 20%
-            </label>
-          </div>
 
           <div className="flex items-start gap-2 py-2">
             <Checkbox

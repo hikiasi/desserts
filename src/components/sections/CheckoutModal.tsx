@@ -39,7 +39,7 @@ interface CheckoutModalProps {
 }
 
 export function CheckoutModal({ isOpen, onClose, type }: CheckoutModalProps) {
-  const { cart, totalPrice, clearCart, totalItems, isWholesale, isTrial } = useCart()
+  const { cart, totalPrice, clearCart, totalItems, isWholesale } = useCart()
   const { register, handleSubmit, formState: { errors, isSubmitting }, reset, setValue, watch } = useForm<CheckoutValues>({
     resolver: zodResolver(checkoutSchema),
     defaultValues: { agree: true, businessType: "Частное лицо" }
@@ -107,11 +107,6 @@ export function CheckoutModal({ isOpen, onClose, type }: CheckoutModalProps) {
                 <span>Итого:</span>
                 <span>{totalPrice.toLocaleString()} ₽</span>
               </div>
-              {isTrial && (
-                <div className="text-[10px] text-green-600 font-bold uppercase tracking-tight text-right mt-1">
-                   Применена скидка 20%
-                </div>
-              )}
             </div>
           )}
 

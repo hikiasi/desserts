@@ -63,10 +63,6 @@ export function GuaranteesDelivery() {
                                 <span>Доставка:</span>
                                 <span className="font-bold text-primary">бесплатно от 2000₽</span>
                             </li>
-                            <li className="flex justify-between">
-                                <span>1-ая партия:</span>
-                                <span className="font-bold text-green-600">скидка 20%</span>
-                            </li>
                         </ul>
                     </div>
 
@@ -106,7 +102,7 @@ export function GuaranteesDelivery() {
                     <MapPin className="w-6 h-6" />
                  </div>
                  <div>
-                    <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Самовывоз (скидка 5%):</div>
+                    <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Самовывоз:</div>
                     <div className="text-sm font-bold text-slate-900">г. Калининград, ул.Профессора Севастьянова, 3 — Маслобаза</div>
                     <div className="text-xs text-slate-500 mt-1">Пн-Пт 9:00-18:00, Сб 10:00-15:00</div>
                     <div className="text-[10px] text-primary font-bold mt-1 uppercase tracking-wider">Звонить за час для самовывоза</div>

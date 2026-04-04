@@ -137,7 +137,7 @@ export function B2BCases() {
               onClick={() => document.getElementById('b2b-form')?.scrollIntoView({ behavior: 'smooth' })}
               className="h-16 px-12 bg-primary hover:bg-primary/90 text-white rounded-2xl font-bold text-xl shadow-xl shadow-primary/20 transition-all"
             >
-              Заказать пробную партию
+              Начать сотрудничество
             </button>
         </div>
       </div>

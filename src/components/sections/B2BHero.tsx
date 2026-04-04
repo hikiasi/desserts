@@ -34,7 +34,7 @@ export function B2BHero() {
                 Увеличьте средний чек на 40% с премиальными десертами
               </h1>
               <p className="text-xl text-slate-500 mb-12 leading-relaxed max-w-xl">
-                Прямые поставки от производителя • 180 дней хранения • Шоковая заморозка -18°C
+                Прямые поставки от официального дистрибьютора • 180 дней хранения • Шоковая заморозка -18°C
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-12">

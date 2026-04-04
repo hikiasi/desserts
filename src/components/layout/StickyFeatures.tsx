@@ -32,7 +32,7 @@ const exitFormSchema = z.object({
 type ExitFormValues = z.infer<typeof exitFormSchema>
 
 export function StickyFeatures() {
-  const { cart, totalItems, totalPrice, isWholesale, isTrial, addToCart, decrementQuantity, removeFromCart, isCartOpen, setIsCartOpen } = useCart()
+  const { cart, totalItems, totalPrice, isWholesale, addToCart, decrementQuantity, removeFromCart, isCartOpen, setIsCartOpen } = useCart()
   const [showExitPopup, setShowExitPopup] = useState(false)
   const [hasShownExitPopup, setHasShownExitPopup] = useState(false)
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false)
@@ -61,10 +61,10 @@ export function StickyFeatures() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: "Посетитель сайта (купон 20%)",
+          name: "Посетитель сайта (Exit Popup)",
           phone: data.phone,
           type: "B2B",
-          comment: "Заявка на 1-ую партию со скидкой 20% из Exit Popup"
+          comment: "Заявка на консультацию из Exit Popup"
         })
       })
       if (res.ok) {
@@ -178,12 +178,6 @@ export function StickyFeatures() {
                   </div>
                 )}
                 <div className="flex flex-col gap-2 mb-8">
-                  {isTrial && (
-                    <div className="flex justify-between items-center bg-green-50 p-3 rounded-xl border border-green-100">
-                      <div className="text-[10px] text-green-700 font-bold uppercase tracking-widest">Скидка 20% на 1-ую партию</div>
-                      <div className="text-xs font-black text-green-700">АКТИВНА</div>
-                    </div>
-                  )}
                   <div className="flex justify-between items-end">
                     <div>
                       <div className="text-slate-400 text-xs uppercase tracking-widest mb-1">Итого к оплате:</div>
@@ -250,9 +244,9 @@ export function StickyFeatures() {
                 <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center text-primary mx-auto mb-8">
                   <Cake className="w-10 h-10" />
                 </div>
-                <h2 className="text-3xl font-extrabold text-slate-900 mb-4 font-heading">Подождите!</h2>
+                <h2 className="text-3xl font-extrabold text-slate-900 mb-4 font-heading">Остались вопросы?</h2>
                 <p className="text-slate-500 mb-8">
-                  Заберите скидку <span className="text-primary font-bold text-lg">20%</span> на ваш первый заказ. Оставьте телефон — расскажем про 1-ую партию от 2000₽ с автоматической скидкой.
+                  Оставьте свой номер телефона — мы перезвоним вам в течение 10 минут, ответим на все вопросы и поможем оформить заказ.
                 </p>
                 
                 <form onSubmit={handleSubmit(onExitSubmit)} className="space-y-4">
@@ -282,13 +276,10 @@ export function StickyFeatures() {
                   {errors.agree && <p className="text-red-500 text-[10px]">{errors.agree.message}</p>}
 
                   <Button type="submit" className="w-full h-12 md:h-14 bg-primary hover:bg-primary/90 text-lg font-bold rounded-2xl shadow-xl shadow-primary/20 transition-all" disabled={isSubmitting}>
-                    {isSubmitting ? "Отправка..." : "Получить скидку 20%"}
+                    {isSubmitting ? "Отправка..." : "Перезвоните мне"}
                   </Button>
                 </form>
 
-                <p className="mt-8 text-[10px] text-slate-300 uppercase tracking-widest leading-relaxed">
-                  Акция действует до конца сегодняшнего дня
-                </p>
               </div>
             </motion.div>
           </motion.div>

@@ -36,7 +36,7 @@ export function B2BCTA() {
                   Начните зарабатывать на десертах <span className="text-primary underline decoration-accent underline-offset-8">уже завтра</span>
                 </h2>
                 <p className="text-lg md:text-xl text-slate-600 mb-10 leading-relaxed max-w-2xl">
-                  1-ая партия со скидкой 20% + консультация по запуску десертов в вашем меню. Риск равен нулю — результат виден сразу.
+                  Консультация по запуску десертов в вашем меню и подбор оптимального ассортимента. Риск равен нулю — результат виден сразу.
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
@@ -54,7 +54,7 @@ export function B2BCTA() {
                     size="lg"
                     className="h-16 px-10 rounded-2xl font-black text-lg border-2 transition-all hover:bg-slate-50"
                   >
-                    Заказать со скидкой
+                    Запросить прайс
                   </Button>
                 </div>
               </div>
@@ -75,14 +75,6 @@ export function B2BCTA() {
                     ))}
                  </div>
 
-                 <div className="mt-8 p-6 bg-accent rounded-3xl text-slate-900 text-center relative">
-                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] font-black uppercase tracking-widest px-4 py-1.5 rounded-full">
-                        Акция до конца недели
-                    </div>
-                    <div className="font-bold text-lg mb-1">Первый заказ от 5000₽</div>
-                    <div className="text-2xl font-black uppercase tracking-widest">Бонус 500₽</div>
-                    <div className="text-[10px] opacity-60 mt-2 uppercase tracking-tighter">на ваш второй заказ в нашей компании</div>
-                 </div>
               </div>
             </div>
           </div>
