@@ -47,10 +47,10 @@ export function B2BSamplesModal({ isOpen, onClose }: B2BSamplesModalProps) {
       const res = await fetch("/api/orders", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...data, type: "B2B", comment: "Запрос пробной партии со скидкой 20%" })
+        body: JSON.stringify({ ...data, type: "B2B", comment: "Заявка на 1-ую партию со скидкой 20%" })
       })
       if (res.ok) {
-        alert("Заявка принята! Менеджер свяжется с вами для уточнения состава тестового набора.")
+        alert("Заявка принята! Менеджер свяжется с вами для уточнения состава заказа.")
         reset()
         onClose()
       }
@@ -66,10 +66,10 @@ export function B2BSamplesModal({ isOpen, onClose }: B2BSamplesModalProps) {
           <DialogHeader>
             <DialogTitle className="text-xl sm:text-2xl font-bold flex items-center gap-3 text-white">
               <Package className="w-6 h-6" />
-              Пробная партия
+              1-ая партия
             </DialogTitle>
             <DialogDescription className="text-white/80 text-sm sm:text-base">
-              Закажите пробную партию от 2000₽ со скидкой 20%.
+              Закажите первую партию от 2000₽ со скидкой 20%.
             </DialogDescription>
           </DialogHeader>
         </div>

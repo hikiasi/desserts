@@ -36,7 +36,7 @@ export function B2BCTA() {
                   Начните зарабатывать на десертах <span className="text-primary underline decoration-accent underline-offset-8">уже завтра</span>
                 </h2>
                 <p className="text-lg md:text-xl text-slate-600 mb-10 leading-relaxed max-w-2xl">
-                  Пробная партия со скидкой 20% + консультация по запуску десертов в вашем меню. Риск равен нулю — результат виден сразу.
+                  1-ая партия со скидкой 20% + консультация по запуску десертов в вашем меню. Риск равен нулю — результат виден сразу.
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">

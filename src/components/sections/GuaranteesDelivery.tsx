@@ -64,8 +64,8 @@ export function GuaranteesDelivery() {
                                 <span className="font-bold text-primary">бесплатно от 2000₽</span>
                             </li>
                             <li className="flex justify-between">
-                                <span>Первый заказ:</span>
-                                <span className="font-bold text-green-600">-20%</span>
+                                <span>1-ая партия:</span>
+                                <span className="font-bold text-green-600">скидка 20%</span>
                             </li>
                         </ul>
                     </div>

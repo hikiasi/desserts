@@ -64,7 +64,7 @@ export function StickyFeatures() {
           name: "Посетитель сайта (купон 20%)",
           phone: data.phone,
           type: "B2B",
-          comment: "Заявка на пробную партию со скидкой 20% из Exit Popup"
+          comment: "Заявка на 1-ую партию со скидкой 20% из Exit Popup"
         })
       })
       if (res.ok) {
@@ -180,7 +180,7 @@ export function StickyFeatures() {
                 <div className="flex flex-col gap-2 mb-8">
                   {isTrial && (
                     <div className="flex justify-between items-center bg-green-50 p-3 rounded-xl border border-green-100">
-                      <div className="text-[10px] text-green-700 font-bold uppercase tracking-widest">Пробная скидка 20%</div>
+                      <div className="text-[10px] text-green-700 font-bold uppercase tracking-widest">Скидка 20% на 1-ую партию</div>
                       <div className="text-xs font-black text-green-700">АКТИВНА</div>
                     </div>
                   )}
@@ -252,7 +252,7 @@ export function StickyFeatures() {
                 </div>
                 <h2 className="text-3xl font-extrabold text-slate-900 mb-4 font-heading">Подождите!</h2>
                 <p className="text-slate-500 mb-8">
-                  Заберите скидку <span className="text-primary font-bold text-lg">20%</span> на ваш первый заказ. Оставьте телефон — расскажем про пробную партию от 2000₽ с автоматической скидкой.
+                  Заберите скидку <span className="text-primary font-bold text-lg">20%</span> на ваш первый заказ. Оставьте телефон — расскажем про 1-ую партию от 2000₽ с автоматической скидкой.
                 </p>
                 
                 <form onSubmit={handleSubmit(onExitSubmit)} className="space-y-4">

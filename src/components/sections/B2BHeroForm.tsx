@@ -42,7 +42,7 @@ export function B2BHeroForm() {
         body: JSON.stringify({
           ...data,
           type: "B2B",
-          comment: `[${data.businessType}] ${data.comment || ""}. Пробная партия: ${data.sampleRequested ? "Да" : "Нет"}`
+          comment: `[${data.businessType}] ${data.comment || ""}. 1-ая партия: ${data.sampleRequested ? "Да" : "Нет"}`
         })
       })
       if (res.ok) {
@@ -63,7 +63,7 @@ export function B2BHeroForm() {
         className="bg-white/40 backdrop-blur-md rounded-[40px] p-8 md:p-12 border border-slate-100 shadow-2xl shadow-slate-200/50"
       >
         <h3 className="text-2xl font-bold text-slate-900 mb-2 font-heading">Получите прайс и условия</h3>
-        <p className="text-slate-500 mb-8">Отправим за 10 минут + пробная партия со скидкой 20%</p>
+        <p className="text-slate-500 mb-8">Отправим за 10 минут + 1-ая партия со скидкой 20%</p>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div className="space-y-4">
@@ -120,7 +120,7 @@ export function B2BHeroForm() {
               onCheckedChange={(checked) => setValue("sampleRequested", !!checked)}
             />
             <label htmlFor="sample-request" className="text-sm font-bold text-slate-700 cursor-pointer">
-              Хочу получить пробную партию со скидкой 20%
+              Хочу получить 1-ую партию со скидкой 20%
             </label>
           </div>
 
