@@ -21,7 +21,7 @@ const B2BCases = dynamic(() => import("@/components/sections/B2BCases").then(mod
 
 const StickyFeatures = dynamic(() => import("@/components/layout/StickyFeatures").then(mod => mod.StickyFeatures))
 
-const B2BHero = dynamic(() => import("@/components/sections/B2BHero").then(mod => mod.B2BHero))
+import { B2BHero } from "@/components/sections/B2BHero"
 
 const B2BProcess = dynamic(() => import("@/components/sections/B2BProcess").then(mod => mod.B2BProcess))
 
@@ -42,9 +42,7 @@ export default function Home() {
       <Header />
       
       <div id="main-content">
-        <Suspense fallback={<div>Загрузка...</div>}>
-          <B2BHero />
-        </Suspense>
+        <B2BHero />
 
         <Suspense fallback={<div>Загрузка...</div>}>
           <RetailCatalog />

@@ -70,9 +70,9 @@ export function Header() {
           <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white shadow-lg shadow-primary/20 group-hover:scale-110 transition-transform">
             <Cake className="w-6 h-6" />
           </div>
-          <div className={cn("hidden sm:block font-bold transition-colors font-heading", isScrolled ? "text-slate-900" : "text-primary")}>
+          <span className={cn("hidden sm:block font-bold transition-colors font-heading", isScrolled ? "text-slate-900" : "text-primary")}>
             Ледяной десерт
-          </div>
+          </span>
         </div>
 
         {/* Desktop Nav */}

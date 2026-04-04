@@ -4,7 +4,15 @@ import { Cake, Send, ExternalLink, MapPin, Mail, Phone, Instagram } from "lucide
 
 export function Footer() {
   return (
-    <footer id="footer" className="bg-white pt-12 md:pt-20 pb-10 border-t border-slate-100">
+    <footer id="footer" className="bg-white pt-12 md:pt-20 pb-10 border-t border-slate-100" itemScope itemType="https://schema.org/LocalBusiness">
+      <meta itemProp="name" content="Ледяной десерт" />
+      <meta itemProp="image" content="https://desserts-kaliningrad.ru/icon.svg" />
+      <meta itemProp="priceRange" content="₽₽" />
+      <div className="hidden" itemProp="geo" itemScope itemType="https://schema.org/GeoCoordinates">
+        <meta itemProp="latitude" content="54.714822" />
+        <meta itemProp="longitude" content="20.509014" />
+      </div>
+
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Col 1: Brand */}
@@ -54,14 +62,16 @@ export function Footer() {
               <li className="flex items-start gap-3">
                 <Phone className="w-4 h-4 text-primary mt-1" />
                 <div>
-                  <a href="tel:+79114864797" className="text-sm font-bold text-slate-900 hover:text-primary">+7 (911) 486-47-97</a>
-                  <div className="text-[10px] text-slate-400 uppercase">Ежедневно 8:00 - 20:00</div>
+                  <a href="tel:+79114864797" className="text-sm font-bold text-slate-900 hover:text-primary" itemProp="telephone">+7 (911) 486-47-97</a>
+                  <div className="text-[10px] text-slate-400 uppercase">
+                    <span itemProp="openingHours" content="Mo-Fr 09:00-18:00">Пн-Пт 9:00-18:00</span>, <span itemProp="openingHours" content="Sa 10:00-15:00">Сб 10:00-15:00</span>
+                  </div>
                 </div>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-primary mt-1" />
-                <div className="text-sm text-slate-500">
-                  г. Калининград, ул.Профессора Севастьянова, 3 — Маслобаза
+                <div className="text-sm text-slate-500" itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
+                  <span itemProp="addressLocality">г. Калининград</span>, <span itemProp="streetAddress">ул. Профессора Севастьянова, 3 — Маслобаза</span>
                   <div className="text-[10px] text-primary font-bold mt-1">Звонить за час для самовывоза</div>
                 </div>
               </li>

@@ -28,14 +28,62 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Ледяной десерт",
+    "image": "https://desserts-kaliningrad.ru/icon.svg",
+    "@id": "https://desserts-kaliningrad.ru",
+    "url": "https://desserts-kaliningrad.ru",
+    "telephone": "+79114864797",
+    "priceRange": "₽₽",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "ул. Профессора Севастьянова, 3 — Маслобаза",
+      "addressLocality": "Калининград",
+      "addressRegion": "Калининградская область",
+      "postalCode": "236040",
+      "addressCountry": "RU"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 54.714822,
+      "longitude": 20.509014
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "10:00",
+        "closes": "15:00"
+      }
+    ],
+    "sameAs": [
+      "https://vk.com/market-129683673",
+      "https://t.me/desserts_kaliningrad"
+    ]
+  };
+
   return (
     <html lang="ru">
       <head>
         <meta name="yandex-verification" content="8fcd8e67616dddd3" />
-        <link rel="preconnect" href="https://mc.yandex.ru" />
-        <link rel="preconnect" href="https://mc.yandex.com" />
-        <link rel="preconnect" href="https://maps.yastatic.net" />
-        <link rel="preconnect" href="https://yandex.ru" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </head>
       <body
         className={`${inter.variable} ${montserrat.variable} font-sans antialiased bg-white text-slate-900`}
@@ -44,7 +92,7 @@ export default function RootLayout({
           {children}
           <CookieBanner />
         </CartProvider>
-        <Script id="yandex-metrika" strategy="lazyOnload">
+        <Script id="yandex-metrika" strategy="afterInteractive">
           {`
             (function(m,e,t,r,i,k,a){
               m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
