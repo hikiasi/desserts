@@ -2,7 +2,7 @@ import { Suspense } from "react"
 import dynamic from "next/dynamic"
 import { Header } from "@/components/layout/Header"
 import { Footer } from "@/components/layout/Footer"
-import { AnimatedBackground } from "@/components/ui/AnimatedBackground"
+const AnimatedBackground = dynamic(() => import("@/components/ui/AnimatedBackground").then(mod => mod.AnimatedBackground))
 
 // Dynamic imports for heavy or interactive components below the fold
 const RetailCatalog = dynamic(() => import("@/components/sections/RetailCatalog").then(mod => mod.RetailCatalog), {
@@ -38,7 +38,9 @@ const WhyUs = dynamic(() => import("@/components/sections/WhyUs").then(mod => mo
 export default function Home() {
   return (
     <main className="min-h-screen">
-      <AnimatedBackground />
+      <Suspense fallback={null}>
+        <AnimatedBackground />
+      </Suspense>
       <Header />
       
       <div id="main-content">

@@ -3,8 +3,8 @@
 import { useEffect, useState, useMemo } from "react"
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion"
 
-const COLORS = ["#ff136e", "#704396", "#fcf84e", "#ff8eba"]
-const BUBBLE_COUNT = 6
+const COLORS = ["#ff136e", "#704396", "#fcf84e"]
+const BUBBLE_COUNT = 3
 
 export function AnimatedBackground() {
   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 })
@@ -41,19 +41,19 @@ export function AnimatedBackground() {
   const bubbles = useMemo(() => {
     return Array.from({ length: BUBBLE_COUNT }).map((_, i) => ({
       id: i,
-      size: Math.random() * 500 + 300,
+      size: [300, 400, 350][i],
       color: COLORS[i % COLORS.length],
-      initialX: Math.random() * 100, // percentage
-      initialY: Math.random() * 100, // percentage
-      duration: Math.random() * 20 + 20,
-      delay: Math.random() * -20,
-      scaleDuration: Math.random() * 5 + 5,
+      initialX: [10, 80, 20][i], // percentage
+      initialY: [10, 20, 70][i], // percentage
+      duration: 30,
+      delay: i * -5,
+      scaleDuration: [5, 6, 7][i],
       // Reactivity multiplier: bubbles move differently based on their index
-      multiplier: (i + 1) * 20
+      multiplier: (i + 1) * 15
     }))
   }, [])
 
-  if (windowSize.width === 0) return <div className="fixed inset-0 z-[-1] bg-white" />
+  if (windowSize.width === 0 || windowSize.width < 768) return <div className="fixed inset-0 z-[-1] bg-white" />
 
   return (
     <div className="fixed inset-0 z-[-1] overflow-hidden pointer-events-none bg-white">
@@ -76,7 +76,7 @@ function Bubble({ size, color, initialX, initialY, duration, delay, scaleDuratio
 
   return (
     <motion.div
-      className="absolute rounded-full blur-[120px]"
+      className="absolute rounded-full blur-[40px] will-change-transform"
       style={{
         width: size,
         height: size,
@@ -85,18 +85,7 @@ function Bubble({ size, color, initialX, initialY, duration, delay, scaleDuratio
         top: `${initialY}%`,
         x: moveX,
         y: moveY,
-        opacity: 0.04,
-      }}
-      animate={{
-        // Pulsing scale
-        scale: [1, 1.15, 1],
-      }}
-      transition={{
-        scale: {
-          duration: scaleDuration,
-          repeat: Infinity,
-          ease: "easeInOut",
-        },
+        opacity: 0.03,
       }}
     />
   )

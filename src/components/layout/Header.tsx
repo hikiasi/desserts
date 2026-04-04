@@ -6,7 +6,9 @@ import { Cake, ShoppingCart, Phone, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useCart } from "@/context/CartContext"
 import { cn } from "@/lib/utils"
-import { CheckoutModal } from "@/components/sections/CheckoutModal"
+import dynamic from "next/dynamic"
+
+const CheckoutModal = dynamic(() => import("@/components/sections/CheckoutModal").then(mod => mod.CheckoutModal))
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)

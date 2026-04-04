@@ -6,7 +6,7 @@ export function Footer() {
   return (
     <footer id="footer" className="bg-white pt-12 md:pt-20 pb-10 border-t border-slate-100" itemScope itemType="https://schema.org/LocalBusiness">
       <meta itemProp="name" content="Ледяной десерт" />
-      <meta itemProp="image" content="https://desserts-kaliningrad.ru/icon.svg" />
+      <meta itemProp="image" content="https://gelatodessert.ru/icon.svg" />
       <meta itemProp="priceRange" content="₽₽" />
       <div className="hidden" itemProp="geo" itemScope itemType="https://schema.org/GeoCoordinates">
         <meta itemProp="latitude" content="54.714822" />

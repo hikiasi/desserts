@@ -32,9 +32,9 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Ледяной десерт",
-    "image": "https://desserts-kaliningrad.ru/icon.svg",
-    "@id": "https://desserts-kaliningrad.ru",
-    "url": "https://desserts-kaliningrad.ru",
+    "image": "https://gelatodessert.ru/icon.svg",
+    "@id": "https://gelatodessert.ru",
+    "url": "https://gelatodessert.ru",
     "telephone": "+79114864797",
     "priceRange": "₽₽",
     "address": {
@@ -45,6 +45,7 @@ export default function RootLayout({
       "postalCode": "236040",
       "addressCountry": "RU"
     },
+    "hasMap": "https://yandex.ru/maps/-/CDuW6S~v",
     "geo": {
       "@type": "GeoCoordinates",
       "latitude": 54.714822,
@@ -80,6 +81,10 @@ export default function RootLayout({
     <html lang="ru">
       <head>
         <meta name="yandex-verification" content="8fcd8e67616dddd3" />
+        <link rel="preconnect" href="https://mc.yandex.ru" />
+        <link rel="preconnect" href="https://mc.yandex.com" />
+        <link rel="preconnect" href="https://maps.yastatic.net" />
+        <link rel="preconnect" href="https://yandex.ru" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -92,28 +97,27 @@ export default function RootLayout({
           {children}
           <CookieBanner />
         </CartProvider>
-        <Script id="yandex-metrika" strategy="afterInteractive">
+        <Script id="yandex-metrika" strategy="lazyOnload">
           {`
-            (function(m,e,t,r,i,k,a){
-              m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-              m[i].l=1*new Date();
-              for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-              k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-            })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=107041309', 'ym');
+            window.addEventListener('load', function() {
+              (function(m,e,t,r,i,k,a){
+                m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+                m[i].l=1*new Date();
+                for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+                k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+              })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=107041309', 'ym');
 
-            ym(107041309, 'init', {
-              ssr:true,
-              clickmap:true,
-              trackLinks:true,
-              accurateTrackBounce:true,
-              webvisor:true,
-              ecommerce:"dataLayer"
+              ym(107041309, 'init', {
+                ssr:true,
+                clickmap:false,
+                trackLinks:true,
+                accurateTrackBounce:true,
+                webvisor:false,
+                ecommerce:"dataLayer"
+              });
             });
           `}
         </Script>
-        <noscript>
-          <div><img src="https://mc.yandex.ru/watch/107041309" style={{position:'absolute', left:'-9999px'}} alt="" /></div>
-        </noscript>
       </body>
     </html>
   );
