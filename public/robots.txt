@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /api/
+Disallow: /bin/
+Disallow: /search/
+
+Sitemap: https://gelatodessert.ru/sitemap.xml
